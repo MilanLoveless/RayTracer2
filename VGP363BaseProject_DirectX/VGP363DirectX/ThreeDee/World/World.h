@@ -32,7 +32,11 @@ namespace ThreeD
 		~_WORLD();
 		
 		void _AddObject(_GENERICOBJECT *object_ptr);
+		void _AddLight(_LIGHT *light_ptr);
 		void _Build();
 
+	protected:
+		void _DeleteObjects();
+		void _DeleteLights();
 	};
 }

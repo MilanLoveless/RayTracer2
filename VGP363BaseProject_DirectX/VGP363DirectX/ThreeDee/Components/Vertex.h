@@ -23,7 +23,7 @@ namespace ThreeD
 		_VERTEX4F& operator=(const _VERTEX4F &vt);
 		double _Magnitude();
 		void _Normalize();
-		double _DotProduct(const _VERTEX4F &a, const _VERTEX4F &b);
-		_VERTEX4F _CrossProduct(const _VERTEX4F &a, const _VERTEX4F &b);
+		static double _DotProduct(const _VERTEX4F &a, const _VERTEX4F &b);
+		static _VERTEX4F _CrossProduct(const _VERTEX4F &a, const _VERTEX4F &b);
 	};
 }

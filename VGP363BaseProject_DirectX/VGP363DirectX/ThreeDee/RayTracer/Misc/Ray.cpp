@@ -32,4 +32,11 @@ namespace ThreeD
 
 	}
 
+	_RAY _RAY::_Reflect(const _VERTEX4F &v)
+	{
+		_VERTEX4F r = (this->vector*2.0)*_VERTEX4F::_DotProduct(this->vector, v) - v;
+		r._Normalize();
+		return _RAY( r, this->origin);
+	}
+
 }

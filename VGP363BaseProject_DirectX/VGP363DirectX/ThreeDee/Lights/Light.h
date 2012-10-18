@@ -14,6 +14,5 @@ namespace ThreeD
 		_VERTEX4F direction; //The direction that the light is facing in worldspace
 		double intensity; //The intensity of the light
 		_COLOR4F color; //The color that the light emits
-		int lighting_mode;
 	};
 }
