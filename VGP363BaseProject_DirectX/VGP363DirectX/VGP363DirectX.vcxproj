@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{AA8701A4-1CF9-4984-A320-92AA44029910}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>CS312Project1</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <ExecutablePath>$(SolutionDir)\DXSDK\Developer Runtime\x86;$(ExecutablePath)</ExecutablePath>
+    <IncludePath>$(SolutionDir)\DXSDK\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\DXSDK\Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <ExecutablePath>$(SolutionDir)\DXSDK\Developer Runtime\x86;$(ExecutablePath)</ExecutablePath>
+    <IncludePath>$(SolutionDir)\DXSDK\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\DXSDK\Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>d3d9.lib;d3dx9.lib;dxerr.lib;dinput8.lib;dsound.lib;dxguid.lib;winmm.lib;vfw32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>d3d9.lib;d3dx9.lib;dxerr.lib;dinput8.lib;dsound.lib;dxguid.lib;winmm.lib;vfw32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="CORE\3D\CORE.Drawing.Primitives.cpp" />
+    <ClCompile Include="CORE\3D\CORE.Matrix.cpp" />
+    <ClCompile Include="CORE\3D\CORE.Quaternion.cpp" />
+    <ClCompile Include="CORE\CORE.Animation.cpp" />
+    <ClCompile Include="CORE\CORE.Collection.cpp" />
+    <ClCompile Include="CORE\CORE.Collision.cpp" />
+    <ClCompile Include="CORE\CORE.Controller.cpp" />
+    <ClCompile Include="CORE\CORE.Drawing.cpp" />
+    <ClCompile Include="CORE\CORE.Hardware.3D.cpp" />
+    <ClCompile Include="CORE\CORE.Hardware.3D.Texture.cpp" />
+    <ClCompile Include="CORE\CORE.Hardware.Drawing.3D.cpp" />
+    <ClCompile Include="CORE\CORE.Math.cpp" />
+    <ClCompile Include="EntryPoint.cpp" />
+    <ClCompile Include="GameCore.cpp" />
+    <ClCompile Include="Scenes\3DScene.cpp" />
+    <ClCompile Include="Scenes\Scene.cpp" />
+    <ClCompile Include="Scenes\SphereScene.cpp" />
+    <ClCompile Include="ThreeDee\Cameras\RayCamera.cpp" />
+    <ClCompile Include="ThreeDee\Components\Color.cpp" />
+    <ClCompile Include="ThreeDee\Components\Matrix.cpp" />
+    <ClCompile Include="ThreeDee\Components\Primitives.cpp" />
+    <ClCompile Include="ThreeDee\Components\Vertex.cpp" />
+    <ClCompile Include="ThreeDee\Lights\Light.cpp" />
+    <ClCompile Include="ThreeDee\Objects\GenericObject.cpp" />
+    <ClCompile Include="ThreeDee\Objects\SphereObject.cpp" />
+    <ClCompile Include="ThreeDee\RayTracer\Misc\Ray.cpp" />
+    <ClCompile Include="ThreeDee\RayTracer\Tracers\RayTracer.cpp" />
+    <ClCompile Include="ThreeDee\World\World.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CORE\3D\CORE.Drawing.Primitives.h" />
+    <ClInclude Include="CORE\3D\CORE.Matrix.h" />
+    <ClInclude Include="CORE\3D\CORE.Quaternion.h" />
+    <ClInclude Include="CORE\CORE.Animation.h" />
+    <ClInclude Include="CORE\CORE.Collection.h" />
+    <ClInclude Include="CORE\CORE.Collision.h" />
+    <ClInclude Include="CORE\CORE.Controller.h" />
+    <ClInclude Include="CORE\CORE.Drawing.h" />
+    <ClInclude Include="CORE\CORE.Hardware.3D.h" />
+    <ClInclude Include="CORE\CORE.Hardware.3D.Texture.h" />
+    <ClInclude Include="CORE\CORE.Hardware.Drawing.3D.h" />
+    <ClInclude Include="CORE\CORE.Math.h" />
+    <ClInclude Include="GameCore.h" />
+    <ClInclude Include="GAMEOBJECTS\GameObject.h" />
+    <ClInclude Include="Scenes\3DScene.h" />
+    <ClInclude Include="Scenes\Scene.h" />
+    <ClInclude Include="Scenes\SphereScene.h" />
+    <ClInclude Include="ThreeDee\Cameras\RayCamera.h" />
+    <ClInclude Include="ThreeDee\Components\Color.h" />
+    <ClInclude Include="ThreeDee\Components\Constants.h" />
+    <ClInclude Include="ThreeDee\Components\Matrix.h" />
+    <ClInclude Include="ThreeDee\Components\Mesh.h" />
+    <ClInclude Include="ThreeDee\Components\Primitives.h" />
+    <ClInclude Include="ThreeDee\Components\Vertex.h" />
+    <ClInclude Include="ThreeDee\Lights\Light.h" />
+    <ClInclude Include="ThreeDee\Materials\Lambert.h" />
+    <ClInclude Include="ThreeDee\Materials\Material.h" />
+    <ClInclude Include="ThreeDee\Objects\GenericObject.h" />
+    <ClInclude Include="ThreeDee\Objects\SphereObject.h" />
+    <ClInclude Include="ThreeDee\RayTracer\Misc\HitInfo.h" />
+    <ClInclude Include="ThreeDee\RayTracer\Misc\Ray.h" />
+    <ClInclude Include="ThreeDee\RayTracer\Tracers\RayTracer.h" />
+    <ClInclude Include="ThreeDee\World\World.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
