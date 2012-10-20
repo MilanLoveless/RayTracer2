@@ -8,6 +8,7 @@
 #include "../../Components/Color.h"
 #include "../Misc/HitInfo.h"
 
+
 namespace ThreeD
 {
 	class _WORLD;
@@ -18,8 +19,8 @@ namespace ThreeD
 		_TRACER(_WORLD *world);
 		virtual ~_TRACER();
 
-		virtual _HITINFO _TraceRay(const _RAY &ray);
-		virtual _HITINFO _TraceRay(const _RAY &ray, int tracedepth);
+		virtual _COLOR4F _TraceRay(const _RAY &ray);
+		virtual _COLOR4F _TraceRay(const _RAY &ray, int tracedepth);
 
 	private:
 		_WORLD *world_ptr;

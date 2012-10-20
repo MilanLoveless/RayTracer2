@@ -10,6 +10,10 @@ namespace GAMECORE {
 
 	void MainApp::_OnInitialize() {
 		g_pBackBuffer = CORE::HARDWARE::_CreateTexture(0, 800, 600);
+		scene_ptr = new _3DSPHERE(&world3d);
+		scene_ptr->_Initialize();
+		scene_ptr->camera._Initialize(800, 600, 60);
+
 		// Initialize any other resources for the application here
 	}
 
@@ -37,6 +41,8 @@ namespace GAMECORE {
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Render the scene
+
+		scene_ptr->_Draw(g_pBackBuffer->_video, 800, 600);
 
 		// Put your core rendering code here
 

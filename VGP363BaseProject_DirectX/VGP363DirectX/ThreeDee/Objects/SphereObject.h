@@ -8,36 +8,31 @@
 //-------------------------------------------------------------------------------- class Sphere
 namespace ThreeD
 {
-	class Sphere: public _GENERICOBJECT {	
+	class _SPHERE: public _GENERICOBJECT {	
 								  	
 		public:
 		
-			Sphere(void);   									// Default constructor
+			_SPHERE(void);
 				
-			Sphere(_VERTEX4F center, double r);					// Constructor 
-					
-			Sphere(const Sphere& sphere); 						// Copy constructor
+			_SPHERE(_VERTEX4F c, double r);
+			
+			_SPHERE(_VERTEX4F c1, double r, _COLOR4F c2);
+
+			_SPHERE(const _SPHERE& sphere);
 		
-			virtual Sphere* 									// Virtual copy constructor
-			clone(void) const;
+			virtual _SPHERE* _Clone(void) const;
 
-			virtual												// Destructor
-			~Sphere(void);   									
+			virtual ~_SPHERE(void);   									
 
-			Sphere& 											// assignment operator
-			operator= (const Sphere& sphere);				
+			_SPHERE& operator= (const _SPHERE& sphere);				
 																					
-			void
-			set_center(const _VERTEX4F& c);
+			void _SetCenter(const _VERTEX4F& c);
 		
-			void
-			set_center(const double x, const double y, const double z);
+			void _SetCenter(const double x, const double y, const double z);
 		
-			void
-			set_radius(const double r);
+			void _SetRadius(const double r);
 						
-			virtual bool 												 
-			hit(const _RAY& ray, double& t, _HITINFO &hit);	
+			virtual bool _Hit(const _RAY& ray, double& t, _HITINFO &hit);	
 		
 		private:
 	

@@ -34,6 +34,8 @@ namespace ThreeD
 
 	_RAY RayCamera::_CreateRay(int x, int y)
 	{
+		x=x+1;
+		y=y+1;
 		_VERTEX4F RayVector = _VERTEX4F(((double)x*this->m_dStepSize)-(0.5*this->m_dWidth-(0.5*this->m_dStepSize)), ((double)y*this->m_dStepSize)-(0.5*this->m_dHeight-(0.5*this->m_dStepSize)), 0.0, 1.0) - this->m_v4fFocalPoint;
 		RayVector = m_m16fCameraMatrix._Multiply(RayVector);
 		RayVector._Normalize();

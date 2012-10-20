@@ -15,7 +15,7 @@ namespace ThreeD
 		_VERTEX4F(double a, double b, double c, double d);
 		void _Set(double a, double b, double c, double d);
 		_VERTEX4F operator+(const _VERTEX4F &vt);
-		_VERTEX4F operator-(const _VERTEX4F &vt);
+		_VERTEX4F operator - (const _VERTEX4F &vt);
 		_VERTEX4F operator*(const _VERTEX4F &vt);
 		_VERTEX4F operator/(const _VERTEX4F &vt);
 		_VERTEX4F operator*(double ft);

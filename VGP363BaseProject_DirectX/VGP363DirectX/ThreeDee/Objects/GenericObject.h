@@ -26,7 +26,7 @@ namespace ThreeD
 		void _SetColor(float a, float r, float g, float b);
 		_COLOR4F _GetColor();
 
-	private:
+	protected:
 		_COLOR4F color;
 		_GENERICOBJECT& operator= (const _GENERICOBJECT &obj);
 

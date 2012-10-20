@@ -31,6 +31,29 @@
 #include "CORE\3D\CORE.Matrix.h"
 #include "CORE\3D\CORE.Quaternion.h"
 
+#include "Scenes\Scene.h"
+#include "Scenes\SphereScene.h"
+
+#include "ThreeDee\Cameras\RayCamera.h"
+
+#include "ThreeDee\Components\Color.h"
+#include "ThreeDee\Components\Constants.h"
+#include "ThreeDee\Components\Matrix.h"
+#include "ThreeDee\Components\Mesh.h"
+#include "ThreeDee\Components\Vertex.h"
+
+#include "ThreeDee\Lights\Light.h"
+
+#include "ThreeDee\Objects\GenericObject.h"
+#include "ThreeDee\Objects\SphereObject.h"
+
+#include "ThreeDee\RayTracer\Tracers\RayTracer.h"
+
+#include "ThreeDee\World\World.h"
+
+ThreeD::_WORLD world3d;
+_3DSPHERE *scene_ptr;
+
 namespace GAMECORE {
 
 	// Application module

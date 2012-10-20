@@ -10,7 +10,7 @@
 
 namespace ThreeD
 {
-	class _HITINFO
+	struct _HITINFO
 	{
 	public:
 		_RAY normal;
