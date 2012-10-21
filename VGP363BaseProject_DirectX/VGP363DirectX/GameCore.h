@@ -16,20 +16,20 @@
 #include <stdio.h>
 
 // Include all of your further H files here
-#include "CORE\CORE.Animation.h"
-#include "CORE\CORE.Collection.h"
-#include "CORE\CORE.Collision.h"
-#include "CORE\CORE.Controller.h"
-#include "CORE\CORE.Math.h"
+//#include "CORE\CORE.Animation.h"
+//#include "CORE\CORE.Collection.h"
+//#include "CORE\CORE.Collision.h"
+//#include "CORE\CORE.Controller.h"
+//#include "CORE\CORE.Math.h"
 
 #include "CORE\CORE.Hardware.3D.h"
 #include "CORE\CORE.Hardware.Drawing.3D.h"
 #include "CORE\CORE.Hardware.3D.Texture.h"
 
 #include "CORE\CORE.Drawing.h"
-#include "CORE\3D\CORE.Drawing.Primitives.h"
-#include "CORE\3D\CORE.Matrix.h"
-#include "CORE\3D\CORE.Quaternion.h"
+//#include "CORE\3D\CORE.Drawing.Primitives.h"
+//#include "CORE\3D\CORE.Matrix.h"
+//#include "CORE\3D\CORE.Quaternion.h"
 
 #include "Scenes\Scene.h"
 #include "Scenes\SphereScene.h"
@@ -51,10 +51,15 @@
 
 #include "ThreeDee\World\World.h"
 
-ThreeD::_WORLD world3d;
-_3DSPHERE *scene_ptr;
+
+
+#define SCREENWIDTH 800
+#define SCREENHEIGHT 600
 
 namespace GAMECORE {
+
+	extern ThreeD::_WORLD world3d;
+	extern _3DSPHERE *scene_ptr;
 
 	// Application module
 	class MainApp {

@@ -7,18 +7,18 @@ namespace ThreeD
 	_WORLD::_WORLD()
 	{
 		backgroundcolor = _COLOR4F(0.0);
-		tracer_ptr = NULL;
+		maxdepth = 3;
 	}
 	
 	_WORLD::~_WORLD()
 	{
-		if(tracer_ptr)
-		{
-			delete tracer_ptr;
-			tracer_ptr = NULL;
-		}
 		_DeleteObjects();
 		_DeleteLights();
+	}
+
+	void _WORLD::_AddObject(_GENERICOBJECT *object_ptr) {
+		if(object_ptr == NULL) return;
+		this->objects.push_back(object_ptr);
 	}
 
 	void _WORLD::_DeleteObjects()

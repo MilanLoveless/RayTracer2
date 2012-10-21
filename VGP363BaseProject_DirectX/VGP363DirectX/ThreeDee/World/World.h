@@ -2,13 +2,7 @@
 
 #include <vector>
 
-#include "../Cameras/RayCamera.h"
-
 #include "../Components/Color.h"
-
-#include "../RayTracer/Misc/Ray.h"
-#include "../RayTracer/Tracers/RayTracer.h"
-
 #include "../Objects/GenericObject.h"
 #include "../Objects/SphereObject.h"
 #include "../Lights/Light.h"
@@ -23,8 +17,6 @@ namespace ThreeD
 		int maxdepth;
 		float *zb;
 		_COLOR4F backgroundcolor;
-		_TRACER *tracer_ptr;
-		RayCamera *camera_ptr;
 		vector<_GENERICOBJECT*> objects;
 		vector<_LIGHT*> lights;
 		

@@ -82,18 +82,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CORE\3D\CORE.Drawing.Primitives.cpp" />
-    <ClCompile Include="CORE\3D\CORE.Matrix.cpp" />
-    <ClCompile Include="CORE\3D\CORE.Quaternion.cpp" />
-    <ClCompile Include="CORE\CORE.Animation.cpp" />
-    <ClCompile Include="CORE\CORE.Collection.cpp" />
-    <ClCompile Include="CORE\CORE.Collision.cpp" />
-    <ClCompile Include="CORE\CORE.Controller.cpp" />
     <ClCompile Include="CORE\CORE.Drawing.cpp" />
     <ClCompile Include="CORE\CORE.Hardware.3D.cpp" />
     <ClCompile Include="CORE\CORE.Hardware.3D.Texture.cpp" />
     <ClCompile Include="CORE\CORE.Hardware.Drawing.3D.cpp" />
-    <ClCompile Include="CORE\CORE.Math.cpp" />
     <ClCompile Include="EntryPoint.cpp" />
     <ClCompile Include="GameCore.cpp" />
     <ClCompile Include="Scenes\3DScene.cpp" />
@@ -102,28 +94,20 @@
     <ClCompile Include="ThreeDee\Cameras\RayCamera.cpp" />
     <ClCompile Include="ThreeDee\Components\Color.cpp" />
     <ClCompile Include="ThreeDee\Components\Matrix.cpp" />
-    <ClCompile Include="ThreeDee\Components\Primitives.cpp" />
     <ClCompile Include="ThreeDee\Components\Vertex.cpp" />
     <ClCompile Include="ThreeDee\Lights\Light.cpp" />
     <ClCompile Include="ThreeDee\Objects\GenericObject.cpp" />
     <ClCompile Include="ThreeDee\Objects\SphereObject.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Misc\Ray.cpp" />
+    <ClCompile Include="ThreeDee\RayTracer\Tracers\DepthTracer.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Tracers\RayTracer.cpp" />
     <ClCompile Include="ThreeDee\World\World.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CORE\3D\CORE.Drawing.Primitives.h" />
-    <ClInclude Include="CORE\3D\CORE.Matrix.h" />
-    <ClInclude Include="CORE\3D\CORE.Quaternion.h" />
-    <ClInclude Include="CORE\CORE.Animation.h" />
-    <ClInclude Include="CORE\CORE.Collection.h" />
-    <ClInclude Include="CORE\CORE.Collision.h" />
-    <ClInclude Include="CORE\CORE.Controller.h" />
     <ClInclude Include="CORE\CORE.Drawing.h" />
     <ClInclude Include="CORE\CORE.Hardware.3D.h" />
     <ClInclude Include="CORE\CORE.Hardware.3D.Texture.h" />
     <ClInclude Include="CORE\CORE.Hardware.Drawing.3D.h" />
-    <ClInclude Include="CORE\CORE.Math.h" />
     <ClInclude Include="GameCore.h" />
     <ClInclude Include="GAMEOBJECTS\GameObject.h" />
     <ClInclude Include="Scenes\3DScene.h" />
@@ -134,7 +118,6 @@
     <ClInclude Include="ThreeDee\Components\Constants.h" />
     <ClInclude Include="ThreeDee\Components\Matrix.h" />
     <ClInclude Include="ThreeDee\Components\Mesh.h" />
-    <ClInclude Include="ThreeDee\Components\Primitives.h" />
     <ClInclude Include="ThreeDee\Components\Vertex.h" />
     <ClInclude Include="ThreeDee\Lights\Light.h" />
     <ClInclude Include="ThreeDee\Materials\Lambert.h" />
@@ -143,6 +126,7 @@
     <ClInclude Include="ThreeDee\Objects\SphereObject.h" />
     <ClInclude Include="ThreeDee\RayTracer\Misc\HitInfo.h" />
     <ClInclude Include="ThreeDee\RayTracer\Misc\Ray.h" />
+    <ClInclude Include="ThreeDee\RayTracer\Tracers\DepthTracer.h" />
     <ClInclude Include="ThreeDee\RayTracer\Tracers\RayTracer.h" />
     <ClInclude Include="ThreeDee\World\World.h" />
   </ItemGroup>

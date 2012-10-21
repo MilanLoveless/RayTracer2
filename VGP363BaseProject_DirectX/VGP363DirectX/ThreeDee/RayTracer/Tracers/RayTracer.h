@@ -7,22 +7,21 @@
 #include "../Misc/Ray.h"
 #include "../../Components/Color.h"
 #include "../Misc/HitInfo.h"
-
+#include "../../World/World.h"
+#include "../Misc/HitInfo.h"
 
 namespace ThreeD
 {
-	class _WORLD;
-
 	class _TRACER
 	{
 	public:
 		_TRACER(_WORLD *world);
 		virtual ~_TRACER();
 
-		virtual _COLOR4F _TraceRay(const _RAY &ray);
-		virtual _COLOR4F _TraceRay(const _RAY &ray, int tracedepth);
+		virtual _COLOR4F _TraceRay(const _RAY &ray, double &maxdraw, _HITINFO &hitinfo);
+		virtual _COLOR4F _TraceRay(const _RAY &ray, double &maxdraw, _HITINFO &hitinfo, int tracedepth);
 
-	private:
+	protected:
 		_WORLD *world_ptr;
 	};
 }

@@ -2,7 +2,8 @@
 /////////////////////////////////////////////////////////////////////
 
 #pragma once
-#include "Primitives.h"
+#include "Vertex.h"
+
 namespace ThreeD
 {
 	class _MATRIX16F

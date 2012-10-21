@@ -56,7 +56,7 @@ namespace ThreeD
  
 	_COLOR4F _COLOR4F::_Power(double p)
 	{
-		_COLOR4F(this->a, pow(this->r, p), pow(this->g, p), pow(this->b, p));
+		return _COLOR4F(this->a, pow(this->r, p), pow(this->g, p), pow(this->b, p));
 	}
 
 	_COLOR4F _COLOR4F::operator+ (const _COLOR4F &c)

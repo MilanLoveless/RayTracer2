@@ -5,6 +5,7 @@
 #include "GenericObject.h"
 #include "../Components/Vertex.h"
 
+
 //-------------------------------------------------------------------------------- class Sphere
 namespace ThreeD
 {

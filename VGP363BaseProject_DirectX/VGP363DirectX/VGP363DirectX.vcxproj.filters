@@ -33,34 +33,7 @@
     <ClCompile Include="CORE\CORE.Drawing.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CORE\CORE.Animation.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CORE\CORE.Collection.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CORE\CORE.Collision.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CORE\CORE.Controller.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CORE\CORE.Math.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CORE\3D\CORE.Drawing.Primitives.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CORE\3D\CORE.Matrix.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CORE\3D\CORE.Quaternion.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ThreeDee\Cameras\RayCamera.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ThreeDee\Components\Primitives.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ThreeDee\Objects\GenericObject.cpp">
@@ -99,6 +72,9 @@
     <ClCompile Include="ThreeDee\Components\Color.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ThreeDee\RayTracer\Tracers\DepthTracer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameCore.h">
@@ -119,37 +95,10 @@
     <ClInclude Include="CORE\CORE.Drawing.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CORE\CORE.Controller.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CORE\CORE.Animation.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CORE\CORE.Collection.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CORE\CORE.Collision.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CORE\CORE.Math.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CORE\3D\CORE.Quaternion.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CORE\3D\CORE.Drawing.Primitives.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CORE\3D\CORE.Matrix.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ThreeDee\Cameras\RayCamera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ThreeDee\Components\Constants.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ThreeDee\Components\Primitives.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ThreeDee\Objects\GenericObject.h">
@@ -198,6 +147,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ThreeDee\Materials\Material.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreeDee\RayTracer\Tracers\DepthTracer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
