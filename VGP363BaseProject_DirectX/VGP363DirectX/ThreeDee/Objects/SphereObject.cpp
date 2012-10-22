@@ -100,7 +100,7 @@ namespace ThreeD
 
 	bool
 	_SPHERE::_Hit(const _RAY& ray, double& tmin, _HITINFO& sr) {
-		double 		t;
+		double 		t1, t2;
 		_VERTEX4F	temp 	= _VERTEX4F(ray.origin) - center;
 		double 		a 		= _VERTEX4F::_DotProduct(ray.vector, ray.vector); // if we normalize the vector before doing this calculation, a = 1.0 and cleanly factors out of this equation
 		double 		b 		= _VERTEX4F::_DotProduct(temp, ray.vector) * 2.0;
@@ -113,23 +113,22 @@ namespace ThreeD
 		{	
 			double e = sqrt(disc);
 			double denom = 2.0 * a;
-			t = (-b - e) / denom;    // smaller root
-	
-			if (t > kEpsilon) {
-				tmin = t;
-				sr.normal.vector = (temp + _VERTEX4F(ray.vector)*t) / radius;
-				sr.normal.origin = _VERTEX4F(ray.origin) + (_VERTEX4F(ray.vector) * t);
+			t1 = (-b - e) / denom;    // smaller root
+			t2 = (-b + e) / denom;    // larger root
+
+			if (t1 <= t2 && t1 < tmin && t1 > 0) {
+				tmin = t1;
+				sr.normal.vector = (temp + _VERTEX4F(ray.vector)*t1) / radius;
+				sr.normal.origin = _VERTEX4F(ray.origin) + (_VERTEX4F(ray.vector) * t1);
 				sr.distance = temp._Magnitude();
 				sr.hitcolor = this->color;
 				return (true);
 			} 
 	
-			t = (-b + e) / denom;    // larger root
-	
-			if (t > kEpsilon) {
-				tmin = t;
-				sr.normal.vector = (temp + _VERTEX4F(ray.vector)*t) / radius;
-				sr.normal.origin = _VERTEX4F(ray.origin) + (_VERTEX4F(ray.vector) * t);
+			else if (t2 < t1 && t2 < tmin && t2 > 0) {
+				tmin = t2;
+				sr.normal.vector = (temp + _VERTEX4F(ray.vector)*t2) / radius;
+				sr.normal.origin = _VERTEX4F(ray.origin) + (_VERTEX4F(ray.vector) * t2);
 				sr.distance = temp._Magnitude();
 				sr.hitcolor = this->color;
 				return (true);

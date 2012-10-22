@@ -14,16 +14,17 @@ namespace ThreeD
 
 	_COLOR4F _TRACER::_TraceRay(const _RAY &ray, double &maxdraw, _HITINFO &hitinfo)
 	{
+		bool hiit = false;
 		int nobjects = world_ptr->objects.size();
 		for(int j=0; j < nobjects; j++)
 		{
-			bool hiit = world_ptr->objects[j]->_Hit(ray, maxdraw, hitinfo);
-			if(hiit)
-			{
-				return hitinfo.hitcolor;
-			}
+			hiit = hiit || world_ptr->objects[j]->_Hit(ray, maxdraw, hitinfo);
 		}
-		return this->world_ptr->backgroundcolor;
+		if(hiit)
+		{
+			return hitinfo.hitcolor;
+		}
+		else return this->world_ptr->backgroundcolor;
 	}
 
 	_COLOR4F _TRACER::_TraceRay(const _RAY &ray, double &maxdraw, _HITINFO &hitinfo, int depth)

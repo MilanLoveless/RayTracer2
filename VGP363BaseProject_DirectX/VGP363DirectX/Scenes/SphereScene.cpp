@@ -38,7 +38,8 @@ void _3DSPHERE::_Update()
 
 void _3DSPHERE::_Initialize()
 {
-	world_ptr->_AddObject(new ThreeD::_SPHERE(ThreeD::_VERTEX4F(0.0, 0.0, 2000, 1.0), 250.0, ThreeD::_COLOR4F(1.0, 0.9, 0.2, 0.3)));
+	world_ptr->_AddObject(new ThreeD::_SPHERE(ThreeD::_VERTEX4F(0.0, 0.0, 2100.0, 1.0), 250.0, ThreeD::_COLOR4F(1.0, 0.3, 0.9, 0.2)));
+	world_ptr->_AddObject(new ThreeD::_SPHERE(ThreeD::_VERTEX4F(0.0, 0.0, 2000.0, 1.0), 250.0, ThreeD::_COLOR4F(1.0, 0.9, 0.2, 0.3)));
 }
 
 void _3DSPHERE::_Uninitialize()
