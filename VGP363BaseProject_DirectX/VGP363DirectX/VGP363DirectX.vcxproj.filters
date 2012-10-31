@@ -66,13 +66,46 @@
     <ClCompile Include="ThreeDee\Components\Vertex.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ThreeDee\Lights\Light.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ThreeDee\Components\Color.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ThreeDee\RayTracer\Tracers\DepthTracer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreeDee\RayTracer\Misc\ShadeRec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreeDee\RayTracer\Samplers\Sampler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreeDee\Components\Point2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreeDee\RayTracer\Samplers\Jittered.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreeDee\Cameras\ViewPlane.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreeDee\RayTracer\BRDF\BRDF.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreeDee\RayTracer\BRDF\Lambertian.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreeDee\RayTracer\Samplers\NRooks.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreeDee\RayTracer\Lights\Light.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreeDee\RayTracer\Lights\Ambient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreeDee\RayTracer\Lights\PointLight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreeDee\RayTracer\Materials\Material.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -134,22 +167,43 @@
     <ClInclude Include="ThreeDee\Components\Mesh.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ThreeDee\Lights\Light.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ThreeDee\Components\Color.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ThreeDee\RayTracer\Misc\HitInfo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ThreeDee\Materials\Lambert.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ThreeDee\Materials\Material.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ThreeDee\RayTracer\Tracers\DepthTracer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreeDee\RayTracer\Misc\ShadeRec.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreeDee\RayTracer\Samplers\Sampler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreeDee\Components\Point2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreeDee\RayTracer\Samplers\Jittered.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreeDee\Cameras\ViewPlane.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreeDee\RayTracer\BRDF\Lambertian.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreeDee\RayTracer\BRDF\BRDF.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreeDee\RayTracer\Samplers\NRooks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreeDee\RayTracer\Lights\Light.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreeDee\RayTracer\Lights\Ambient.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreeDee\RayTracer\Materials\Material.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

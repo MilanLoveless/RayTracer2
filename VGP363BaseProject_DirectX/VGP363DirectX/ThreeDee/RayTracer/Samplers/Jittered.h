@@ -1,0 +1,16 @@
+// Jittered.h
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#pragma once
+
+#include <math.h>
+#include "Sampler.h"
+
+namespace ThreeD
+{
+	class _JITTERED : public _SAMPLER
+	{
+		virtual void _GenerateSamples();
+	};
+
+}
