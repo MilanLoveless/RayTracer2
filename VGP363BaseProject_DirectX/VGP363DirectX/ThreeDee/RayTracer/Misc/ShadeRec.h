@@ -8,6 +8,7 @@
 #include "../Misc/Ray.h"
 #include "../../World/World.h"
 #include "../Materials/Material.h"
+#include "../../Components/Constants.h"
 
 namespace ThreeD
 {
@@ -17,7 +18,7 @@ namespace ThreeD
 		_SHADEREC(_WORLD &w);
 		_SHADEREC(const _SHADEREC &sr);
 
-		double t;
+		_DOUBLE t;
 		bool hit_an_object;
 		_MATERIAL *material_ptr;
 		_VERTEX4F hit_point;

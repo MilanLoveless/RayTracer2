@@ -13,7 +13,7 @@ namespace ThreeD
 		b = 0.5;
 	}
 
-	_COLOR4F::_COLOR4F(double c)						
+	_COLOR4F::_COLOR4F(_DOUBLE c)						
 	{
 		a = 1.0;
 		r = c;
@@ -21,7 +21,7 @@ namespace ThreeD
 		b = c;
 	}
 
-	_COLOR4F::_COLOR4F(double _a, double _r, double _g, double _b)	
+	_COLOR4F::_COLOR4F(_DOUBLE _a, _DOUBLE _r, _DOUBLE _g, _DOUBLE _b)	
 	{
 		a = _a;
 		r = _r;
@@ -54,7 +54,7 @@ namespace ThreeD
 		return (*this);
 	}
  
-	_COLOR4F _COLOR4F::_Power(double p)
+	_COLOR4F _COLOR4F::_Power(_DOUBLE p)
 	{
 		return _COLOR4F(this->a, pow(this->r, p), pow(this->g, p), pow(this->b, p));
 	}
@@ -72,12 +72,12 @@ namespace ThreeD
 		return (*this);
 	}
 
-	_COLOR4F _COLOR4F::operator* (const double s)
+	_COLOR4F _COLOR4F::operator* (const _DOUBLE s)
 	{
 		return (_COLOR4F (a, r * s, g * s, b * s));	
 	}
 
-	_COLOR4F& _COLOR4F::operator*= (const double s)
+	_COLOR4F& _COLOR4F::operator*= (const _DOUBLE s)
 	{
 		r *= a;
 		g *= a;
@@ -85,12 +85,12 @@ namespace ThreeD
 		return (*this);
 	}
 
-	_COLOR4F _COLOR4F::operator/ (const double s)
+	_COLOR4F _COLOR4F::operator/ (const _DOUBLE s)
 	{
 		return (_COLOR4F (a, r / s, g / s, b / s));
 	}
 
-	_COLOR4F& _COLOR4F::operator/= (const double s)
+	_COLOR4F& _COLOR4F::operator/= (const _DOUBLE s)
 	{	
 		r /= s;
 		g /= s;
@@ -108,7 +108,7 @@ namespace ThreeD
 		return (a == c.a && r == c.r && g == c.g && b == c.b);
 	}
 
-	double _COLOR4F::_Average()
+	_DOUBLE _COLOR4F::_Average()
 	{
 		return (0.333333333333 * (r + g + b));
 	}

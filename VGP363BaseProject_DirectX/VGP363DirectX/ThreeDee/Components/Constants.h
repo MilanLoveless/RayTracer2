@@ -2,13 +2,23 @@
 
 #include <stdlib.h>
 
-const double 	PI 			= 3.1415926535897932384;
-const double 	TWO_PI 		= 6.2831853071795864769;
-const double 	PI_ON_180 	= 0.0174532925199432957;
-const double 	INV_PI 		= 0.3183098861837906715;
-const double 	INV_TWO_PI 	= 0.1591549430918953358;
+using namespace std;
 
-const double 	kEpsilon 	= 0.0001; 
-const double	kHugeValue	= 1.0E10;
+#define _DOUBLE float
+
+const _DOUBLE 	PI 			= 3.1415926535897932384;
+const _DOUBLE 	TWO_PI 		= 6.2831853071795864769;
+const _DOUBLE 	PI_ON_180 	= 0.0174532925199432957;
+const _DOUBLE 	INV_PI 		= 0.3183098861837906715;
+const _DOUBLE 	INV_TWO_PI 	= 0.1591549430918953358;
+
+const _DOUBLE 	kEpsilon 	= 0.0001; 
+const _DOUBLE	kHugeValue	= 1.0E10;
 
 const float 	invRAND_MAX = 1.0 / (float)RAND_MAX;
+
+#define _RandFloat ((float)rand() * invRAND_MAX)
+#define _RandInt (rand())
+#define _SeedRand (srand(time(NULL))
+
+

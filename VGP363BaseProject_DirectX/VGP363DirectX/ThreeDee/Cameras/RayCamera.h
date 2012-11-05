@@ -12,7 +12,7 @@ namespace ThreeD
 	{
 	public:
 		_VERTEX4F m_v4fPosition, m_v4fFocalPoint;
-		double m_dFocalLength, m_dStepSize, m_dWidth, m_dHeight;
+		_DOUBLE m_dFocalLength, m_dStepSize, m_dWidth, m_dHeight;
 		int m_iWidth, m_iHeight, m_iFOVAngle;
 		_MATRIX16F cameramatrix;
 		RayCamera();

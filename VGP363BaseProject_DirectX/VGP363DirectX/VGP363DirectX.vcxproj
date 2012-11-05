@@ -91,11 +91,12 @@
     <ClCompile Include="Scenes\3DScene.cpp" />
     <ClCompile Include="Scenes\Scene.cpp" />
     <ClCompile Include="Scenes\SphereScene.cpp" />
+    <ClCompile Include="ThreeDee\Cameras\Camera.cpp" />
+    <ClCompile Include="ThreeDee\Cameras\Pinhole.cpp" />
     <ClCompile Include="ThreeDee\Cameras\RayCamera.cpp" />
     <ClCompile Include="ThreeDee\Cameras\ViewPlane.cpp" />
     <ClCompile Include="ThreeDee\Components\Color.cpp" />
     <ClCompile Include="ThreeDee\Components\Matrix.cpp" />
-    <ClCompile Include="ThreeDee\Components\Point2D.cpp" />
     <ClCompile Include="ThreeDee\Components\Vertex.cpp" />
     <ClCompile Include="ThreeDee\Objects\GenericObject.cpp" />
     <ClCompile Include="ThreeDee\Objects\SphereObject.cpp" />
@@ -105,13 +106,19 @@
     <ClCompile Include="ThreeDee\RayTracer\Lights\Light.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Lights\PointLight.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Materials\Material.cpp" />
+    <ClCompile Include="ThreeDee\RayTracer\Misc\Point2D.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Misc\Ray.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Misc\ShadeRec.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Samplers\Jittered.cpp" />
+    <ClCompile Include="ThreeDee\RayTracer\Samplers\MultiJittered.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Samplers\NRooks.cpp" />
+    <ClCompile Include="ThreeDee\RayTracer\Samplers\Regular.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Samplers\Sampler.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Tracers\DepthTracer.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Tracers\RayTracer.cpp" />
+    <ClCompile Include="ThreeDee\RayTracer\Tracers\Tracer.cpp" />
+    <ClCompile Include="ThreeDee\RayTracer\Tracers\Whitted.cpp" />
+    <ClCompile Include="ThreeDee\World\ViewPlane.cpp" />
     <ClCompile Include="ThreeDee\World\World.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -124,13 +131,14 @@
     <ClInclude Include="Scenes\3DScene.h" />
     <ClInclude Include="Scenes\Scene.h" />
     <ClInclude Include="Scenes\SphereScene.h" />
+    <ClInclude Include="ThreeDee\Cameras\Camera.h" />
+    <ClInclude Include="ThreeDee\Cameras\Pinhole.h" />
     <ClInclude Include="ThreeDee\Cameras\RayCamera.h" />
     <ClInclude Include="ThreeDee\Cameras\ViewPlane.h" />
     <ClInclude Include="ThreeDee\Components\Color.h" />
     <ClInclude Include="ThreeDee\Components\Constants.h" />
     <ClInclude Include="ThreeDee\Components\Matrix.h" />
     <ClInclude Include="ThreeDee\Components\Mesh.h" />
-    <ClInclude Include="ThreeDee\Components\Point2D.h" />
     <ClInclude Include="ThreeDee\Components\Vertex.h" />
     <ClInclude Include="ThreeDee\Objects\GenericObject.h" />
     <ClInclude Include="ThreeDee\Objects\SphereObject.h" />
@@ -138,14 +146,21 @@
     <ClInclude Include="ThreeDee\RayTracer\BRDF\Lambertian.h" />
     <ClInclude Include="ThreeDee\RayTracer\Lights\Ambient.h" />
     <ClInclude Include="ThreeDee\RayTracer\Lights\Light.h" />
+    <ClInclude Include="ThreeDee\RayTracer\Lights\PointLight.h" />
     <ClInclude Include="ThreeDee\RayTracer\Materials\Material.h" />
+    <ClInclude Include="ThreeDee\RayTracer\Misc\Point2D.h" />
     <ClInclude Include="ThreeDee\RayTracer\Misc\Ray.h" />
     <ClInclude Include="ThreeDee\RayTracer\Misc\ShadeRec.h" />
     <ClInclude Include="ThreeDee\RayTracer\Samplers\Jittered.h" />
+    <ClInclude Include="ThreeDee\RayTracer\Samplers\MultiJittered.h" />
     <ClInclude Include="ThreeDee\RayTracer\Samplers\NRooks.h" />
+    <ClInclude Include="ThreeDee\RayTracer\Samplers\Regular.h" />
     <ClInclude Include="ThreeDee\RayTracer\Samplers\Sampler.h" />
     <ClInclude Include="ThreeDee\RayTracer\Tracers\DepthTracer.h" />
     <ClInclude Include="ThreeDee\RayTracer\Tracers\RayTracer.h" />
+    <ClInclude Include="ThreeDee\RayTracer\Tracers\Tracer.h" />
+    <ClInclude Include="ThreeDee\RayTracer\Tracers\Whitted.h" />
+    <ClInclude Include="ThreeDee\World\ViewPlane.h" />
     <ClInclude Include="ThreeDee\World\World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

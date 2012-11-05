@@ -4,26 +4,27 @@
 #pragma once
 
 #include <math.h>
+#include "Constants.h"
 
 namespace ThreeD
 {
 	class _VERTEX4F
 	{
 	public:
-		double x, y, z, w;
+		_DOUBLE x, y, z, w;
 		_VERTEX4F();
-		_VERTEX4F(double a, double b, double c, double d);
-		void _Set(double a, double b, double c, double d);
+		_VERTEX4F(_DOUBLE a, _DOUBLE b, _DOUBLE c, _DOUBLE d);
+		void _Set(_DOUBLE a, _DOUBLE b, _DOUBLE c, _DOUBLE d);
 		_VERTEX4F operator+(const _VERTEX4F &vt);
 		_VERTEX4F operator - (const _VERTEX4F &vt);
 		_VERTEX4F operator*(const _VERTEX4F &vt);
 		_VERTEX4F operator/(const _VERTEX4F &vt);
-		_VERTEX4F operator*(double ft);
-		_VERTEX4F operator/(double ft);
+		_VERTEX4F operator*(_DOUBLE ft);
+		_VERTEX4F operator/(_DOUBLE ft);
 		_VERTEX4F& operator=(const _VERTEX4F &vt);
-		double _Magnitude();
+		_DOUBLE _Magnitude();
 		void _Normalize();
-		static double _DotProduct(const _VERTEX4F &a, const _VERTEX4F &b);
+		static _DOUBLE _DotProduct(const _VERTEX4F &a, const _VERTEX4F &b);
 		static _VERTEX4F _CrossProduct(const _VERTEX4F &a, const _VERTEX4F &b);
 	};
 }

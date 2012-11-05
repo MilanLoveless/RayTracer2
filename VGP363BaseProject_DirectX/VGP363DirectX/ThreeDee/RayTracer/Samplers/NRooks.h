@@ -4,6 +4,7 @@
 #pragma once
 
 #include "Sampler.h"
+#include "../../Components/Constants.h"
 
 namespace ThreeD
 {
@@ -17,8 +18,8 @@ namespace ThreeD
 
 		_NROOKS& operator = (const _NROOKS &rhs);
 
-		virtual _NROOKS* clone();
-		virtual ~_NROOKS();
+		virtual _NROOKS* _Clone();
+		~_NROOKS();
 
 		virtual void _GenerateSamples();
 	};

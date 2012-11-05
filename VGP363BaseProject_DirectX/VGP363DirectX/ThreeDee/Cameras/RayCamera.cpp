@@ -14,8 +14,8 @@ namespace ThreeD
 		this->m_iFOVAngle = 60;
 		this->m_dFocalLength = sqrt(3.0)/2.0;
 		this->m_dWidth = 1.0;
-		this->m_dStepSize = this->m_dWidth/(double)m_iWidth;
-		this->m_dHeight = this->m_dStepSize*(double)m_iHeight;
+		this->m_dStepSize = this->m_dWidth/(_DOUBLE)m_iWidth;
+		this->m_dHeight = this->m_dStepSize*(_DOUBLE)m_iHeight;
 		this->m_v4fPosition = _VERTEX4F(0.0, 0.0, 0.0, 1.0);
 		this->m_v4fFocalPoint = _VERTEX4F(0.0, 0.0, -1.0*this->m_dFocalLength, 1.0);
 	}
@@ -25,10 +25,10 @@ namespace ThreeD
 		this->m_iWidth = w;
 		this->m_iHeight = h;
 		this->m_iFOVAngle = angle;
-		this->m_dFocalLength = this->m_dWidth/tan(((double)this->m_iFOVAngle/360.0)*PI);
+		this->m_dFocalLength = this->m_dWidth/tan(((_DOUBLE)this->m_iFOVAngle/360.0)*PI);
 		this->m_dWidth = 1.0;
-		this->m_dStepSize = this->m_dWidth/(double)m_iWidth;
-		this->m_dHeight = this->m_dStepSize*(double)m_iHeight;
+		this->m_dStepSize = this->m_dWidth/(_DOUBLE)m_iWidth;
+		this->m_dHeight = this->m_dStepSize*(_DOUBLE)m_iHeight;
 		this->m_v4fFocalPoint = _VERTEX4F(0.0, 0.0, -1.0*this->m_dFocalLength, 1.0);
 	}
 
@@ -36,7 +36,7 @@ namespace ThreeD
 	{
 		x=x+1;
 		y=y+1;
-		_VERTEX4F RayVector = _VERTEX4F(((double)x*this->m_dStepSize)-(0.5*this->m_dWidth-(0.5*this->m_dStepSize)), ((double)y*this->m_dStepSize)-(0.5*this->m_dHeight-(0.5*this->m_dStepSize)), 0.0, 1.0) - this->m_v4fFocalPoint;
+		_VERTEX4F RayVector = _VERTEX4F(((_DOUBLE)x*this->m_dStepSize)-(0.5*this->m_dWidth-(0.5*this->m_dStepSize)), ((_DOUBLE)y*this->m_dStepSize)-(0.5*this->m_dHeight-(0.5*this->m_dStepSize)), 0.0, 1.0) - this->m_v4fFocalPoint;
 		RayVector = cameramatrix._Multiply(RayVector);
 		RayVector._Normalize();
 		_RAY CameraRay = _RAY(this->m_v4fFocalPoint, RayVector);

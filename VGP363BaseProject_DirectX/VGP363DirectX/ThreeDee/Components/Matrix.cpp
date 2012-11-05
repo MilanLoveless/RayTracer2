@@ -39,7 +39,7 @@ namespace ThreeD
 		);
 	}
 
-	_MATRIX16F _MATRIX16F::_Scale(double fSX, double fSY, double fSZ)
+	_MATRIX16F _MATRIX16F::_Scale(_DOUBLE fSX, _DOUBLE fSY, _DOUBLE fSZ)
 	{
 		return _MATRIX16F(
 			_VERTEX4F(fSX, 0.0, 0.0, 0.0),
@@ -57,10 +57,10 @@ namespace ThreeD
 			_VERTEX4F(v.x, v.y, v.z, 1.0)
 		);
 	}
-	_MATRIX16F _MATRIX16F::_RotateX(double fDegrees)
+	_MATRIX16F _MATRIX16F::_RotateX(_DOUBLE fDegrees)
 	{
-		const double PI = 3.141592653;
-		double r = fDegrees * PI / 180;
+		const _DOUBLE PI = 3.141592653;
+		_DOUBLE r = fDegrees * PI / 180;
 		return _MATRIX16F(
 			_VERTEX4F(1.0,	0.0,	0.0,	0.0),
 			_VERTEX4F(0.0,	cos(r),	sin(r),	0.0),
@@ -68,10 +68,10 @@ namespace ThreeD
 			_VERTEX4F(0.0,	0.0,	0.0,	1.0)
 		);
 	}
-	_MATRIX16F _MATRIX16F::_RotateY(double fDegrees)
+	_MATRIX16F _MATRIX16F::_RotateY(_DOUBLE fDegrees)
 	{
-		const double PI = 3.141592653;
-		double r = fDegrees * PI / 180;
+		const _DOUBLE PI = 3.141592653;
+		_DOUBLE r = fDegrees * PI / 180;
 		return _MATRIX16F(
 			_VERTEX4F(cos(r),	0.0,	-sin(r),	0.0),
 			_VERTEX4F(	0.0,	1.0,	0.0,		0.0),
@@ -79,10 +79,10 @@ namespace ThreeD
 			_VERTEX4F(	0.0,	0.0,	0.0,		1.0)
 		);
 	}
-	_MATRIX16F _MATRIX16F::_RotateZ(double fDegrees)
+	_MATRIX16F _MATRIX16F::_RotateZ(_DOUBLE fDegrees)
 	{
-		const double PI = 3.141592653;
-		double r = fDegrees * PI / 180;
+		const _DOUBLE PI = 3.141592653;
+		_DOUBLE r = fDegrees * PI / 180;
 		return _MATRIX16F(
 			_VERTEX4F(	cos(r),	sin(r),	0.0,	0.0),
 			_VERTEX4F( -sin(r),	cos(r),	0.0,	0.0),

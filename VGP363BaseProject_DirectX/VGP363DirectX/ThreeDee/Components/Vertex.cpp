@@ -5,7 +5,7 @@
 
 namespace ThreeD
 {
-	void _VERTEX4F::_Set(double a, double b, double c, double d)
+	void _VERTEX4F::_Set(_DOUBLE a, _DOUBLE b, _DOUBLE c, _DOUBLE d)
 	{
 		this->x=a;
 		this->y=b;
@@ -18,19 +18,19 @@ namespace ThreeD
 		this->_Set(0.0, 0.0, 0.0, 1.0);
 	}
 
-	_VERTEX4F::_VERTEX4F(double a, double b, double c, double d)
+	_VERTEX4F::_VERTEX4F(_DOUBLE a, _DOUBLE b, _DOUBLE c, _DOUBLE d)
 	{
 		this->_Set(a, b, c, d);
 	}
 
-	double _VERTEX4F::_Magnitude()
+	_DOUBLE _VERTEX4F::_Magnitude()
 	{
 		return sqrt(this->x*this->x + this->y*this->y + this->z*this->z + this->w*this->w);
 	}
 
 	void _VERTEX4F::_Normalize()
 	{
-		double m = _Magnitude();
+		_DOUBLE m = _Magnitude();
 		this->x /= m; this->y /= m;
 		this->z /= m; this->w /= m;
 	}
@@ -55,17 +55,17 @@ namespace ThreeD
 		return _VERTEX4F(this->x / vt.x, this->y / vt.y, this->z / vt.z, this->w / vt.w);
 	}
 
-	_VERTEX4F _VERTEX4F::operator * (double Scalar)
+	_VERTEX4F _VERTEX4F::operator * (_DOUBLE Scalar)
 	{
 		return _VERTEX4F(this->x * Scalar, this->y * Scalar, this->z * Scalar, this->w * Scalar);
 	}
 
-	_VERTEX4F _VERTEX4F::operator / (double Scalar)
+	_VERTEX4F _VERTEX4F::operator / (_DOUBLE Scalar)
 	{
 		return _VERTEX4F(this->x / Scalar, this->y / Scalar, this->z / Scalar, this->w / Scalar);
 	}
 
-	double _VERTEX4F::_DotProduct(const _VERTEX4F &a, const _VERTEX4F &b)
+	_DOUBLE _VERTEX4F::_DotProduct(const _VERTEX4F &a, const _VERTEX4F &b)
 	{
 		return a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;
 	}

@@ -5,6 +5,7 @@
 
 #include "Vertex.h"
 #include "Matrix.h"
+#include "Constants.h"
 
 namespace ThreeD
 {
@@ -19,7 +20,7 @@ namespace ThreeD
 	class _UV2F
 	{
 	public:
-		double tu, tv;
+		_DOUBLE tu, tv;
 	};
 /////////////////////////////////////////////////////////////////////////////
 	class _MESH

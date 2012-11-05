@@ -3,6 +3,7 @@
 
 #pragma once
 #include "Vertex.h"
+#include "Constants.h"
 
 namespace ThreeD
 {
@@ -16,15 +17,15 @@ namespace ThreeD
 		
 		_VERTEX4F _Multiply(const _VERTEX4F &v);
 
-		static _MATRIX16F _Scale(double fSX, double fSY, double fSZ);
+		static _MATRIX16F _Scale(_DOUBLE fSX, _DOUBLE fSY, _DOUBLE fSZ);
 		static _MATRIX16F _Translate(const _VERTEX4F &vector);
-		static _MATRIX16F _RotateX(double fDegrees);
-		static _MATRIX16F _RotateY(double fDegrees);
-		static _MATRIX16F _RotateZ(double fDegrees);
+		static _MATRIX16F _RotateX(_DOUBLE fDegrees);
+		static _MATRIX16F _RotateY(_DOUBLE fDegrees);
+		static _MATRIX16F _RotateZ(_DOUBLE fDegrees);
 
-		double r0c0, r0c1, r0c2, r0c3;
-		double r1c0, r1c1, r1c2, r1c3;
-		double r2c0, r2c1, r2c2, r2c3;
-		double r3c0, r3c1, r3c2, r3c3;
+		_DOUBLE r0c0, r0c1, r0c2, r0c3;
+		_DOUBLE r1c0, r1c1, r1c2, r1c3;
+		_DOUBLE r2c0, r2c1, r2c2, r2c3;
+		_DOUBLE r3c0, r3c1, r3c2, r3c3;
 	};
 }

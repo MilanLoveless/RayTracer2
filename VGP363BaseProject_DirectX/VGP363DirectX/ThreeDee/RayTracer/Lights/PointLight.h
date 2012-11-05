@@ -1,5 +1,5 @@
-// Ambient.h
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// PointLight.h
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #pragma once
 
@@ -8,16 +8,14 @@
 
 namespace ThreeD
 {
-	class _AMBIENT : public _LIGHT
+	class _POINTLIGHT : public _LIGHT
 	{
 	public:
-		_AMBIENT();
-
-		
 		virtual _VERTEX4F _GetDirection(_SHADEREC &sr);
 		virtual _COLOR4F _L(_SHADEREC &sr);
 		
 		_DOUBLE ls;
 		_COLOR4F color;
+		_VERTEX4F location;
 	};
 }
