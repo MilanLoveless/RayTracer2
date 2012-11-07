@@ -3,15 +3,16 @@
 
 #pragma once
 
-#include "../../Components/Vertex.h"
 #include "../../Components/Color.h"
 #include "../Misc/Ray.h"
-#include "../../World/World.h"
+//#include "../../World/World.h"
 #include "../Materials/Material.h"
 #include "../../Components/Constants.h"
 
 namespace ThreeD
 {
+	class _WORLD;
+
 	class _SHADEREC
 	{
 	public:

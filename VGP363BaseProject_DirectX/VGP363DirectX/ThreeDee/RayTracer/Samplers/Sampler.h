@@ -22,7 +22,7 @@ namespace ThreeD
 		_SAMPLER(const int ns, const int n_sets);
 		_SAMPLER(const _SAMPLER & s);
 		_SAMPLER& operator = (const _SAMPLER &s);
-		//virtual _SAMPLER* _Clone() = 0;
+		virtual _SAMPLER* _Clone() = 0;
 		~_SAMPLER();
 		
 		void _SetNumSets(const int ns);

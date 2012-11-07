@@ -16,6 +16,7 @@ namespace ThreeD
 		_MULTIJITTERED(const _MULTIJITTERED &mjs);
 		_MULTIJITTERED& operator= (const _MULTIJITTERED &mjs);
 		~_MULTIJITTERED();
+		virtual _MULTIJITTERED* _Clone();
 
 		virtual void _GenerateSamples();
 	};

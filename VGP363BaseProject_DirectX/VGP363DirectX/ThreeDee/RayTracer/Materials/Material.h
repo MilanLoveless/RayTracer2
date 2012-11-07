@@ -3,10 +3,12 @@
 
 #pragma once
 
-#include "../Misc/ShadeRec.h"
+//#include "../Misc/ShadeRec.h"
 
 namespace ThreeD
 {
+	class _SHADEREC;
+
 	class _MATERIAL
 	{
 	public:

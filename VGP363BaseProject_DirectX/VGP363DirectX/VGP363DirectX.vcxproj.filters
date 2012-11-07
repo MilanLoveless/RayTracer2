@@ -36,25 +36,7 @@
     <ClCompile Include="ThreeDee\Cameras\RayCamera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ThreeDee\Objects\GenericObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ThreeDee\Objects\SphereObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ThreeDee\RayTracer\Tracers\RayTracer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ThreeDee\World\World.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Scenes\3DScene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Scenes\Scene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Scenes\SphereScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ThreeDee\RayTracer\Misc\Ray.cpp">
@@ -67,9 +49,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ThreeDee\Components\Color.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ThreeDee\RayTracer\Tracers\DepthTracer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ThreeDee\RayTracer\Misc\ShadeRec.cpp">
@@ -129,6 +108,15 @@
     <ClCompile Include="ThreeDee\RayTracer\Tracers\Whitted.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ThreeDee\Objects\GeometricObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreeDee\RayTracer\Samplers\PureRandom.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreeDee\RayTracer\Samplers\Hammersley.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameCore.h">
@@ -155,25 +143,7 @@
     <ClInclude Include="ThreeDee\Components\Constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ThreeDee\Objects\GenericObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ThreeDee\Objects\SphereObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ThreeDee\RayTracer\Tracers\RayTracer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ThreeDee\World\World.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Scenes\3DScene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Scenes\Scene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Scenes\SphereScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ThreeDee\RayTracer\Misc\Ray.h">
@@ -189,9 +159,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ThreeDee\Components\Color.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ThreeDee\RayTracer\Tracers\DepthTracer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ThreeDee\RayTracer\Misc\ShadeRec.h">
@@ -249,6 +216,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ThreeDee\RayTracer\Tracers\Whitted.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreeDee\Objects\GeometricObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreeDee\RayTracer\Samplers\PureRandom.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreeDee\RayTracer\Samplers\Hammersley.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

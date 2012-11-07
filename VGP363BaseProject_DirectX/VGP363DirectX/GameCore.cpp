@@ -6,16 +6,16 @@
 namespace GAMECORE {
 	
 	ThreeD::_WORLD world3d;
-	_3DSPHERE *scene_ptr;
+	//_3DSPHERE *scene_ptr;
 
 	CORE::HARDWARE::TEXTUREINFO *g_pBackBuffer;
 	float *g_pZBuffer = NULL;
 
 	void MainApp::_OnInitialize() {
 		g_pBackBuffer = CORE::HARDWARE::_CreateTexture(0, SCREENWIDTH, SCREENHEIGHT);
-		scene_ptr = new _3DSPHERE(&world3d);
-		scene_ptr->_Initialize();
-		scene_ptr->camera._Initialize(SCREENWIDTH, SCREENHEIGHT, 60);
+		//scene_ptr = new _3DSPHERE(&world3d);
+		//scene_ptr->_Initialize();
+		//scene_ptr->camera._Initialize(SCREENWIDTH, SCREENHEIGHT, 60);
 
 		// Initialize any other resources for the application here
 	}
@@ -45,7 +45,7 @@ namespace GAMECORE {
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Render the scene
 
-		scene_ptr->_Draw(g_pBackBuffer->_video, SCREENWIDTH, SCREENHEIGHT);
+		//scene_ptr->_Draw(g_pBackBuffer->_video, SCREENWIDTH, SCREENHEIGHT);
 
 		// Put your core rendering code here
 
