@@ -60,9 +60,6 @@
     <ClCompile Include="ThreeDee\RayTracer\Samplers\Jittered.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ThreeDee\Cameras\ViewPlane.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ThreeDee\RayTracer\BRDF\BRDF.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -93,9 +90,6 @@
     <ClCompile Include="ThreeDee\Cameras\Pinhole.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ThreeDee\World\ViewPlane.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ThreeDee\RayTracer\Samplers\MultiJittered.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -115,6 +109,24 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ThreeDee\RayTracer\Samplers\Hammersley.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreeDee\Objects\MeshTriangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreeDee\Objects\Mesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreeDee\Objects\SphereObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreeDee\Objects\BBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreeDee\RayTracer\Materials\Matte.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreeDee\World\ViewPlane.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -170,9 +182,6 @@
     <ClInclude Include="ThreeDee\RayTracer\Samplers\Jittered.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ThreeDee\Cameras\ViewPlane.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ThreeDee\RayTracer\BRDF\Lambertian.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -203,9 +212,6 @@
     <ClInclude Include="ThreeDee\Cameras\Pinhole.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ThreeDee\World\ViewPlane.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ThreeDee\RayTracer\Samplers\MultiJittered.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -225,6 +231,24 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ThreeDee\RayTracer\Samplers\Hammersley.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreeDee\Objects\MeshTriangle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreeDee\Objects\Mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreeDee\Objects\SphereObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreeDee\Objects\BBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreeDee\RayTracer\Materials\Matte.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreeDee\World\ViewPlane.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

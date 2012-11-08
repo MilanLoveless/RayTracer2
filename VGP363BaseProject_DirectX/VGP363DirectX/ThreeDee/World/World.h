@@ -6,11 +6,12 @@
 #include <vector>
 
 #include "../Components/Color.h"
-//#include "../Objects/GenericObject.h"
-//#include "../Objects/SphereObject.h"
+#include "../RayTracer/Misc/ShadeRec.h"
+#include "../Objects/GeometricObject.h"
+#include "../Objects/SphereObject.h"
 #include "../RayTracer/Lights/Light.h"
-//#include "../RayTracer/Misc/ShadeRec.h"
 #include "../Components/Constants.h"
+#include "ViewPlane.h"
 
 using namespace std;
 
@@ -20,15 +21,15 @@ namespace ThreeD
 	{
 	public:
 		int maxdepth;
-		float *zb;
+		_VIEWPLANE vp;
 		_COLOR4F backgroundcolor;
-		//vector<_GENERICOBJECT*> objects;
+		vector<_GEOMETRICOBJECT*> objects;
 		vector<_LIGHT*> lights;
 		
 		_WORLD();
 		~_WORLD();
 		
-		//void _AddObject(_GENERICOBJECT *object_ptr);
+		void _AddObject(_GEOMETRICOBJECT *object_ptr);
 		void _AddLight(_LIGHT *light_ptr);
 		void _Build();
 		_SHADEREC _HitObjects(const _RAY &ray);

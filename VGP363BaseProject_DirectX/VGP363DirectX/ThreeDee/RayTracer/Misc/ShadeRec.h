@@ -6,13 +6,13 @@
 #include "../../Components/Color.h"
 #include "../Misc/Ray.h"
 //#include "../../World/World.h"
-#include "../Materials/Material.h"
+//#include "../Materials/Material.h"
 #include "../../Components/Constants.h"
 
 namespace ThreeD
 {
+	class _MATERIAL;
 	class _WORLD;
-
 	class _SHADEREC
 	{
 	public:

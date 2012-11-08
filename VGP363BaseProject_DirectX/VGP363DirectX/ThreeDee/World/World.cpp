@@ -16,10 +16,10 @@ namespace ThreeD
 		_DeleteLights();
 	}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//void _WORLD::_AddObject(_GENERICOBJECT *object_ptr) {
-	//	if(object_ptr == NULL) return;
-	//	this->objects.push_back(object_ptr);
-	//}
+		void _WORLD::_AddObject(_GEOMETRICOBJECT *object_ptr) {
+			if(object_ptr == NULL) return;
+			this->objects.push_back(object_ptr);
+		}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	void _WORLD::_DeleteObjects()
 	{
@@ -47,36 +47,36 @@ namespace ThreeD
 		lights.erase(lights.begin(), lights.end());
 	}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//	_SHADEREC _WORLD::_HitObjects(const _RAY &ray)
-//	{
-//		_SHADEREC sr(*this);
-//		double t;
-//		_VERTEX4F normal;
-//		_VERTEX4F local_hit_point;
-//		double tmin = kHugeValue;
-//		int num_objects = objects.size();
-//
-//		for(int j = 0; j < num_objects; j++)
-//		{
-//			if (objects[j]->_Hit(ray, t, sr) && (t < tmin))
-//			{
-//				sr.hit_an_object = true;
-//				tmin = t;
-//				sr.material_ptr = objects[j]->_GetMaterial();
-//				sr.hit_point = _VERTEX4F(ray.origin) + _VERTEX4F(ray.vector) * t;
-//				normal = sr.normal;
-//				local_hit_point = sr.local_hit_point;
-//			}
-//		}
-//		
-//		if(sr.hit_an_object)
-//		{
-//			sr.t = tmin;
-//			sr.normal = normal;
-//			sr.local_hit_point = local_hit_point;
-//		}
-//		
-//		return sr;
-//	}
+	_SHADEREC _WORLD::_HitObjects(const _RAY &ray)
+	{
+		_SHADEREC sr(*this);
+		_DOUBLE t;
+		_VERTEX4F normal;
+		_VERTEX4F local_hit_point;
+		_DOUBLE tmin = kHugeValue;
+		int num_objects = objects.size();
+
+		for(int j = 0; j < num_objects; j++)
+		{
+			if (objects[j]->_Hit(ray, t, sr) && (t < tmin))
+			{
+				sr.hit_an_object = true;
+				tmin = t;
+				sr.material_ptr = objects[j]->_GetMaterial();
+				sr.hit_point = _VERTEX4F(ray.origin) + _VERTEX4F(ray.vector) * t;
+				normal = sr.normal;
+				local_hit_point = sr.local_hit_point;
+			}
+		}
+		
+		if(sr.hit_an_object)
+		{
+			sr.t = tmin;
+			sr.normal = normal;
+			sr.local_hit_point = local_hit_point;
+		}
+		
+		return sr;
+	}
 }
 

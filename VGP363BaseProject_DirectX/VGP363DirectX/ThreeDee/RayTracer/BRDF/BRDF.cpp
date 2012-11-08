@@ -9,27 +9,26 @@ namespace ThreeD
 		:sampler_ptr(NULL)
 	{}
 /////////////////////////////////////////////////////////////////////////////////////////////////////
-	//BRDF::BRDF (const BRDF& brdf) {
-	//	if(brdf.sampler_ptr)
-	//		sampler_ptr	= brdf.sampler_ptr->clone(); 
-	//	else  sampler_ptr = NULL;
-	//}	
+	_BRDF::_BRDF (const _BRDF& brdf) {
+		if(brdf.sampler_ptr)
+			sampler_ptr	= brdf.sampler_ptr->_Clone(); 
+		else  sampler_ptr = NULL;
+	}	
 /////////////////////////////////////////////////////////////////////////////////////////////////////
-	//BRDF&														
-	//BRDF::operator= (const BRDF& rhs) {
-	//	if (this == &rhs)
-	//		return (*this);
-	//	
-	//	if (sampler_ptr) {
-	//		delete sampler_ptr;
-	//		sampler_ptr = NULL;
-	//	}
+	_BRDF& _BRDF::operator= (const _BRDF& rhs) {
+		if (this == &rhs)
+			return (*this);
+		
+		if (sampler_ptr) {
+			delete sampler_ptr;
+			sampler_ptr = NULL;
+		}
 
-	//	if (rhs.sampler_ptr)
-	//		sampler_ptr	= rhs.sampler_ptr->clone();
+		if (rhs.sampler_ptr)
+			sampler_ptr	= rhs.sampler_ptr->_Clone();
 
-	//	return (*this);
-	//}
+		return (*this);
+	}
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 	_BRDF::~_BRDF()
 	{

@@ -53,5 +53,8 @@ namespace ThreeD
 		{
 			for(int u = 0; u < vp.hres; u++)
 			{
+
+			}
+		}
 	}
 }

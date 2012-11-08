@@ -91,17 +91,22 @@
     <ClCompile Include="ThreeDee\Cameras\Camera.cpp" />
     <ClCompile Include="ThreeDee\Cameras\Pinhole.cpp" />
     <ClCompile Include="ThreeDee\Cameras\RayCamera.cpp" />
-    <ClCompile Include="ThreeDee\Cameras\ViewPlane.cpp" />
+    <ClCompile Include="ThreeDee\World\ViewPlane.cpp" />
     <ClCompile Include="ThreeDee\Components\Color.cpp" />
     <ClCompile Include="ThreeDee\Components\Matrix.cpp" />
     <ClCompile Include="ThreeDee\Components\Vertex.cpp" />
+    <ClCompile Include="ThreeDee\Objects\BBox.cpp" />
     <ClCompile Include="ThreeDee\Objects\GeometricObject.cpp" />
+    <ClCompile Include="ThreeDee\Objects\Mesh.cpp" />
+    <ClCompile Include="ThreeDee\Objects\MeshTriangle.cpp" />
+    <ClCompile Include="ThreeDee\Objects\SphereObject.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\BRDF\BRDF.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\BRDF\Lambertian.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Lights\Ambient.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Lights\Light.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Lights\PointLight.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Materials\Material.cpp" />
+    <ClCompile Include="ThreeDee\RayTracer\Materials\Matte.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Misc\Point2D.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Misc\Ray.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Misc\ShadeRec.cpp" />
@@ -114,7 +119,6 @@
     <ClCompile Include="ThreeDee\RayTracer\Samplers\Sampler.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Tracers\Tracer.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Tracers\Whitted.cpp" />
-    <ClCompile Include="ThreeDee\World\ViewPlane.cpp" />
     <ClCompile Include="ThreeDee\World\World.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -127,19 +131,24 @@
     <ClInclude Include="ThreeDee\Cameras\Camera.h" />
     <ClInclude Include="ThreeDee\Cameras\Pinhole.h" />
     <ClInclude Include="ThreeDee\Cameras\RayCamera.h" />
-    <ClInclude Include="ThreeDee\Cameras\ViewPlane.h" />
+    <ClInclude Include="ThreeDee\World\ViewPlane.h" />
     <ClInclude Include="ThreeDee\Components\Color.h" />
     <ClInclude Include="ThreeDee\Components\Constants.h" />
     <ClInclude Include="ThreeDee\Components\Matrix.h" />
     <ClInclude Include="ThreeDee\Components\Mesh.h" />
     <ClInclude Include="ThreeDee\Components\Vertex.h" />
+    <ClInclude Include="ThreeDee\Objects\BBox.h" />
     <ClInclude Include="ThreeDee\Objects\GeometricObject.h" />
+    <ClInclude Include="ThreeDee\Objects\Mesh.h" />
+    <ClInclude Include="ThreeDee\Objects\MeshTriangle.h" />
+    <ClInclude Include="ThreeDee\Objects\SphereObject.h" />
     <ClInclude Include="ThreeDee\RayTracer\BRDF\BRDF.h" />
     <ClInclude Include="ThreeDee\RayTracer\BRDF\Lambertian.h" />
     <ClInclude Include="ThreeDee\RayTracer\Lights\Ambient.h" />
     <ClInclude Include="ThreeDee\RayTracer\Lights\Light.h" />
     <ClInclude Include="ThreeDee\RayTracer\Lights\PointLight.h" />
     <ClInclude Include="ThreeDee\RayTracer\Materials\Material.h" />
+    <ClInclude Include="ThreeDee\RayTracer\Materials\Matte.h" />
     <ClInclude Include="ThreeDee\RayTracer\Misc\Point2D.h" />
     <ClInclude Include="ThreeDee\RayTracer\Misc\Ray.h" />
     <ClInclude Include="ThreeDee\RayTracer\Misc\ShadeRec.h" />
@@ -152,7 +161,6 @@
     <ClInclude Include="ThreeDee\RayTracer\Samplers\Sampler.h" />
     <ClInclude Include="ThreeDee\RayTracer\Tracers\Tracer.h" />
     <ClInclude Include="ThreeDee\RayTracer\Tracers\Whitted.h" />
-    <ClInclude Include="ThreeDee\World\ViewPlane.h" />
     <ClInclude Include="ThreeDee\World\World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

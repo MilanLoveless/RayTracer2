@@ -14,8 +14,8 @@ namespace ThreeD
 	{
 	public:
 		_BRDF(); 
-		//_BRDF(const _BRDF &brdf);
-		//_BRDF& operator= (const _BRDF &brdf);
+		_BRDF(const _BRDF &brdf);
+		_BRDF& operator= (const _BRDF &brdf);
 		~_BRDF();
 		
 		void _SetSampler(_SAMPLER *s_ptr);
