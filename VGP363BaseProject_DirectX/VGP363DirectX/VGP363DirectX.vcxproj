@@ -91,6 +91,7 @@
     <ClCompile Include="ThreeDee\Cameras\Camera.cpp" />
     <ClCompile Include="ThreeDee\Cameras\Pinhole.cpp" />
     <ClCompile Include="ThreeDee\Cameras\RayCamera.cpp" />
+    <ClCompile Include="ThreeDee\RayTracer\BRDF\GlossySpecular.cpp" />
     <ClCompile Include="ThreeDee\World\ViewPlane.cpp" />
     <ClCompile Include="ThreeDee\Components\Color.cpp" />
     <ClCompile Include="ThreeDee\Components\Matrix.cpp" />
@@ -131,6 +132,7 @@
     <ClInclude Include="ThreeDee\Cameras\Camera.h" />
     <ClInclude Include="ThreeDee\Cameras\Pinhole.h" />
     <ClInclude Include="ThreeDee\Cameras\RayCamera.h" />
+    <ClInclude Include="ThreeDee\RayTracer\BRDF\GlossySpecular.h" />
     <ClInclude Include="ThreeDee\World\ViewPlane.h" />
     <ClInclude Include="ThreeDee\Components\Color.h" />
     <ClInclude Include="ThreeDee\Components\Constants.h" />
