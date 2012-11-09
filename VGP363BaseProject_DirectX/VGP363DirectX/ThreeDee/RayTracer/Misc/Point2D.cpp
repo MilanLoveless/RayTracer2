@@ -24,6 +24,11 @@ namespace ThreeD
 		y = p.y;
 	}
 
+	_POINT2D::_POINT2D(const _DOUBLE x1, const _DOUBLE y1)
+		: x(x1),
+		y(y1)
+	{}
+
 	_POINT2D::~_POINT2D()
 	{
 

@@ -64,7 +64,7 @@ namespace ThreeD
 		{
 			for(int q = 0; q < num_samples; q++)
 			{
-				_POINT2D pv((_DOUBLE)j/(_DOUBLE) num_samples, _Phi(q));
+				_POINT2D pv((_DOUBLE)p/(_DOUBLE) num_samples, _Phi(q));
 				samples.push_back(pv);
 			}
 		}

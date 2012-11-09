@@ -2,8 +2,6 @@
 
 #include <stdlib.h>
 
-using namespace std;
-
 #define _DOUBLE float
 
 const _DOUBLE 	PI 			= 3.1415926535897932384;
@@ -17,8 +15,8 @@ const _DOUBLE	kHugeValue	= 1.0E10;
 
 const float 	invRAND_MAX = 1.0 / (float)RAND_MAX;
 
-#define _RandFloat ((float)rand() * invRAND_MAX)
-#define _RandInt (rand())
-#define _SeedRand (srand(time(NULL))
+#define _RandFloat ((float)std::rand() * invRAND_MAX)
+#define _RandInt (std::rand())
+#define _SeedRand (std::srand(time(NULL))
 
 

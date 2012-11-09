@@ -11,6 +11,9 @@ namespace ThreeD
 	class _POINTLIGHT : public _LIGHT
 	{
 	public:
+		_POINTLIGHT(const _VERTEX4F &pos, const _COLOR4F &c, const _DOUBLE l);
+		~_POINTLIGHT();
+
 		virtual _VERTEX4F _GetDirection(_SHADEREC &sr);
 		virtual _COLOR4F _L(_SHADEREC &sr);
 		

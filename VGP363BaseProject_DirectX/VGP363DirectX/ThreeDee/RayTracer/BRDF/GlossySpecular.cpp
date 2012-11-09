@@ -55,14 +55,14 @@ namespace ThreeD
 		_DOUBLE ndotwo = wo._DotProduct(wo, sr.normal);
 		_VERTEX4F r = _VERTEX4F(wo) * -1.0 + _VERTEX4F(sr.normal) * 2.0 * ndotwo;
 
-		_VERTEX4F u = _VERTEX4F._CrossProduct(_VERTEX4F(0.00424, 1, 0.00764, 0.0), r);
-		_VERTEX4F v = _VERTEX4F._CrossProduct(u, r);
+		_VERTEX4F u = r._CrossProduct(_VERTEX4F(0.00424, 1, 0.00764, 0.0), r);
+		_VERTEX4F v = r._CrossProduct(u, r);
 
 		_VERTEX4F sp = sampler_ptr->_SampleHemisphere();
 		wi = u * sp.x + v * sp.y + r * sp.z;
 
-		float phong_lobe = pow(_VERTEX4F._DotProduct(r, wi), power);
-		pdf = phong_lobe * _VERTEX4F._DotProduct(sr.normal, wi);
+		float phong_lobe = pow(wi._DotProduct(r, wi), power);
+		pdf = phong_lobe * wi._DotProduct(sr.normal, wi);
 
 		return (cs * ks * phong_lobe);
 	}

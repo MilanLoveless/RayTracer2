@@ -20,17 +20,20 @@ namespace ThreeD
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 	_COLOR4F _WHITTED::_TraceRay(const _RAY &ray, const int depth)
 	{
-		if (depth > world_ptr->vp.max_depth)
+		if (depth > world_ptr->maxdepth)
 			return(_COLOR4F(0.0));
-		else {
-			_SHADEREC sr(world_ptr->hit_objects(ray));    
+		else
+		{
+			_SHADEREC sr(world_ptr->_HitObjects(ray));    
 					
-			if (sr.hit_an_object) {
+			if (sr.hit_an_object)
+			{
 				sr.depth = depth;
 				sr.ray = ray;	
-				return (sr.material_ptr->shade(sr));   
+				return (sr.material_ptr->_Shade(sr));   
 			}
 			else
-				return (world_ptr->background_color);
-		}	
+				return (world_ptr->backgroundcolor);
+		}
+	}
 }

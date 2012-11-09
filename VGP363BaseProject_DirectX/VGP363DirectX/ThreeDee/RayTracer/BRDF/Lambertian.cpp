@@ -39,15 +39,15 @@ namespace ThreeD
 	_COLOR4F _LAMBERTIAN::_SampleF(const _SHADEREC &sr, const _VERTEX4F &wo, _VERTEX4F &wi, _DOUBLE &pdf)
 	{
 		_VERTEX4F w = sr.normal;
-		_VERTEX4F v = _VERTEX4F._CrossProduct(_VERTEX4F(0.0034, 1.0, 0.0071, 0.0), w);
+		_VERTEX4F v = w._CrossProduct(_VERTEX4F(0.0034, 1.0, 0.0071, 0.0), w);
 		v._Normalize();
-		_VERTEX4F u = _VERTEX4F._CrossProduct(v, w);
+		_VERTEX4F u = w._CrossProduct(v, w);
 
 		_VERTEX4F sp = sampler_ptr->_SampleHemisphere();
 		wi = u * sp.x + v * sp.y + w * sp.z;
 		wi._Normalize();
 
-		pdf = _VERTEX4F._DotProduct(sr.normal, wi) * INV_PI;
+		pdf = wi._DotProduct(sr.normal, wi) * INV_PI;
 
 		return (cd * kd * INV_PI);
 	}

@@ -17,7 +17,7 @@ namespace ThreeD
 		_CAMERA(const _CAMERA &c);
 		~_CAMERA();
 
-		virtual void _RenderScene(const _WORLD &w) = 0;
+		virtual void _RenderScene(int *video, const _WORLD &w) = 0;
 
 		void _SetPos(const _VERTEX4F &p);
 		void _SetPos(const _DOUBLE x1, const _DOUBLE y1, const _DOUBLE z1);

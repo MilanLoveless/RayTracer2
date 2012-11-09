@@ -63,9 +63,4 @@ namespace ThreeD
 		_ShuffleXCoords();
 		_ShuffleYCoords();
 	}
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-	_NROOKS* _NROOKS::_Clone()
-	{
-		return (new _NROOKS(*this));
-	}
 }

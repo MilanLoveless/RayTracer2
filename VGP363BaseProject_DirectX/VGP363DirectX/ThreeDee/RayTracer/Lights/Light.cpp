@@ -5,5 +5,9 @@
 
 namespace ThreeD
 {
+	_LIGHT::_LIGHT()
+		:shadows(true)
+	{}
 
+	_LIGHT::~_LIGHT() {}
 }

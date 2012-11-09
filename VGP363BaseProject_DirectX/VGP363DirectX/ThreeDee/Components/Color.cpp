@@ -117,4 +117,17 @@ namespace ThreeD
 	{
 		return _COLOR4F((c1.a+c2.a)/2.0, (c1.r+c2.r)/2.0, (c1.g+c2.g)/2.0, (c1.b+c2.b)/2.0);
 	}
+
+	void _COLOR4F::_Normalize()
+	{
+		if(r > 1.0 || g > 1.0 || b > 1.0)
+		{
+			_DOUBLE max = r;
+			if(max < g) max = g;
+			if(max < b) max = b;
+			r /= max;
+			g /= max;
+			b /= max;
+		}
+	}
 }

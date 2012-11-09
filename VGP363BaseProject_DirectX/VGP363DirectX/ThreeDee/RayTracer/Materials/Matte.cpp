@@ -56,7 +56,7 @@ namespace ThreeD
 		return (*this);
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-	_MATTE::_MATTE()
+	_MATTE::~_MATTE()
 	{
 		if(ambient_brdf)
 		{
@@ -74,16 +74,16 @@ namespace ThreeD
 	_COLOR4F _MATTE::_Shade(_SHADEREC &sr)
 	{
 		_VERTEX4F wo = sr.ray.vector * -1.0;
-		_COLOR4F L = _COLOR4F(0.1);//ambient_brdf->_Rho(sr, wo) * sr.world_ptr.ambient_ptr->_L(sr);
-		int num_lights = sr.world_ptr.world_ptr.lights.size();
+		_COLOR4F L = ambient_brdf->_Rho(sr, wo) * sr.world_ptr->ambient_ptr->_L(sr);
+		int num_lights = sr.world_ptr->lights.size();
 
 		for (int j = 0; j < num_lights; j++)
 		{
-			_VERTEX4F wi = sr.world_ptr.lights[j]->_GetDirection(sr);
+			_VERTEX4F wi = sr.world_ptr->lights[j]->_GetDirection(sr);
 			float ndotwi = wi._DotProduct(sr.normal, wi);
 			
 			if(ndotwi > 0.0)
-				L+= diffuse_brdf->_F(sr, wo, wi) * sr.world_ptr.lights[j]->_L(sr) * ndotwi;
+				L+= diffuse_brdf->_F(sr, wo, wi) * sr.world_ptr->lights[j]->_L(sr) * ndotwi;
 		}
 		return L;
 	}

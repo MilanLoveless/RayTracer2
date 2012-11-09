@@ -40,5 +40,7 @@ namespace ThreeD
 		_DOUBLE _Average();
 		
 		static _COLOR4F _AverageColor(const _COLOR4F &c1, const _COLOR4F &c2);
+
+		void _Normalize();
 	};
 }

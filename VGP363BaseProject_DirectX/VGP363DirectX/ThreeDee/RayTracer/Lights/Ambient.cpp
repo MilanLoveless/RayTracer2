@@ -10,7 +10,7 @@ namespace ThreeD
 		:_LIGHT()
 	{
 		ls = 1.0;
-		color = _COLOR4F(1.0);
+		color = _COLOR4F(0.1);
 	}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	_VERTEX4F _AMBIENT::_GetDirection(_SHADEREC &sr)
