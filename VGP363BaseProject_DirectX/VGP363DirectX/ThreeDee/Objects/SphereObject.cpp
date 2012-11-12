@@ -12,7 +12,7 @@ namespace ThreeD
 		center(),
 		radius(1.0)
 	{
-		material_ptr = new _PHONG();
+		material_ptr = new _IRIDESCENT();
 	}
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 	_SPHERE::_SPHERE(_VERTEX4F c, _DOUBLE r)
@@ -20,7 +20,7 @@ namespace ThreeD
 		center(c),
 		radius(r)
 	{
-		material_ptr = new _PHONG();
+		material_ptr = new _IRIDESCENT();
 	}
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 	_SPHERE* _SPHERE::_Clone()
@@ -95,10 +95,10 @@ namespace ThreeD
 	
 			if (t > kEpsilon) {
 				tmin = t;
-				sr.normal 	 = (temp + _VERTEX4F(ray.vector) * t) / radius;
+				//sr.normal 	 = (temp + _VERTEX4F(ray.vector) * t) / radius;
 				sr.local_hit_point = _VERTEX4F(ray.origin) + _VERTEX4F(ray.vector) * t;
-				//sr.normal = sr.local_hit_point - center;
-				//sr.normal._Normalize();
+				sr.normal = sr.local_hit_point - center;
+				sr.normal._Normalize();
 				return (true);
 			} 
 	
@@ -106,8 +106,10 @@ namespace ThreeD
 	
 			if (t > kEpsilon) {
 				tmin = t;
-				sr.normal   = (temp + _VERTEX4F(ray.vector) * t) / radius;
+				//sr.normal   = (temp + _VERTEX4F(ray.vector) * t) / radius;
 				sr.local_hit_point = _VERTEX4F(ray.origin) + _VERTEX4F(ray.vector) * t;
+				sr.normal = sr.local_hit_point - center;
+				sr.normal._Normalize();
 				return (true);
 			} 
 		}

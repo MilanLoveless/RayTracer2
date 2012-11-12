@@ -17,7 +17,6 @@ DWORD WINAPI _RenderThread(LPVOID lpThreadParameter) {
 	while(true) {
 		GAMECORE::MainApp::_OnRenderFrame();
 	}
-
 }
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
@@ -93,7 +92,7 @@ int _OnInitInstance(HINSTANCE hInstance)
         return false;
 	}
 
-    g_hMainWnd = CreateWindowEx(NULL, "_GameCore_WndClass_", "VGP363 Ray Trace Renderer (DirectX)",
+    g_hMainWnd = CreateWindowEx(NULL, "_GameCore_WndClass_", "Milan's Ray Trace Renderer",
         WS_CAPTION | WS_VISIBLE | WS_SYSMENU, 0, 0, 800, 600,
         NULL, NULL, hInstance, NULL
 	);

@@ -7,6 +7,7 @@ namespace ThreeD
 {
 	_SAMPLER::_SAMPLER()
 	{
+		_SeedRand;
 		num_samples = 1;
 		num_sets = 83;
 		count = 0;

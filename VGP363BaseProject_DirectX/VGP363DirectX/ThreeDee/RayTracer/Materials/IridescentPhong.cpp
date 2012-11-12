@@ -1,27 +1,27 @@
 // Phong.cpp
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "Phong.h"
+#include "IridescentPhong.h"
 
 namespace ThreeD
 {
-	_PHONG::_PHONG()
+	_IRIDESCENT::_IRIDESCENT()
 		:_MATERIAL(),
 		ambient_brdf(new _LAMBERTIAN()),
 		diffuse_brdf(new _LAMBERTIAN()),
 		specular_brdf(new _GLOSSYSPECULAR())
 	{
-		ambient_brdf->_SETCD(_COLOR4F(1.0, _RandFloat, _RandFloat, _RandFloat));
+		ambient_brdf->_SETCD(_COLOR4F(1.0, 0.1, 0.9, 0.9));
 		ambient_brdf->_SetKA(1.0);
 		diffuse_brdf->_SETCD(ambient_brdf->cd);
 		diffuse_brdf->_SetKD(1.0);
 		specular_brdf->_SetCS(_COLOR4F(1.0, 1.0, 1.0, 1.0));
 		specular_brdf->_SetKS(1.0);
-		specular_brdf->_SetPower(3.0);
-		specular_brdf->_SetSampler(new _MULTIJITTERED(16), 3.0);
+		specular_brdf->_SetPower(30.0);
+		specular_brdf->_SetSampler(new _MULTIJITTERED(16), 30.0);
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-	_PHONG::_PHONG(const _PHONG &mat)
+	_IRIDESCENT::_IRIDESCENT(const _IRIDESCENT &mat)
 		: _MATERIAL(mat)
 	{
 		if(mat.ambient_brdf)
@@ -37,12 +37,12 @@ namespace ThreeD
 		else specular_brdf = NULL;
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-	_MATERIAL* _PHONG::_Clone()
+	_MATERIAL* _IRIDESCENT::_Clone()
 	{
-		return (new _PHONG(*this));
+		return (new _IRIDESCENT(*this));
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-	_PHONG& _PHONG::operator= (const _PHONG &mat)
+	_IRIDESCENT& _IRIDESCENT::operator= (const _IRIDESCENT &mat)
 	{
 		if(this == &mat)
 			return(*this);
@@ -78,7 +78,7 @@ namespace ThreeD
 		return (*this);
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-	_PHONG::~_PHONG()
+	_IRIDESCENT::~_IRIDESCENT()
 	{
 		if(ambient_brdf)
 		{
@@ -99,7 +99,7 @@ namespace ThreeD
 		}
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-	_COLOR4F _PHONG::_Shade(_SHADEREC &sr)
+	_COLOR4F _IRIDESCENT::_Shade(_SHADEREC &sr)
 	{
 		_VERTEX4F wo = sr.ray.vector * -1.0;
 		_COLOR4F L = ambient_brdf->_Rho(sr, wo) * sr.world_ptr->ambient_ptr->_L(sr);
@@ -119,25 +119,35 @@ namespace ThreeD
 					in_shadow = sr.world_ptr->lights[j]->_InShadow(shadow_ray, sr);
 				}
 				if(!in_shadow)
-				L+= (diffuse_brdf->_F(sr, wo, wi)  + specular_brdf->_F(sr, wo, wi)) * sr.world_ptr->lights[j]->_L(sr) * ndotwi;
+				{
+					_DOUBLE ndotwo = 1.0 - sr.normal._DotProduct(sr.normal, wo);
+					_COLOR4F iridescent = (diffuse_brdf->_F(sr, wo, wi));
+					_VERTEX4F v(iridescent.r, iridescent.g, iridescent.b, 0.0);
+					_VERTEX4F k(1.0, 1.0, 1.0, 0.0);
+					k._Normalize();
+					ndotwo = pow((double)ndotwo, 0.5);
+					_VERTEX4F v1 = (v * cos(-1.0*ndotwo*PI) + k._CrossProduct(k, v)*sin(-1.0*ndotwo*PI) + k * k._DotProduct(k, v) * (1.0 - cos(-1.0*ndotwo*PI)));
+					_COLOR4F iridescent1 = _COLOR4F(1.0, v1.x, v1.y, v1.z);
+					L+= ( iridescent1 + (specular_brdf->_F(sr, wo, wi)*iridescent1)) * sr.world_ptr->lights[j]->_L(sr) * ndotwi;
+				}
 			}
 		}
 		return L;
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////	
-	void _PHONG::_SetKA(const _DOUBLE k)
+	void _IRIDESCENT::_SetKA(const _DOUBLE k)
 	{
 		if(ambient_brdf)
 			ambient_brdf->kd = k;
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////	
-	void _PHONG::_SetKD(const _DOUBLE k)
+	void _IRIDESCENT::_SetKD(const _DOUBLE k)
 	{
 		if(diffuse_brdf)
 			diffuse_brdf->kd = k;
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////	
-	void _PHONG::_SetCD(const _COLOR4F &c)
+	void _IRIDESCENT::_SetCD(const _COLOR4F &c)
 	{
 		if(ambient_brdf)
 			ambient_brdf->_SETCD(c);
@@ -145,7 +155,7 @@ namespace ThreeD
 			diffuse_brdf->_SETCD(c);
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-	void _PHONG::_SetCS(const _COLOR4F &c)
+	void _IRIDESCENT::_SetCS(const _COLOR4F &c)
 	{
 		if(specular_brdf)
 			specular_brdf->_SetCS(c);

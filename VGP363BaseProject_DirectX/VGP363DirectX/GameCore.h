@@ -39,7 +39,7 @@
 #include "ThreeDee\RayTracer\Materials\Matte.h"
 #include "ThreeDee\RayTracer\Lights\Ambient.h"
 #include "ThreeDee\RayTracer\Lights\PointLight.h"
-
+#include "ThreeDee\Components\Constants.h"
 
 namespace GAMECORE {
 

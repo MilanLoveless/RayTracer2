@@ -113,6 +113,7 @@
     <ClCompile Include="ThreeDee\RayTracer\Lights\Ambient.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Lights\Light.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Lights\PointLight.cpp" />
+    <ClCompile Include="ThreeDee\RayTracer\Materials\IridescentPhong.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Materials\Material.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Materials\Matte.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Materials\Phong.cpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="ThreeDee\RayTracer\Lights\Ambient.h" />
     <ClInclude Include="ThreeDee\RayTracer\Lights\Light.h" />
     <ClInclude Include="ThreeDee\RayTracer\Lights\PointLight.h" />
+    <ClInclude Include="ThreeDee\RayTracer\Materials\IridescentPhong.h" />
     <ClInclude Include="ThreeDee\RayTracer\Materials\Material.h" />
     <ClInclude Include="ThreeDee\RayTracer\Materials\Matte.h" />
     <ClInclude Include="ThreeDee\RayTracer\Materials\Phong.h" />

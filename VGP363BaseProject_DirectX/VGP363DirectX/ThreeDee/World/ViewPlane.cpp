@@ -7,10 +7,10 @@ namespace ThreeD
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	_VIEWPLANE::_VIEWPLANE()
 	{
-		sampler_ptr = new _MULTIJITTERED(16);
+		sampler_ptr = new _MULTIJITTERED(64);
 		hres = 800;
 		vres = 600;
-		num_samples = 16;
+		num_samples = 64;
 		s = 1.0 / 800.0;
 		gamma = 1.0;
 		inv_gamma = 0.0;

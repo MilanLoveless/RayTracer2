@@ -15,16 +15,18 @@ namespace GAMECORE {
 	int _H = 600;
 
 	void MainApp::_OnInitialize() {
+		_SeedRand;
 		g_pBackBuffer = CORE::HARDWARE::_CreateTexture(0, 800, 600);
 		// Initialize any other resources for the application here
 		world3D = new ThreeD::_WORLD();
-		//camera = new ThreeD::_PINHOLE(world3D);
 		camera = new ThreeD::_PINHOLE(world3D);
 		world3D->_AddLight(new ThreeD::_POINTLIGHT(ThreeD::_VERTEX4F(-500.0, 600.0, 0.0, 1.0), ThreeD::_COLOR4F(1.0, 1.0, 0.1, 0.1), 1.0));
 		world3D->_AddLight(new ThreeD::_POINTLIGHT(ThreeD::_VERTEX4F(500.0, -600.0, 0.0, 1.0), ThreeD::_COLOR4F(1.0, 0.1, 0.1, 1.0), 1.0));
 		world3D->_AddLight(new ThreeD::_POINTLIGHT(ThreeD::_VERTEX4F(0.0, 0.0, 0.0, 1.0), ThreeD::_COLOR4F(1.0, 0.1, 1.0, 0.1), 1.0));
 		world3D->_AddObject(new ThreeD::_SPHERE(ThreeD::_VERTEX4F(0.0, 0.0, 1500.0, 1.0), 500.0));
+		world3D->_AddObject(new ThreeD::_SPHERE(ThreeD::_VERTEX4F(-700.0, 500.0, 2500.0, 1.0), 700.0));
 		world3D->_AddObject(new ThreeD::_SPHERE(ThreeD::_VERTEX4F(-300.0, 300.0, 800.0, 1.0), 100.0));
+		world3D->_AddObject(new ThreeD::_SPHERE(ThreeD::_VERTEX4F(300.0, 300.0, 800.0, 1.0), 300.0));
 	}
 
 	void MainApp::_OnUninitialize() {

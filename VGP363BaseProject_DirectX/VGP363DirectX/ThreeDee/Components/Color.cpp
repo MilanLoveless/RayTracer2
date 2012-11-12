@@ -120,18 +120,18 @@ namespace ThreeD
 
 	void _COLOR4F::_Normalize()
 	{
-		float max = 1.0;
-		if(r > 1.0) max = r;
-		if(g > 1.0 && g > r) max = g;
-		if(b > 1.0 && b > g && b > r) max = b;
-		r /= max;
-		g /= max;
-		b /= max;
-		//if(r > 1.0) r = 1.0;
-		//if(r < 0.0) r = 0.0;
-		//if(g > 1.0) g = 1.0;
-		//if(g < 0.0) g = 0.0;
-		//if(b > 1.0) b = 1.0;
-		//if(b < 0.0) b = 0.0;
+		//float max = 1.0;
+		//if(r > 1.0) max = r;
+		//if(g > 1.0 && g > r) max = g;
+		//if(b > 1.0 && b > g && b > r) max = b;
+		//r /= max;
+		//g /= max;
+		//b /= max;
+		if(r > 1.0) r = 1.0;
+		if(r < 0.0) r = 0.0;
+		if(g > 1.0) g = 1.0;
+		if(g < 0.0) g = 0.0;
+		if(b > 1.0) b = 1.0;
+		if(b < 0.0) b = 0.0;
 	}
 }

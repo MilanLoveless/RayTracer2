@@ -7,6 +7,7 @@
 #include "../RayTracer/Samplers/MultiJittered.h"
 #include "../RayTracer/Samplers/Regular.h"
 #include "../Components/Constants.h"
+#include "../RayTracer/Samplers/Hammersley.h"
 
 namespace ThreeD
 {

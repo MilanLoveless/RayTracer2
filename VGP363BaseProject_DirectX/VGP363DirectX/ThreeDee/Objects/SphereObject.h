@@ -6,6 +6,7 @@
 #include "GeometricObject.h"
 #include "../RayTracer/Materials/Phong.h"
 #include "../RayTracer/Materials/Matte.h"
+#include"../RayTracer/Materials/IridescentPhong.h"
 
 namespace ThreeD
 {
