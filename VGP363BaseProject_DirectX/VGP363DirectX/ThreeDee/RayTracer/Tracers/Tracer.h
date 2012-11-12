@@ -1,7 +1,12 @@
+// Tracer.h
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
 #include "../../Components/Constants.h"
 #include "../Misc/Ray.h"
 #include "../../Components/Color.h"
 #include "../../World/World.h"
+
+#pragma once
 
 namespace ThreeD
 {

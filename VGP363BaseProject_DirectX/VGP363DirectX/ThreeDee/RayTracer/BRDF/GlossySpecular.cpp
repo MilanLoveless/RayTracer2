@@ -40,9 +40,9 @@ namespace ThreeD
 ////////////////////////////////////////////////////////////////////////////////
 	_COLOR4F _GLOSSYSPECULAR::_F(const _SHADEREC &sr, const _VERTEX4F &wo, const _VERTEX4F &wi)
 	{
-		_COLOR4F L;
+		_COLOR4F L(0.0);
 		_DOUBLE ndotwi = wi._DotProduct(wi, sr.normal);
-		_VERTEX4F r(_VERTEX4F(wi)*-1.0 + _VERTEX4F(sr.normal) * 2.0 *ndotwi);
+		_VERTEX4F r(((_VERTEX4F(sr.normal) * 2.0 - wi) * ndotwi));
 		_DOUBLE rdotwo = r._DotProduct(r, wo);
 
 		if(rdotwo > 0.0)

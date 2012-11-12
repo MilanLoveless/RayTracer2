@@ -38,7 +38,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LinkIncremental>true</LinkIncremental>
+    <LinkIncremental>false</LinkIncremental>
     <ExecutablePath>$(SolutionDir)\DXSDK\Developer Runtime\x86;$(ExecutablePath)</ExecutablePath>
     <IncludePath>$(SolutionDir)\DXSDK\Include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\DXSDK\Lib\x86;$(LibraryPath)</LibraryPath>
@@ -98,6 +98,7 @@
     <ClCompile Include="GameCore.cpp" />
     <ClCompile Include="ThreeDee\Cameras\Camera.cpp" />
     <ClCompile Include="ThreeDee\Cameras\Pinhole.cpp" />
+    <ClCompile Include="ThreeDee\Cameras\_ORTHOGRAPHIC.cpp" />
     <ClCompile Include="ThreeDee\Components\Color.cpp" />
     <ClCompile Include="ThreeDee\Components\Matrix.cpp" />
     <ClCompile Include="ThreeDee\Components\Vertex.cpp" />
@@ -114,6 +115,7 @@
     <ClCompile Include="ThreeDee\RayTracer\Lights\PointLight.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Materials\Material.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Materials\Matte.cpp" />
+    <ClCompile Include="ThreeDee\RayTracer\Materials\Phong.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Misc\Point2D.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Misc\Ray.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Misc\ShadeRec.cpp" />
@@ -145,6 +147,7 @@
     <ClInclude Include="GameCore.h" />
     <ClInclude Include="GAMEOBJECTS\GameObject.h" />
     <ClInclude Include="ThreeDee\Cameras\Camera.h" />
+    <ClInclude Include="threedee\cameras\orthographic.h" />
     <ClInclude Include="ThreeDee\Cameras\Pinhole.h" />
     <ClInclude Include="ThreeDee\Components\Color.h" />
     <ClInclude Include="ThreeDee\Components\Constants.h" />
@@ -163,6 +166,7 @@
     <ClInclude Include="ThreeDee\RayTracer\Lights\PointLight.h" />
     <ClInclude Include="ThreeDee\RayTracer\Materials\Material.h" />
     <ClInclude Include="ThreeDee\RayTracer\Materials\Matte.h" />
+    <ClInclude Include="ThreeDee\RayTracer\Materials\Phong.h" />
     <ClInclude Include="ThreeDee\RayTracer\Misc\Point2D.h" />
     <ClInclude Include="ThreeDee\RayTracer\Misc\Ray.h" />
     <ClInclude Include="ThreeDee\RayTracer\Misc\ShadeRec.h" />

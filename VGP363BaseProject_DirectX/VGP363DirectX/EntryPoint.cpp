@@ -4,12 +4,21 @@
 #include "GameCore.h"
 
 HINSTANCE g_hInstance;
+HANDLE g_hRenderThread;
 HWND g_hMainWnd;
 BOOL g_bAppRunning;
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow);
 LRESULT CALLBACK _WndProc(HWND hWnd, UINT uMessage, WPARAM wParam, LPARAM lParam);
 int _OnInitInstance(HINSTANCE hInstance);
+
+DWORD WINAPI _RenderThread(LPVOID lpThreadParameter) {
+
+	while(true) {
+		GAMECORE::MainApp::_OnRenderFrame();
+	}
+
+}
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
@@ -23,6 +32,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	CORE::HARDWARE::_InitializeCOREDrawing3D(0, 0, 800, 600);
 	GAMECORE::MainApp::_OnInitialize();
 
+	g_hRenderThread = CreateThread(0, 0, _RenderThread, 0, 0, 0);
+
     MSG msg;
     while(g_bAppRunning)
     {
@@ -33,13 +44,15 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
         }
 
 		// CALL PER FRAME FUNCTIONS HERE (for now)
-		GAMECORE::MainApp::_OnFrame();
+		GAMECORE::MainApp::_OnDisplayFrame();
     }
 
 	// CALL UNINITIALIZATION FUNCTIONS HERE
 	GAMECORE::MainApp::_OnUninitialize();
 	CORE::HARDWARE::_UninitializeCOREDrawing3D();
 	CORE::HARDWARE::_UninitializeDirect3D();
+
+	CloseHandle(g_hRenderThread);
 
     return 0;
 }

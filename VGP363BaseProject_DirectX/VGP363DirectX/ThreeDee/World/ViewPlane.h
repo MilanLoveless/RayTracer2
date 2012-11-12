@@ -14,7 +14,7 @@ namespace ThreeD
 	{
 	public:
 		int hres, vres;
-		float s;
+		_DOUBLE s;
 		int num_samples;
 
 		_SAMPLER *sampler_ptr;

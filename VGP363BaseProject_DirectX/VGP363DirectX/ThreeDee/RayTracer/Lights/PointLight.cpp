@@ -24,4 +24,17 @@ namespace ThreeD
 	{
 		return (color * ls);
 	}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	bool _POINTLIGHT::_InShadow(const _RAY &ray, const _SHADEREC &sr)
+	{
+		float t;
+		int num_objects = sr.world_ptr->objects.size();
+		_VERTEX4F lightpath = location - sr.hit_point;
+		_DOUBLE d = lightpath._Magnitude();
+
+		for(int j = 0; j < num_objects; j++)
+			if(sr.world_ptr->objects[j]->_ShadowHit(ray, t) && t < d) return true;
+		
+		return false;
+	}
 }

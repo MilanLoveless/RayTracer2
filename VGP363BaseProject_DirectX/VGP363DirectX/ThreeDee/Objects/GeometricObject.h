@@ -31,7 +31,8 @@ namespace ThreeD
 		virtual _DOUBLE _PDF(_SHADEREC &sr);
 		virtual _VERTEX4F _GetNormal();
 		virtual _VERTEX4F _GetNormal(const _VERTEX4F &p);
-		mutable _MATERIAL *material_ptr;
+		virtual bool _ShadowHit(const _RAY &ray, _DOUBLE &t) = 0;
+		_MATERIAL *material_ptr;
 		bool shadows;
 	};
 }

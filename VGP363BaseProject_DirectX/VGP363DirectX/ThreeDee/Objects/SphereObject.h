@@ -1,7 +1,11 @@
 // SphereObject.h
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
+#pragma once
+
 #include "GeometricObject.h"
+#include "../RayTracer/Materials/Phong.h"
+#include "../RayTracer/Materials/Matte.h"
 
 namespace ThreeD
 {
@@ -17,6 +21,7 @@ namespace ThreeD
 		void _SetCenter(const _VERTEX4F &c);
 		void _SetRadius(const _DOUBLE r);
 		virtual bool _Hit(const _RAY &ray, _DOUBLE &tmin, _SHADEREC &s);
+		virtual bool _ShadowHit(const _RAY &ray, _DOUBLE &t);
 
 		_VERTEX4F center;
 		_DOUBLE radius;

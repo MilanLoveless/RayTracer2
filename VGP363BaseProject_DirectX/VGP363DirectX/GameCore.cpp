@@ -5,12 +5,26 @@
 
 namespace GAMECORE {
 
+	ThreeD::_WORLD *world3D = NULL;
+	ThreeD::_CAMERA *camera = NULL;
+
 	CORE::HARDWARE::TEXTUREINFO *g_pBackBuffer;
-	float *g_pZBuffer = NULL;
+
+	int *g_pRenderBuffer = NULL;
+	int _W = 800;
+	int _H = 600;
 
 	void MainApp::_OnInitialize() {
 		g_pBackBuffer = CORE::HARDWARE::_CreateTexture(0, 800, 600);
 		// Initialize any other resources for the application here
+		world3D = new ThreeD::_WORLD();
+		//camera = new ThreeD::_PINHOLE(world3D);
+		camera = new ThreeD::_PINHOLE(world3D);
+		world3D->_AddLight(new ThreeD::_POINTLIGHT(ThreeD::_VERTEX4F(-500.0, 600.0, 0.0, 1.0), ThreeD::_COLOR4F(1.0, 1.0, 0.1, 0.1), 1.0));
+		world3D->_AddLight(new ThreeD::_POINTLIGHT(ThreeD::_VERTEX4F(500.0, -600.0, 0.0, 1.0), ThreeD::_COLOR4F(1.0, 0.1, 0.1, 1.0), 1.0));
+		world3D->_AddLight(new ThreeD::_POINTLIGHT(ThreeD::_VERTEX4F(0.0, 0.0, 0.0, 1.0), ThreeD::_COLOR4F(1.0, 0.1, 1.0, 0.1), 1.0));
+		world3D->_AddObject(new ThreeD::_SPHERE(ThreeD::_VERTEX4F(0.0, 0.0, 1500.0, 1.0), 500.0));
+		world3D->_AddObject(new ThreeD::_SPHERE(ThreeD::_VERTEX4F(-300.0, 300.0, 800.0, 1.0), 100.0));
 	}
 
 	void MainApp::_OnUninitialize() {
@@ -18,29 +32,44 @@ namespace GAMECORE {
 		// Unload any other resources for the application here
 	}
 
-	void MainApp::_OnFrame() {
+	void MainApp::_OnRenderFrame() {
+
+		if(g_pRenderBuffer != NULL) {
+
+			int *video = g_pRenderBuffer;
+			int w = _W;
+			int h = _H;
+
+			////////////////////////////////////////////////////////////////////////////////////////////////////
+			// Render the scene
+			camera->_RenderScene(video, *world3D);
+			////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		}
+
+	}
+
+	void MainApp::_OnDisplayFrame() {
 		CORE::HARDWARE::_ClearBackBuffer();
 		CORE::HARDWARE::_BeginDrawing();
 
 		CORE::HARDWARE::_LockTexture(g_pBackBuffer);
 
-		int *video = g_pBackBuffer->_video;
-		int w = g_pBackBuffer->_nActualWidth;
-		int h = g_pBackBuffer->_nHeight;
+		if(g_pRenderBuffer == NULL) {
+			_W = g_pBackBuffer->_nActualWidth;
+			_H = g_pBackBuffer->_nHeight;
+			g_pRenderBuffer = new int[_W*_H];
 
-		// Clear screen
-		for(int y = 0; y < h; y++) {
-			for(int x = 0; x < w; x++) {
-				video[y*w+x] = 0xFFF1F1F1;
+			for(int y = 0; y < _H; y++) {
+				for(int x = 0; x < _W; x++) {
+					g_pRenderBuffer[y*_W+x] = 0xFF000000;
+				}
 			}
 		}
 
-		////////////////////////////////////////////////////////////////////////////////////////////////////
-		// Render the scene
-
-		// Put your core rendering code here
-
-		////////////////////////////////////////////////////////////////////////////////////////////////////
+		for(int n = 0; n < _W*_H; n++) {
+			g_pBackBuffer->_video[n] = g_pRenderBuffer[n];
+		}
 
 		CORE::HARDWARE::_UnlockTexture(g_pBackBuffer);
 

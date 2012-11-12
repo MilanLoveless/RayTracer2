@@ -153,6 +153,12 @@
     <ClCompile Include="ThreeDee\World\World.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ThreeDee\Cameras\_ORTHOGRAPHIC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreeDee\RayTracer\Materials\Phong.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameCore.h">
@@ -294,6 +300,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ThreeDee\World\World.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="threedee\cameras\orthographic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreeDee\RayTracer\Materials\Phong.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

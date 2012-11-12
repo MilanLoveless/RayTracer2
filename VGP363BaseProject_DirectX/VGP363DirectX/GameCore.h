@@ -31,6 +31,16 @@
 #include "CORE\3D\CORE.Matrix.h"
 #include "CORE\3D\CORE.Quaternion.h"
 
+#include "ThreeDee\World\World.h"
+#include "ThreeDee\Cameras\Pinhole.h"
+#include "ThreeDee\Cameras\Orthographic.h"
+#include "ThreeDee\RayTracer\Tracers\Whitted.h"
+#include "ThreeDee\Objects\SphereObject.h"
+#include "ThreeDee\RayTracer\Materials\Matte.h"
+#include "ThreeDee\RayTracer\Lights\Ambient.h"
+#include "ThreeDee\RayTracer\Lights\PointLight.h"
+
+
 namespace GAMECORE {
 
 	// Application module
@@ -38,9 +48,12 @@ namespace GAMECORE {
 	public:
 		static void _OnInitialize();
 		static void _OnUninitialize();
-		static void _OnFrame();
+		static void _OnRenderFrame();
+		static void _OnDisplayFrame();
 	};
 
+	extern ThreeD::_CAMERA *camera;
+	extern ThreeD::_WORLD *world3D;
 } // end namespace
 
 //#endif

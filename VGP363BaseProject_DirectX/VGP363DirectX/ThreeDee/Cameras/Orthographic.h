@@ -1,4 +1,4 @@
-// Pinhole.h
+// Orthographic.h
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #pragma once
@@ -11,21 +11,17 @@
 
 namespace ThreeD
 {
-	class _PINHOLE : public _CAMERA
+	class _ORTHOGRAPHIC : public _CAMERA
 	{
 	public:
-		_PINHOLE(_WORLD *world);
-		_PINHOLE(const _PINHOLE &ph);
-		~_PINHOLE();
-		_PINHOLE& operator= (const _PINHOLE &ph);
+		_ORTHOGRAPHIC(_WORLD *world);
+		_ORTHOGRAPHIC(const _ORTHOGRAPHIC &ph);
+		~_ORTHOGRAPHIC();
+		_ORTHOGRAPHIC& operator= (const _ORTHOGRAPHIC &ph);
 
-		void _SetFOV(const _DOUBLE fov);
-		void _SetZoom(const _DOUBLE zooom);
 		_RAY _GetDirection(const _POINT2D &p);
 		virtual void _RenderScene(int *video, const _WORLD &w);
 
-		_DOUBLE d;
-		_DOUBLE zoom;
 		_TRACER *tracer_ptr;
 	};
 }

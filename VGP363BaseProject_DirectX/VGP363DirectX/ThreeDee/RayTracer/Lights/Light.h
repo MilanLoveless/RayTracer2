@@ -15,7 +15,8 @@ namespace ThreeD
 		~_LIGHT();
 		virtual _VERTEX4F _GetDirection(_SHADEREC &sr) = 0;
 		virtual _COLOR4F _L(_SHADEREC &sr) = 0;
-
+		virtual bool _InShadow(const _RAY &ray, const _SHADEREC &sr) = 0;
+		bool _CastsShadows();
 		bool shadows;
 	};
 }

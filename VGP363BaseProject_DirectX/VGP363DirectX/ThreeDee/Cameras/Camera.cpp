@@ -6,8 +6,8 @@
 namespace ThreeD
 {
 	_CAMERA::_CAMERA()
-		: iposition(0.0, 0.0, -500.0, 1.0),
-		  ifacing(0.0, 0.0, 1.0, 1.0),
+		: iposition(0.0, 0.0, 0.0, 1.0),
+		  ifacing(0.0, 0.0, 1.0, 0.0),
 		  transformM16(_VERTEX4F(1.0, 0.0, 0.0, 0.0),
 					   _VERTEX4F(0.0, 1.0, 0.0, 0.0),
 					   _VERTEX4F(0.0, 0.0, 1.0, 0.0),

@@ -10,4 +10,9 @@ namespace ThreeD
 	{}
 
 	_LIGHT::~_LIGHT() {}
+
+	bool _LIGHT::_CastsShadows()
+	{
+		return shadows;
+	}
 }
