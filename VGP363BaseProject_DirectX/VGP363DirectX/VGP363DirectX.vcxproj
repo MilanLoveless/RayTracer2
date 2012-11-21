@@ -106,6 +106,7 @@
     <ClCompile Include="ThreeDee\Objects\GeometricObject.cpp" />
     <ClCompile Include="ThreeDee\Objects\Mesh.cpp" />
     <ClCompile Include="ThreeDee\Objects\MeshTriangle.cpp" />
+    <ClCompile Include="ThreeDee\Objects\OBJImport\OBJImporter.cpp" />
     <ClCompile Include="ThreeDee\Objects\SphereObject.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\BRDF\BRDF.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\BRDF\GlossySpecular.cpp" />
@@ -158,6 +159,7 @@
     <ClInclude Include="ThreeDee\Objects\GeometricObject.h" />
     <ClInclude Include="ThreeDee\Objects\Mesh.h" />
     <ClInclude Include="ThreeDee\Objects\MeshTriangle.h" />
+    <ClInclude Include="ThreeDee\Objects\OBJImport\OBJImporter.h" />
     <ClInclude Include="ThreeDee\Objects\SphereObject.h" />
     <ClInclude Include="ThreeDee\RayTracer\BRDF\BRDF.h" />
     <ClInclude Include="ThreeDee\RayTracer\BRDF\GlossySpecular.h" />

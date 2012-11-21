@@ -162,6 +162,9 @@
     <ClCompile Include="ThreeDee\RayTracer\Materials\IridescentPhong.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ThreeDee\Objects\OBJImport\OBJImporter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameCore.h">
@@ -312,6 +315,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ThreeDee\RayTracer\Materials\IridescentPhong.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreeDee\Objects\OBJImport\OBJImporter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

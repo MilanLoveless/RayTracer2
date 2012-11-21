@@ -45,12 +45,24 @@ namespace ThreeD
 ///////////////////////////////////////////////////////////////////////////
 	bool _MESH::_Hit(const _RAY &ray, _DOUBLE &tmin, _SHADEREC &sr)
 	{
-
+		bool hiit = false;
+		for(int nt = 0; nt < n_triangles; nt++)
+		{
+			bool hiiit = triangle_buffer[nt]._Hit(ray, tmin, sr);
+			if(hiiit) hiit = true;
+		}
+		return hiit;
 	}
 ///////////////////////////////////////////////////////////////////////////
 	bool _MESH::_ShadowHit(const _RAY &ray, _DOUBLE &tmin)
 	{
-
+		bool hiit = false;
+		for(int nt = 0; nt < n_triangles; nt++)
+		{
+			bool hiiit = triangle_buffer[nt]._ShadowHit(ray, tmin);
+			if(hiiit) hiit = true;
+		}
+		return hiit;
 	}
 ///////////////////////////////////////////////////////////////////////////
 
