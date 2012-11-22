@@ -63,6 +63,7 @@ namespace ThreeD
 					triangle->uv2 = t2 - 1;
 					// Push Back Triangle
 					triangle->_CalculateNormal(false);
+					triangle->mesh_ptr = mesh;
 					mesh->triangle_buffer.push_back(*triangle);
 					fscanf(obj_file, "%s", scan_in);
 				}

@@ -6,11 +6,12 @@
 #include <vector>
 #include "../Components/Vertex.h"
 #include "../RayTracer/Misc/Point2D.h"
-#include "MeshTriangle.h"
+//#include "MeshTriangle.h"
 #include "GeometricObject.h"
 
 namespace ThreeD
 {
+	class _MESHTRIANGLE;
 	class _MESH : public _GEOMETRICOBJECT
 	{
 	public:

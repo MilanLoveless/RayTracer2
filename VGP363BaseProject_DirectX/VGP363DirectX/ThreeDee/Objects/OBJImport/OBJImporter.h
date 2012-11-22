@@ -5,6 +5,7 @@
 
 #include <string.h>
 #include "../Mesh.h"
+#include "../MeshTriangle.h"
 
 namespace ThreeD
 {
