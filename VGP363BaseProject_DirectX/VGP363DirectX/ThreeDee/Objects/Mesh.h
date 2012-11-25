@@ -7,7 +7,7 @@
 #include "../Components/Vertex.h"
 #include "../RayTracer/Misc/Point2D.h"
 #include "../Components/Matrix.h"
-//#include "MeshTriangle.h"
+#include "MeshTriangle.h"
 #include "GeometricObject.h"
 
 namespace ThreeD

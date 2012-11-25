@@ -10,7 +10,7 @@ namespace ThreeD
 		: n_vertices(0),
 		n_uvs(0),
 		n_triangles(0),
-		matriix(matriix._Translate(_VERTEX4F(0.0, 500.0, 500.0, 0.0)))
+		matriix(matriix._Translate(_VERTEX4F(0.0, 0.0, 1500.0, 0.0)))
 	{}
 ///////////////////////////////////////////////////////////////////////////
 	_MESH::_MESH(const _MESH &m)
@@ -49,12 +49,28 @@ namespace ThreeD
 	bool _MESH::_Hit(const _RAY &ray, _DOUBLE &tmin, _SHADEREC &sr)
 	{
 		bool hiit = false;
+		_DOUBLE t = tmin;
+		_VERTEX4F normal;
+		_VERTEX4F local_hit_point;
+
 		for(int nt = 0; nt < n_triangles; nt++)
 		{
-			bool hiiit = false;
-			_MESHTRIANGLE tri = triangle_buffer[nt];
-			hiiit = triangle_buffer[nt]._Hit(ray, tmin, sr);
-			if(hiiit) hiit = true;
+			if (triangle_buffer[nt]._Hit(ray, tmin, sr) && (tmin < t))
+			{
+				sr.hit_an_object = true;
+				t = tmin;
+				sr.material_ptr = material_ptr;
+				sr.hit_point = _VERTEX4F(ray.origin) + _VERTEX4F(ray.vector) * t;
+				normal = sr.normal;
+				local_hit_point = sr.local_hit_point;
+				hiit = true;
+			}
+		}
+		if(hiit)
+		{
+			sr.t = t;
+			sr.normal = normal;
+			sr.local_hit_point = local_hit_point;
 		}
 		return hiit;
 	}
@@ -62,10 +78,14 @@ namespace ThreeD
 	bool _MESH::_ShadowHit(const _RAY &ray, _DOUBLE &tmin)
 	{
 		bool hiit = false;
+		_DOUBLE t = tmin;
 		for(int nt = 0; nt < n_triangles; nt++)
 		{
-			bool hiiit = triangle_buffer[nt]._ShadowHit(ray, tmin);
-			if(hiiit) hiit = true;
+			if(triangle_buffer[nt]._ShadowHit(ray, t) && t < tmin)
+			{
+				tmin = t;
+				hiit = true;
+			}
 		}
 		return hiit;
 	}

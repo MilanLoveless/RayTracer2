@@ -12,60 +12,61 @@ namespace ThreeD
 		char *scan_in = new char[50];
 		bool end_file = false;
 		obj_file = fopen(filename, "r");
+		int foo;
 		if(obj_file != NULL)
 		{
 			
-			fscanf(obj_file, "%s", scan_in);
+			foo = fscanf(obj_file, "%s", scan_in);
 
 			// Garbage
 			while(strcmp(scan_in, "v") != 0)
 			{
-				fscanf(obj_file, "%s", scan_in);
+				foo = fscanf(obj_file, "%s", scan_in);
 			}
 
 			// Scan in Vertices
 			while(strcmp(scan_in, "v") == 0)
 			{
 				_DOUBLE vx, vy, vz;
-				fscanf(obj_file, "%f %f %f", &vx, &vy, &vz);
+				foo = fscanf(obj_file, "%f %f %f", &vx, &vy, &vz);
 				mesh->vertex_buffer.push_back(_VERTEX4F(vx, vy, vz, 1.0));
-				fscanf(obj_file, "%s", scan_in);
+				foo = fscanf(obj_file, "%s", scan_in);
 			}
 				
 			// Garbage
 			while(strcmp(scan_in, "vn") != 0)
 			{
-				fscanf(obj_file, "%s", scan_in);
+				foo = fscanf(obj_file, "%s", scan_in);
 			}
 
 			// Scan in Normals
 			while(strcmp(scan_in, "vn") == 0)
 			{
 				_DOUBLE nx, ny, nz;
-				fscanf(obj_file, "%f %f %f", &nx, &ny, &nz);
+				foo = fscanf(obj_file, "%f %f %f", &nx, &ny, &nz);
 				mesh->normal_buffer.push_back(_VERTEX4F(nx, ny, nz, 0.0));
-				fscanf(obj_file, "%s", scan_in);
+				foo = fscanf(obj_file, "%s", scan_in);
 			}
 
 			// Garbage
 			while(strcmp(scan_in, "vt") != 0)
 			{
-				fscanf(obj_file, "%s", scan_in);
+				foo = fscanf(obj_file, "%s", scan_in);
 			}
 
 			// Scan in UVs
 			while(strcmp(scan_in, "vt") == 0)
 			{
 				_DOUBLE tx, ty, trashz;
-				fscanf(obj_file, "%f %f %f", &tx, &ty, &trashz);
+				foo = fscanf(obj_file, "%f %f %f", &tx, &ty, &trashz);
 				mesh->uv_buffer.push_back(_POINT2D(tx, ty));
-				fscanf(obj_file, "%s", scan_in);
+				foo = fscanf(obj_file, "%s", scan_in);
 			}
 
 			// Garbage
 			while(strcmp(scan_in, "f") != 0)
 			{
-				fscanf(obj_file, "%s", scan_in);
+				foo = fscanf(obj_file, "%s", scan_in);
 			}
 
 			// Scan in Triangle Indices
@@ -73,7 +74,7 @@ namespace ThreeD
 			{
 				_MESHTRIANGLE *triangle = new _MESHTRIANGLE();
 				int v0, v1, v2, n0, n1, n2, t0, t1, t2;
-				fscanf(obj_file, "%d/%d/%d %d/%d/%d %d/%d/%d", &v0, &n0, &t0, &v1, &n1, &t1, &v2, &n2, &t2);
+				foo = fscanf(obj_file, "%d / %d / %d %d / %d / %d %d / %d / %d", &v0, &t0, &n0, &v1, &t1, &n1, &v2, &t2, &n2);
 				// Assign Vertex Indices
 				triangle->p0 = v0 - 1;
 				triangle->p1 = v1 - 1;
@@ -91,8 +92,7 @@ namespace ThreeD
 				triangle->_CalculateNormal(false);
 				triangle->_CalculateArea();
 				mesh->triangle_buffer.push_back(*triangle);
-				fscanf(obj_file, "%s", scan_in);
-				triangle = NULL;
+				foo = fscanf(obj_file, "%s", scan_in);
 			}
 			fclose(obj_file);
 		}

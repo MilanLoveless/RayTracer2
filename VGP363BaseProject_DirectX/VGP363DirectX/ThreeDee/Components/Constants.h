@@ -12,7 +12,7 @@ const _DOUBLE 	INV_PI 		= 0.3183098861837906715;
 const _DOUBLE 	INV_TWO_PI 	= 0.1591549430918953358;
 const _DOUBLE	HALF_PI		= 1.5707963267948966192313216916398;
 
-const _DOUBLE 	kEpsilon 	= 0.01; 
+const _DOUBLE 	kEpsilon 	= 0.0001; 
 const _DOUBLE	kHugeValue	= 1.0E10;
 
 const float 	invRAND_MAX = 1.0 / (float)RAND_MAX;

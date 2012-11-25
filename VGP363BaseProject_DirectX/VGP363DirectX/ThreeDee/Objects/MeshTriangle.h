@@ -8,10 +8,11 @@
 #include "../Components/Constants.h"
 #include "../RayTracer/Misc/Ray.h"
 #include "GeometricObject.h"
-#include "Mesh.h"
+//#include "Mesh.h"
 
 namespace ThreeD
 {
+	class _MESH;
 	class _MESHTRIANGLE : public _GEOMETRICOBJECT
 	{
 	public:

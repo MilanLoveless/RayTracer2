@@ -191,6 +191,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="OBJFiles\leatherjacket.txt" />
+    <None Include="OBJFiles\teapot.txt" />
+    <None Include="OBJFiles\test.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

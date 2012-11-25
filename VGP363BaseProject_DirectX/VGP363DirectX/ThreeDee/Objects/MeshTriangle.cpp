@@ -2,6 +2,10 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "MeshTriangle.h"
+#include "Mesh.h"
+
+#define vurt (_VERTEX4F(0.0, -1500.0, 15000.0, 0.0))
+#define vart (_VERTEX4F(0.0, 0.0, 4000.0, 0.0))
 
 namespace ThreeD
 {
@@ -17,9 +21,9 @@ namespace ThreeD
 	_MESHTRIANGLE::_MESHTRIANGLE(const _MESHTRIANGLE &tri)
 		: _GEOMETRICOBJECT(),
 		mesh_ptr(tri.mesh_ptr),
-		p0(0), p1(0), p2(0),
-		n0(0), n1(0), n2(0),
-		uv0(0), uv1(0), uv2(0)
+		p0(tri.p0), p1(tri.p1), p2(tri.p2),
+		n0(tri.n0), n1(tri.n1), n2(tri.n2),
+		uv0(tri.uv0), uv1(tri.uv1), uv2(tri.uv2)
 	{
 		_CalculateNormal(false);
 		_CalculateArea();
@@ -49,7 +53,7 @@ namespace ThreeD
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	void _MESHTRIANGLE::_CalculateNormal(bool reversed)
 	{
-		normal = normal._CrossProduct(mesh_ptr->vertex_buffer[p1] - mesh_ptr->vertex_buffer[p0], mesh_ptr->vertex_buffer[p2] - mesh_ptr->vertex_buffer[p0]);
+		normal = normal._CrossProduct(mesh_ptr->vertex_buffer[p1] - mesh_ptr->vertex_buffer[p0], mesh_ptr->vertex_buffer[p0] - mesh_ptr->vertex_buffer[p2]);
 		normal._Normalize();
 		if(reversed) normal = normal * -1.0;
 	}
@@ -91,9 +95,9 @@ namespace ThreeD
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	bool _MESHTRIANGLE::_Hit(const _RAY &ray, _DOUBLE &tmin, _SHADEREC &sr)
 	{
-		_VERTEX4F v0 = this->mesh_ptr->matriix._Multiply(this->mesh_ptr->vertex_buffer[this->p0]);
-		_VERTEX4F v1 = this->mesh_ptr->matriix._Multiply(this->mesh_ptr->vertex_buffer[this->p1]);
-		_VERTEX4F v2 = this->mesh_ptr->matriix._Multiply(this->mesh_ptr->vertex_buffer[this->p2]);
+		_VERTEX4F v0 = this->mesh_ptr->vertex_buffer[this->p0] + vurt;
+		_VERTEX4F v1 = this->mesh_ptr->vertex_buffer[this->p1] + vurt;
+		_VERTEX4F v2 = this->mesh_ptr->vertex_buffer[this->p2] + vurt;
 		
 		// X Components
 		_DOUBLE a = v0.x - v1.x;
@@ -103,7 +107,7 @@ namespace ThreeD
 		// Y Components
 		_DOUBLE e = v0.y - v1.y;
 		_DOUBLE f = v0.y - v2.y;
-		_DOUBLE g = ray.origin.y;
+		_DOUBLE g = ray.vector.y;
 		_DOUBLE h = v0.y - ray.origin.y;
 		// Z Components
 		_DOUBLE i = v0.z - v1.z;
@@ -144,21 +148,25 @@ namespace ThreeD
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	bool _MESHTRIANGLE::_ShadowHit(const _RAY &ray, _DOUBLE &tmin)
 	{
+		_VERTEX4F v0 = this->mesh_ptr->vertex_buffer[this->p0] + vurt;
+		_VERTEX4F v1 = this->mesh_ptr->vertex_buffer[this->p1] + vurt;
+		_VERTEX4F v2 = this->mesh_ptr->vertex_buffer[this->p2] + vurt;
+		
 		// X Components
-		_DOUBLE a = this->mesh_ptr->vertex_buffer[p0].x - this->mesh_ptr->vertex_buffer[p1].x;
-		_DOUBLE b = this->mesh_ptr->vertex_buffer[p0].x - this->mesh_ptr->vertex_buffer[p2].x;
+		_DOUBLE a = v0.x - v1.x;
+		_DOUBLE b = v0.x - v2.x;
 		_DOUBLE c = ray.vector.x;
-		_DOUBLE d = this->mesh_ptr->vertex_buffer[p0].x - ray.origin.x;
+		_DOUBLE d = v0.x - ray.origin.x;
 		// Y Components
-		_DOUBLE e = this->mesh_ptr->vertex_buffer[p0].y - this->mesh_ptr->vertex_buffer[p1].y;
-		_DOUBLE f = this->mesh_ptr->vertex_buffer[p0].y - this->mesh_ptr->vertex_buffer[p2].y;
-		_DOUBLE g = ray.origin.y;
-		_DOUBLE h = this->mesh_ptr->vertex_buffer[p0].y - ray.origin.y;
+		_DOUBLE e = v0.y - v1.y;
+		_DOUBLE f = v0.y - v2.y;
+		_DOUBLE g = ray.vector.y;
+		_DOUBLE h = v0.y - ray.origin.y;
 		// Z Components
-		_DOUBLE i = this->mesh_ptr->vertex_buffer[p0].z - this->mesh_ptr->vertex_buffer[p1].z;
-		_DOUBLE j = this->mesh_ptr->vertex_buffer[p0].z - this->mesh_ptr->vertex_buffer[p2].z;
+		_DOUBLE i = v0.z - v1.z;
+		_DOUBLE j = v0.z - v2.z;
 		_DOUBLE k = ray.vector.z;
-		_DOUBLE l = this->mesh_ptr->vertex_buffer[p0].z - ray.origin.z;
+		_DOUBLE l = v0.z - ray.origin.z;
 
 		_DOUBLE m = f * k - g * j;
 		_DOUBLE n = h * k - g * l;
@@ -179,8 +187,8 @@ namespace ThreeD
 		if (gamma < 0.0) return false;
 		if (beta + gamma > 1.0) return false;
 
-		double e3 = a * p - b * r + d * s;
-		double t = e3 * inv_denominator;
+		_DOUBLE e3 = a * p - b * r + d * s;
+		_DOUBLE t = e3 * inv_denominator;
 		
 		if(t < kEpsilon) return false;
 		
