@@ -33,9 +33,7 @@ namespace ThreeD
 		void _CalculateNormal(bool reversed);
 		_VERTEX4F _GetNormal();
 		void _CalculateArea();
-		virtual _VERTEX4F _GetNormal(const _VERTEX4F &hp);
-		float _GetU(const _DOUBLE beta, const _DOUBLE gamma);
-		float _GetV(const _DOUBLE beta, const _DOUBLE gamma);
-		_POINT2D _GetUV(_SHADEREC &sr);
+		virtual _VERTEX4F _InterpolateNormal(const _DOUBLE beta, const _DOUBLE gamma);
+		_POINT2D _InterpolateUV(const _DOUBLE beta, const _DOUBLE gamma);
 	};
 }

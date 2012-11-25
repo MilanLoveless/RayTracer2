@@ -4,7 +4,6 @@
 #pragma once
 
 #include "BRDF.h"
-#include "../../Components/Constants.h"
 
 namespace ThreeD
 {

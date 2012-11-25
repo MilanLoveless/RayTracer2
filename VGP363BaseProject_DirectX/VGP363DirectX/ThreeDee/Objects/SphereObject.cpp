@@ -5,14 +5,13 @@
 
 namespace ThreeD
 {
-	const _DOUBLE _SPHERE::kEpsilon = 0.001;
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 	_SPHERE::_SPHERE()
 		:_GEOMETRICOBJECT(),
 		center(),
 		radius(1.0)
 	{
-		material_ptr = new _IRIDESCENT();
+		material_ptr = new _IRIDESCENTPHONG();
 	}
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 	_SPHERE::_SPHERE(_VERTEX4F c, _DOUBLE r)
@@ -20,7 +19,7 @@ namespace ThreeD
 		center(c),
 		radius(r)
 	{
-		material_ptr = new _IRIDESCENT();
+		material_ptr = new _IRIDESCENTPHONG();
 	}
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 	_SPHERE* _SPHERE::_Clone()

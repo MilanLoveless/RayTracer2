@@ -21,6 +21,7 @@ namespace ThreeD
 
 		_POINT2D& operator= (const _POINT2D &rhs);
 		_POINT2D operator * (const _DOUBLE a);
+		_POINT2D operator + (const _POINT2D &pt);
 	};
 
 }

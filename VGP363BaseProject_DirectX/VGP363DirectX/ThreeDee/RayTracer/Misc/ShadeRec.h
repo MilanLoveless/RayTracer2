@@ -8,6 +8,7 @@
 //#include "../../World/World.h"
 //#include "../Materials/Material.h"
 #include "../../Components/Constants.h"
+#include "Point2D.h"
 
 namespace ThreeD
 {
@@ -22,6 +23,7 @@ namespace ThreeD
 		_DOUBLE t;
 		bool hit_an_object;
 		_MATERIAL *material_ptr;
+		_POINT2D hit_UV;
 		_VERTEX4F hit_point;
 		_VERTEX4F local_hit_point;
 		_VERTEX4F normal;

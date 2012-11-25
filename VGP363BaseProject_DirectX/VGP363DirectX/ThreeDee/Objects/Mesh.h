@@ -6,6 +6,7 @@
 #include <vector>
 #include "../Components/Vertex.h"
 #include "../RayTracer/Misc/Point2D.h"
+#include "../Components/Matrix.h"
 //#include "MeshTriangle.h"
 #include "GeometricObject.h"
 
@@ -20,6 +21,7 @@ namespace ThreeD
 		std::vector<_POINT2D> uv_buffer;
 		std::vector<_MESHTRIANGLE> triangle_buffer;
 		int n_triangles, n_vertices, n_uvs;
+		_MATRIX16F matriix;
 		//insert bounding box here
 
 		_MESH();

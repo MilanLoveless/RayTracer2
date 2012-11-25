@@ -5,6 +5,7 @@
 
 #include "../../Components/Color.h"
 #include "../../Components/Vertex.h"
+#include "../../Components/Constants.h"
 #include "../../RayTracer/Misc/ShadeRec.h"
 #include "../Samplers/Sampler.h"
 

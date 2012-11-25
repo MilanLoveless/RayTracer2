@@ -26,6 +26,5 @@ namespace ThreeD
 
 		_VERTEX4F center;
 		_DOUBLE radius;
-		static const _DOUBLE kEpsilon;
 	};
 }

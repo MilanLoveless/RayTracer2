@@ -165,6 +165,9 @@
     <ClCompile Include="ThreeDee\Objects\OBJImport\OBJImporter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ThreeDee\RayTracer\BRDF\Iridescent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameCore.h">
@@ -320,5 +323,14 @@
     <ClInclude Include="ThreeDee\Objects\OBJImport\OBJImporter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ThreeDee\RayTracer\BRDF\Iridescent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreeDee\RayTracer\Materials\MappedPhong.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="OBJFiles\leatherjacket.txt" />
   </ItemGroup>
 </Project>

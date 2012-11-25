@@ -9,7 +9,8 @@ namespace ThreeD
 	_MESH::_MESH()
 		: n_vertices(0),
 		n_uvs(0),
-		n_triangles(0)
+		n_triangles(0),
+		matriix(matriix._Translate(_VERTEX4F(0.0, 500.0, 500.0, 0.0)))
 	{}
 ///////////////////////////////////////////////////////////////////////////
 	_MESH::_MESH(const _MESH &m)
@@ -19,7 +20,8 @@ namespace ThreeD
 		vertex_buffer(m.vertex_buffer),
 		normal_buffer(m.normal_buffer),
 		uv_buffer(m.uv_buffer),
-		triangle_buffer(m.triangle_buffer)
+		triangle_buffer(m.triangle_buffer),
+		matriix(m.matriix)
 	{}
 ///////////////////////////////////////////////////////////////////////////
 	_MESH::~_MESH() {}
@@ -49,7 +51,9 @@ namespace ThreeD
 		bool hiit = false;
 		for(int nt = 0; nt < n_triangles; nt++)
 		{
-			bool hiiit = triangle_buffer[nt]._Hit(ray, tmin, sr);
+			bool hiiit = false;
+			_MESHTRIANGLE tri = triangle_buffer[nt];
+			hiiit = triangle_buffer[nt]._Hit(ray, tmin, sr);
 			if(hiiit) hiit = true;
 		}
 		return hiit;

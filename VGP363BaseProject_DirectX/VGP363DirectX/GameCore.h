@@ -40,6 +40,9 @@
 #include "ThreeDee\RayTracer\Lights\Ambient.h"
 #include "ThreeDee\RayTracer\Lights\PointLight.h"
 #include "ThreeDee\Components\Constants.h"
+#include "ThreeDee\Objects\OBJImport\OBJImporter.h"
+#include "ThreeDee\Objects\Mesh.h"
+#include "ThreeDee\RayTracer\Materials\IridescentPhong.h"
 
 namespace GAMECORE {
 

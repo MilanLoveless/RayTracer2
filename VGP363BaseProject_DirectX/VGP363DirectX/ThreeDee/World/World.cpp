@@ -6,7 +6,7 @@ namespace ThreeD
 {
 	_WORLD::_WORLD()
 	{
-		backgroundcolor = _COLOR4F(0.0);
+		backgroundcolor = _COLOR4F(0.5);
 		maxdepth = 3;
 		ambient_ptr = new _AMBIENT();
 	}

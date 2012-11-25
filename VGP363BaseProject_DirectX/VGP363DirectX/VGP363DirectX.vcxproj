@@ -110,6 +110,7 @@
     <ClCompile Include="ThreeDee\Objects\SphereObject.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\BRDF\BRDF.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\BRDF\GlossySpecular.cpp" />
+    <ClCompile Include="ThreeDee\RayTracer\BRDF\Iridescent.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\BRDF\Lambertian.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Lights\Ambient.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Lights\Light.cpp" />
@@ -163,11 +164,13 @@
     <ClInclude Include="ThreeDee\Objects\SphereObject.h" />
     <ClInclude Include="ThreeDee\RayTracer\BRDF\BRDF.h" />
     <ClInclude Include="ThreeDee\RayTracer\BRDF\GlossySpecular.h" />
+    <ClInclude Include="ThreeDee\RayTracer\BRDF\Iridescent.h" />
     <ClInclude Include="ThreeDee\RayTracer\BRDF\Lambertian.h" />
     <ClInclude Include="ThreeDee\RayTracer\Lights\Ambient.h" />
     <ClInclude Include="ThreeDee\RayTracer\Lights\Light.h" />
     <ClInclude Include="ThreeDee\RayTracer\Lights\PointLight.h" />
     <ClInclude Include="ThreeDee\RayTracer\Materials\IridescentPhong.h" />
+    <ClInclude Include="ThreeDee\RayTracer\Materials\MappedPhong.h" />
     <ClInclude Include="ThreeDee\RayTracer\Materials\Material.h" />
     <ClInclude Include="ThreeDee\RayTracer\Materials\Matte.h" />
     <ClInclude Include="ThreeDee\RayTracer\Materials\Phong.h" />
@@ -185,6 +188,9 @@
     <ClInclude Include="ThreeDee\RayTracer\Tracers\Whitted.h" />
     <ClInclude Include="ThreeDee\World\ViewPlane.h" />
     <ClInclude Include="ThreeDee\World\World.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="OBJFiles\leatherjacket.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

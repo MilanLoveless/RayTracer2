@@ -5,19 +5,20 @@
 
 #include "Material.h"
 #include "../BRDF/Lambertian.h"
+#include "../BRDF/Iridescent.h"
 #include "../BRDF/GlossySpecular.h"
 #include "../../World/World.h"
 
 namespace ThreeD
 {
-	class _IRIDESCENT : public _MATERIAL
+	class _IRIDESCENTPHONG : public _MATERIAL
 	{
 	public:
-		_IRIDESCENT();
-		_IRIDESCENT(const _IRIDESCENT &mat);
+		_IRIDESCENTPHONG();
+		_IRIDESCENTPHONG(const _IRIDESCENTPHONG &mat);
 		virtual _MATERIAL* _Clone();
-		_IRIDESCENT& operator= (const _IRIDESCENT &mat);
-		~_IRIDESCENT();
+		_IRIDESCENTPHONG& operator= (const _IRIDESCENTPHONG &mat);
+		~_IRIDESCENTPHONG();
 
 		void _SetKA(const _DOUBLE k);
 		void _SetKD(const _DOUBLE k);
@@ -28,7 +29,7 @@ namespace ThreeD
 		virtual _COLOR4F _Shade(_SHADEREC &sr);
 
 		_LAMBERTIAN *ambient_brdf;
-		_LAMBERTIAN *diffuse_brdf;
+		_IRIDESCENT *iridescent_brdf;
 		_GLOSSYSPECULAR *specular_brdf;
 	};
 }

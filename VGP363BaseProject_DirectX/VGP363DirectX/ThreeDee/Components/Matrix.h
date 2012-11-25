@@ -22,6 +22,9 @@ namespace ThreeD
 		static _MATRIX16F _RotateX(_DOUBLE fDegrees);
 		static _MATRIX16F _RotateY(_DOUBLE fDegrees);
 		static _MATRIX16F _RotateZ(_DOUBLE fDegrees);
+		static _MATRIX16F _Inverse(const _MATRIX16F &m);
+		static _DOUBLE _Determinant(const _MATRIX16F &m);
+		static _MATRIX16F _Adjoint(const _MATRIX16F &m);
 
 		_DOUBLE r0c0, r0c1, r0c2, r0c3;
 		_DOUBLE r1c0, r1c1, r1c2, r1c3;
