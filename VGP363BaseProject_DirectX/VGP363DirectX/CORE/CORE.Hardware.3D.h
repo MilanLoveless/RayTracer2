@@ -4,7 +4,7 @@
 #ifndef __CORE_HARDWARE_3D_
 #define __CORE_HARDWARE_3D_
 
-//#include "..\GameCore.h"
+#include "..\GameCore.h"
 
 namespace CORE {
 	namespace HARDWARE {

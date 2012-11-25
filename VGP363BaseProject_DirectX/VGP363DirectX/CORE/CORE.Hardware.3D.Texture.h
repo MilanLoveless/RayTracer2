@@ -5,7 +5,7 @@
 //#ifndef __CORE_HARDWARE_3D_TEXTURE_H_
 //#define __CORE_HARDWARE_3D_TEXTURE_H_
 
-//#include "CORE.Hardware.3D.h"
+#include "CORE.Hardware.3D.h"
 
 namespace CORE {
 	namespace HARDWARE {

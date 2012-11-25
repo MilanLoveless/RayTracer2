@@ -168,6 +168,15 @@
     <ClCompile Include="ThreeDee\RayTracer\BRDF\Iridescent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ThreeDee\RayTracer\Materials\MappedPhong.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreeDee\RayTracer\BRDF\MappedLambert.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreeDee\RayTracer\BRDF\MappedSpecular.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameCore.h">
@@ -329,10 +338,19 @@
     <ClInclude Include="ThreeDee\RayTracer\Materials\MappedPhong.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ThreeDee\RayTracer\BRDF\MappedLambert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreeDee\RayTracer\BRDF\MappedSpecular.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="OBJFiles\leatherjacket.txt" />
     <None Include="OBJFiles\teapot.txt" />
     <None Include="OBJFiles\test.txt" />
+    <None Include="ImageFiles\LeatherJacket_N.png">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

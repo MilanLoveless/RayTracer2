@@ -112,10 +112,13 @@
     <ClCompile Include="ThreeDee\RayTracer\BRDF\GlossySpecular.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\BRDF\Iridescent.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\BRDF\Lambertian.cpp" />
+    <ClCompile Include="ThreeDee\RayTracer\BRDF\MappedLambert.cpp" />
+    <ClCompile Include="ThreeDee\RayTracer\BRDF\MappedSpecular.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Lights\Ambient.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Lights\Light.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Lights\PointLight.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Materials\IridescentPhong.cpp" />
+    <ClCompile Include="ThreeDee\RayTracer\Materials\MappedPhong.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Materials\Material.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Materials\Matte.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Materials\Phong.cpp" />
@@ -166,6 +169,8 @@
     <ClInclude Include="ThreeDee\RayTracer\BRDF\GlossySpecular.h" />
     <ClInclude Include="ThreeDee\RayTracer\BRDF\Iridescent.h" />
     <ClInclude Include="ThreeDee\RayTracer\BRDF\Lambertian.h" />
+    <ClInclude Include="ThreeDee\RayTracer\BRDF\MappedLambert.h" />
+    <ClInclude Include="ThreeDee\RayTracer\BRDF\MappedSpecular.h" />
     <ClInclude Include="ThreeDee\RayTracer\Lights\Ambient.h" />
     <ClInclude Include="ThreeDee\RayTracer\Lights\Light.h" />
     <ClInclude Include="ThreeDee\RayTracer\Lights\PointLight.h" />
@@ -190,6 +195,7 @@
     <ClInclude Include="ThreeDee\World\World.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ImageFiles\LeatherJacket_N.png" />
     <None Include="OBJFiles\leatherjacket.txt" />
     <None Include="OBJFiles\teapot.txt" />
     <None Include="OBJFiles\test.txt" />

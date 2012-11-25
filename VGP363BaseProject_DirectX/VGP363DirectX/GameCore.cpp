@@ -21,7 +21,10 @@ namespace GAMECORE {
 		world3D = new ThreeD::_WORLD();
 		camera = new ThreeD::_PINHOLE(world3D);
 		ThreeD::_GEOMETRICOBJECT *meshThing = ThreeD::_OBJIMPORTER::_ImportMesh("./OBJFiles/leatherjacket.txt");
-		meshThing->material_ptr = new ThreeD::_PHONG();
+		CORE::HARDWARE::TEXTUREINFO *normalmap = CORE::HARDWARE::_LoadTexture(1, "./ImageFiles/LeatherJacket_N.png", 2048, 2048);
+		ThreeD::_MAPPEDPHONG *phong = new ThreeD::_MAPPEDPHONG();
+		phong->_SetNormal(normalmap);
+		meshThing->material_ptr = phong;
 		world3D->_AddObject(meshThing);
 		world3D->_AddLight(new ThreeD::_POINTLIGHT(ThreeD::_VERTEX4F(-500.0, 600.0, 0.0, 1.0), ThreeD::_COLOR4F(1.0, 1.0, 1.0, 1.0), 1.0));
 		//world3D->_AddLight(new ThreeD::_POINTLIGHT(ThreeD::_VERTEX4F(500.0, -600.0, 0.0, 1.0), ThreeD::_COLOR4F(1.0, 0.1, 0.1, 1.0), 1.0));

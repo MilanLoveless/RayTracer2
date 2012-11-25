@@ -63,7 +63,7 @@ namespace ThreeD
 	_SHADEREC _WORLD::_HitObjects(const _RAY &ray)
 	{
 		_SHADEREC sr(*this);
-		_DOUBLE t;
+		_DOUBLE t = kHugeValue;
 		_VERTEX4F normal;
 		_VERTEX4F local_hit_point;
 		_DOUBLE tmin = kHugeValue;

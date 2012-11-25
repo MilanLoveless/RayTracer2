@@ -4,8 +4,8 @@
 #include "MeshTriangle.h"
 #include "Mesh.h"
 
-#define vurt (_VERTEX4F(0.0, -1500.0, 15000.0, 0.0))
-#define vart (_VERTEX4F(0.0, 0.0, 4000.0, 0.0))
+#define vurt (_VERTEX4F(0.0, -2000.0, 12000.0, 0.0))
+#define vart (_VERTEX4F(0.0, -2000.0, 4000.0, 0.0))
 
 namespace ThreeD
 {
@@ -95,9 +95,9 @@ namespace ThreeD
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	bool _MESHTRIANGLE::_Hit(const _RAY &ray, _DOUBLE &tmin, _SHADEREC &sr)
 	{
-		_VERTEX4F v0 = this->mesh_ptr->vertex_buffer[this->p0] + vurt;
-		_VERTEX4F v1 = this->mesh_ptr->vertex_buffer[this->p1] + vurt;
-		_VERTEX4F v2 = this->mesh_ptr->vertex_buffer[this->p2] + vurt;
+		_VERTEX4F v0 = mesh_ptr->matriix._Multiply(this->mesh_ptr->vertex_buffer[this->p0]) + vurt;
+		_VERTEX4F v1 = mesh_ptr->matriix._Multiply(this->mesh_ptr->vertex_buffer[this->p1]) + vurt;
+		_VERTEX4F v2 = mesh_ptr->matriix._Multiply(this->mesh_ptr->vertex_buffer[this->p2]) + vurt;
 		
 		// X Components
 		_DOUBLE a = v0.x - v1.x;
@@ -134,13 +134,13 @@ namespace ThreeD
 		if (gamma < 0.0) return false;
 		if (beta + gamma > 1.0) return false;
 
-		double e3 = a * p - b * r + d * s;
-		double t = e3 * inv_denominator;
+		_DOUBLE e3 = a * p - b * r + d * s;
+		_DOUBLE t = e3 * inv_denominator;
 		
 		if(t < kEpsilon) return false;
-		
+		if(t >= tmin) return false;
 		tmin = t;
-		sr.normal = _InterpolateNormal(beta, gamma);
+		sr.normal = mesh_ptr->matriix._Multiply(_InterpolateNormal(beta, gamma));
 		sr.local_hit_point = _VERTEX4F(ray.origin) + (_VERTEX4F(ray.vector) * t);
 		sr.hit_UV = _InterpolateUV(beta, gamma);
 		return true;

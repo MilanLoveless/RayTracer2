@@ -43,6 +43,7 @@
 #include "ThreeDee\Objects\OBJImport\OBJImporter.h"
 #include "ThreeDee\Objects\Mesh.h"
 #include "ThreeDee\RayTracer\Materials\IridescentPhong.h"
+#include "ThreeDee\RayTracer\Materials\MappedPhong.h"
 
 namespace GAMECORE {
 

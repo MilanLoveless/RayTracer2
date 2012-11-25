@@ -27,7 +27,7 @@ namespace ThreeD
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	bool _POINTLIGHT::_InShadow(const _RAY &ray, const _SHADEREC &sr)
 	{
-		float t;
+		_DOUBLE t;
 		int num_objects = sr.world_ptr->objects.size();
 		_VERTEX4F lightpath = location - sr.hit_point;
 		_DOUBLE d = lightpath._Magnitude();
