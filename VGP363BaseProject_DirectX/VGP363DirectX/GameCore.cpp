@@ -20,11 +20,11 @@ namespace GAMECORE {
 		// Initialize any other resources for the application here
 		world3D = new ThreeD::_WORLD();
 		camera = new ThreeD::_PINHOLE(world3D);
-		ThreeD::_GEOMETRICOBJECT *meshThing = ThreeD::_OBJIMPORTER::_ImportMesh("./OBJFiles/leatherjacket.txt");
-		CORE::HARDWARE::TEXTUREINFO *normalmap = CORE::HARDWARE::_LoadTexture(1, "./ImageFiles/LeatherJacket_N.png", 2048, 2048);
+		ThreeD::_GEOMETRICOBJECT *meshThing = ThreeD::_OBJIMPORTER::_ImportMesh("./OBJFiles/teapot.txt");
+		/*CORE::HARDWARE::TEXTUREINFO *normalmap = CORE::HARDWARE::_LoadTexture(1, "./ImageFiles/LeatherJacket_N.png", 2048, 2048);
 		ThreeD::_MAPPEDPHONG *phong = new ThreeD::_MAPPEDPHONG();
-		phong->_SetNormal(normalmap);
-		meshThing->material_ptr = phong;
+		phong->_SetNormal(normalmap);*/
+		meshThing->material_ptr = new ThreeD::_IRIDESCENTPHONG();
 		world3D->_AddObject(meshThing);
 		world3D->_AddLight(new ThreeD::_POINTLIGHT(ThreeD::_VERTEX4F(-500.0, 600.0, 0.0, 1.0), ThreeD::_COLOR4F(1.0, 1.0, 1.0, 1.0), 1.0));
 		//world3D->_AddLight(new ThreeD::_POINTLIGHT(ThreeD::_VERTEX4F(500.0, -600.0, 0.0, 1.0), ThreeD::_COLOR4F(1.0, 0.1, 0.1, 1.0), 1.0));

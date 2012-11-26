@@ -10,7 +10,7 @@ namespace ThreeD
 		: n_vertices(0),
 		n_uvs(0),
 		n_triangles(0),
-		matriix(matriix._RotateY(45.0))
+		matriix(matriix._RotateY(22.5))
 	{}
 ///////////////////////////////////////////////////////////////////////////
 	_MESH::_MESH(const _MESH &m)
