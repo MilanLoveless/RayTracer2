@@ -29,7 +29,7 @@ namespace ThreeD
 			{
 				_DOUBLE vx, vy, vz;
 				foo = fscanf(obj_file, "%f %f %f", &vx, &vy, &vz);
-				mesh->vertex_buffer.push_back(_VERTEX4F(vx, vy, vz, 1.0));
+				mesh->vertex_buffer.push_back(_VERTEX4F(vx * -1.0, vy, vz, 1.0));
 				foo = fscanf(obj_file, "%s", scan_in);
 			}
 				
@@ -44,7 +44,7 @@ namespace ThreeD
 			{
 				_DOUBLE nx, ny, nz;
 				foo = fscanf(obj_file, "%f %f %f", &nx, &ny, &nz);
-				mesh->normal_buffer.push_back(_VERTEX4F(nx, ny, nz, 0.0));
+				mesh->normal_buffer.push_back(_VERTEX4F(nx * -1.0, ny, nz, 0.0));
 				foo = fscanf(obj_file, "%s", scan_in);
 			}
 

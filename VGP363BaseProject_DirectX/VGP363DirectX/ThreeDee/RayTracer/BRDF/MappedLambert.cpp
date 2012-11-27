@@ -81,14 +81,14 @@ namespace ThreeD
 		kd = k;
 	}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	void _MAPPEDLAMBERT::_CalculateCD(_POINT2D uv)
+	void _MAPPEDLAMBERT::_CalculateCD(const _POINT2D &uv)
 	{
-		CORE::HARDWARE::_LockTexture(diffuse_map);
+		/*CORE::HARDWARE::_LockTexture(diffuse_map);
 		if(diffuse_map->_video != NULL)
 			{
-				int n = GetPixel(diffuse_map->_video, diffuse_map->_nActualWidth, diffuse_map->_nHeight, (int)((1.0 - fmod(uv.x, 1)) * diffuse_map->_nWidth), (int)((1.0 - fmod(uv.y, 1)) * diffuse_map->_nHeight));
+				int n = GetPixel(diffuse_map->_video, diffuse_map->_nWidth, diffuse_map->_nHeight, (int)((fmod(uv.x, 1)) * diffuse_map->_nWidth), (int)((1.0 - fmod(uv.y, 1)) * diffuse_map->_nHeight));
 				cd = _COLOR4F(1.0, (_COLOR32_ARGB_GET_RED(n))/255.0, (_COLOR32_ARGB_GET_GREEN(n))/255.0, (_COLOR32_ARGB_GET_BLUE(n))/255.0);
 			}
-		CORE::HARDWARE::_UnlockTexture(diffuse_map);
+		CORE::HARDWARE::_UnlockTexture(diffuse_map);*/
 	}
 }

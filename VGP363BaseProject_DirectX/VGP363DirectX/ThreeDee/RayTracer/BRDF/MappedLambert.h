@@ -22,7 +22,7 @@ namespace ThreeD
 		void _SetKA(const _DOUBLE k);
 		void _SetKD(const _DOUBLE k);
 		void _SetCD(const _COLOR4F c);
-		void _CalculateCD(_POINT2D uv);
+		void _CalculateCD(const _POINT2D &uv);
 		_DOUBLE kd;
 		_COLOR4F cd;
 		CORE::HARDWARE::TEXTUREINFO *diffuse_map;

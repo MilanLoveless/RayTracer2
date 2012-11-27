@@ -11,6 +11,13 @@ namespace ThreeD
 		sampler_ptr(NULL)
 	{}
 ////////////////////////////////////////////////////////////////////////////////
+	_GLOSSYSPECULAR::_GLOSSYSPECULAR(const _GLOSSYSPECULAR &glossyspec)
+		: ks(glossyspec.ks),
+		cs(glossyspec.cs)
+	{
+		sampler_ptr = glossyspec.sampler_ptr->_Clone();
+	}
+////////////////////////////////////////////////////////////////////////////////
 	_GLOSSYSPECULAR::~_GLOSSYSPECULAR()
 	{
 		if(sampler_ptr)

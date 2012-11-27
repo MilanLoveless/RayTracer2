@@ -5,7 +5,7 @@
 
 #include "Material.h"
 #include "../BRDF/MappedLambert.h"
-#include "../BRDF/GlossySpecular.h"
+#include "../BRDF/MappedSpecular.h"
 #include "../../World/World.h"
 #include "../../../CORE/CORE.Hardware.3D.Texture.h"
 
@@ -32,7 +32,7 @@ namespace ThreeD
 
 		_LAMBERTIAN *ambient_brdf;
 		_MAPPEDLAMBERT *diffuse_brdf;
-		_GLOSSYSPECULAR *specular_brdf;
+		_MAPPEDSPECULAR *specular_brdf;
 		CORE::HARDWARE::TEXTUREINFO *normal_map;
 	};
 }

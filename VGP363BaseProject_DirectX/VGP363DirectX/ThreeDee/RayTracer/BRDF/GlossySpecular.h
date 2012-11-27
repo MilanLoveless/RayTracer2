@@ -12,6 +12,7 @@ namespace ThreeD
 	{
 	public:
 		_GLOSSYSPECULAR();
+		_GLOSSYSPECULAR(const _GLOSSYSPECULAR &glossyspec);
 		~_GLOSSYSPECULAR();
 		virtual _GLOSSYSPECULAR* _Clone();
 		

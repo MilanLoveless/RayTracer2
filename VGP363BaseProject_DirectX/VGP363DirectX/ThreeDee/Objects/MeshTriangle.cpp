@@ -4,8 +4,8 @@
 #include "MeshTriangle.h"
 #include "Mesh.h"
 
-#define vart (_VERTEX4F(0.0, -2000.0, 12000.0, 0.0))
-#define vurt (_VERTEX4F(0.0, 0.0, 3500.0, 0.0))
+#define vurt (_VERTEX4F(-1000.0, -2000.0, 11500.0, 0.0))
+#define vart (_VERTEX4F(0.0, 0.0, 3500.0, 0.0))
 
 
 namespace ThreeD
