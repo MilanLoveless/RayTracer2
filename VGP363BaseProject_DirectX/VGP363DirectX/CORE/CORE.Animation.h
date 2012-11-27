@@ -5,6 +5,8 @@
 #define __CORE_ANIMATION_H_
 
 #include "CORE.Collection.h"
+#include "../GameCore.h"
+#include <math.h>
 
 namespace GameCore {
 

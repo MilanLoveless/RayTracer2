@@ -1,8 +1,6 @@
 // CORE.Animation.cpp
 /////////////////////////////////////////////////////////
-
-#include "..\GameCore.h"
-#include <math.h>
+#include "CORE.Animation.h"
 
 namespace GameCore {
 	

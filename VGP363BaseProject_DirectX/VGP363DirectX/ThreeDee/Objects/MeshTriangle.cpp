@@ -5,7 +5,8 @@
 #include "Mesh.h"
 
 #define vart (_VERTEX4F(0.0, -2000.0, 12000.0, 0.0))
-#define vurt (_VERTEX4F(0.0, -500.0, 4500.0, 0.0))
+#define vurt (_VERTEX4F(0.0, 0.0, 3500.0, 0.0))
+
 
 namespace ThreeD
 {
@@ -148,9 +149,9 @@ namespace ThreeD
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	bool _MESHTRIANGLE::_ShadowHit(const _RAY &ray, _DOUBLE &tmin)
 	{
-		_VERTEX4F v0 = this->mesh_ptr->vertex_buffer[this->p0] + vurt;
-		_VERTEX4F v1 = this->mesh_ptr->vertex_buffer[this->p1] + vurt;
-		_VERTEX4F v2 = this->mesh_ptr->vertex_buffer[this->p2] + vurt;
+		_VERTEX4F v0 = mesh_ptr->matriix._Multiply(this->mesh_ptr->vertex_buffer[this->p0]) + vurt;
+		_VERTEX4F v1 = mesh_ptr->matriix._Multiply(this->mesh_ptr->vertex_buffer[this->p1]) + vurt;
+		_VERTEX4F v2 = mesh_ptr->matriix._Multiply(this->mesh_ptr->vertex_buffer[this->p2]) + vurt;
 		
 		// X Components
 		_DOUBLE a = v0.x - v1.x;

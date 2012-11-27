@@ -1,10 +1,7 @@
 // CORE.Math.cpp
 ///////////////////////////////////////////////////////
 
-#include <stdio.h>
-#include <string.h>
-
-#include "..\GameCore.h"
+#include "CORE.Math.h"
 
 namespace GameCore {
 	

@@ -1,7 +1,7 @@
 // CORE.Hardware.Drawing.3D.cpp
 ///////////////////////////////////////////////////////////////////////////////////
 
-#include "../GameCore.h"
+#include "CORE.Hardware.Drawing.3D.h"
 
 namespace CORE {
 	namespace HARDWARE {

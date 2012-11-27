@@ -2,6 +2,9 @@
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 #pragma once
+
+#include "../GameCore.h"
+#include <math.h>
 //#ifndef __CORE_HARDWARE_DRAWING_3D_H_
 //#define __CORE_HARDWARE_DRAWING_3D_H_
 

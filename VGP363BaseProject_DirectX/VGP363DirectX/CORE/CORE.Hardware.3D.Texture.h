@@ -10,7 +10,9 @@
 namespace CORE {
 	namespace HARDWARE {
 
-		struct TEXTUREINFO {
+		class TEXTUREINFO
+		{
+		public:
 			int _nID;
 			char *_pFileName;
 			IDirect3DTexture9 *_pSurface;

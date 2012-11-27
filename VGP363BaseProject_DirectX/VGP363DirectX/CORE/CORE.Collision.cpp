@@ -1,7 +1,7 @@
 // CORE.Collision.cpp
 /////////////////////////////////////////////////
 
-#include "..\GameCore.h"
+#include "CORE.Collision.h"
 
 namespace GameCore {
 

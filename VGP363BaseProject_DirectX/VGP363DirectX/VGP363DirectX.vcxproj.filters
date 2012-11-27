@@ -30,33 +30,6 @@
     <ClCompile Include="CORE\CORE.Hardware.3D.Texture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CORE\CORE.Drawing.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CORE\CORE.Animation.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CORE\CORE.Collection.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CORE\CORE.Collision.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CORE\CORE.Controller.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CORE\CORE.Math.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CORE\3D\CORE.Drawing.Primitives.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CORE\3D\CORE.Matrix.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CORE\3D\CORE.Quaternion.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ThreeDee\Cameras\Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -177,6 +150,9 @@
     <ClCompile Include="ThreeDee\RayTracer\BRDF\MappedSpecular.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ThreeDee\Components\constants.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameCore.h">
@@ -192,33 +168,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GAMEOBJECTS\GameObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CORE\CORE.Drawing.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CORE\CORE.Controller.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CORE\CORE.Animation.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CORE\CORE.Collection.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CORE\CORE.Collision.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CORE\CORE.Math.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CORE\3D\CORE.Quaternion.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CORE\3D\CORE.Drawing.Primitives.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CORE\3D\CORE.Matrix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ThreeDee\Cameras\Camera.h">
@@ -352,5 +301,18 @@
     <None Include="ImageFiles\LeatherJacket_N.png">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="OBJFiles\crate.txt" />
+    <None Include="ImageFiles\crate_d.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ImageFiles\crate_s.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ImageFiles\crate_n.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ImageFiles\crate_d.tga" />
+    <None Include="ImageFiles\crate_n.tga" />
+    <None Include="ImageFiles\crate_s.tga" />
   </ItemGroup>
 </Project>

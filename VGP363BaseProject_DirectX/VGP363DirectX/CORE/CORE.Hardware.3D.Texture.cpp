@@ -1,7 +1,8 @@
 // CORE.Hardware.3D.Texture.cpp
 /////////////////////////////////////////////////////////////////////////////////////////
 
-#include "../GameCore.h"
+//#include "../GameCore.h"
+#include "CORE.Hardware.3D.Texture.h"
 
 namespace CORE {
 	namespace HARDWARE {

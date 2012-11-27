@@ -127,7 +127,7 @@ namespace ThreeD
 		//r /= max;
 		//g /= max;
 		//b /= max;
-		if(r > 1.0) r = 1.0;
+		if(r > 1.0)r = 1.0;
 		if(r < 0.0) r = 0.0;
 		if(g > 1.0) g = 1.0;
 		if(g < 0.0) g = 0.0;

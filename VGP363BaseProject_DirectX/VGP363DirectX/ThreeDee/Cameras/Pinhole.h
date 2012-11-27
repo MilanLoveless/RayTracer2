@@ -7,7 +7,6 @@
 #include "../RayTracer/Misc/Point2D.h"
 #include "../RayTracer/Tracers/Whitted.h"
 #include "../World/ViewPlane.h"
-#include "../../CORE/CORE.Drawing.h"
 
 namespace ThreeD
 {

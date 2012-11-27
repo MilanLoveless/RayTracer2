@@ -4,13 +4,10 @@
 #pragma once
 
 #include "Material.h"
-#include "../BRDF/Lambertian.h"
+#include "../BRDF/MappedLambert.h"
 #include "../BRDF/GlossySpecular.h"
 #include "../../World/World.h"
 #include "../../../CORE/CORE.Hardware.3D.Texture.h"
-#include "../../../CORE/CORE.Drawing.h"
-#include "../../../CORE/3D/CORE.Drawing.Primitives.h"
-#include "../BRDF/Iridescent.h"
 
 namespace ThreeD
 {
@@ -30,11 +27,11 @@ namespace ThreeD
 		void _SetCS(const _COLOR4F &c);
 		void _SetNormal(CORE::HARDWARE::TEXTUREINFO *nrm);
 		void _SetSpecular(CORE::HARDWARE::TEXTUREINFO *spec);
-		void _SetDiffuse(CORE::HARDWARE::TEXTUREINFO *nrm);
+		void _SetDiffuse(CORE::HARDWARE::TEXTUREINFO *dif);
 		virtual _COLOR4F _Shade(_SHADEREC &sr);
 
 		_LAMBERTIAN *ambient_brdf;
-		_IRIDESCENT *iridescent_brdf;
+		_MAPPEDLAMBERT *diffuse_brdf;
 		_GLOSSYSPECULAR *specular_brdf;
 		CORE::HARDWARE::TEXTUREINFO *normal_map;
 	};

@@ -4,6 +4,7 @@
 #pragma once
 
 #include "../Misc/ShadeRec.h"
+#include "../../Components/Constants.h"
 
 namespace ThreeD
 {

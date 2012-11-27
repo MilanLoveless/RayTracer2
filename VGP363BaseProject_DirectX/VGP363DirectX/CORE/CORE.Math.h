@@ -4,6 +4,10 @@
 #ifndef __CORE_MATH_H_
 #define __CORE_MATH_H_
 
+#include <stdio.h>
+#include <string.h>
+
+#include "..\GameCore.h"
 //using namespace System;
 
 namespace GameCore {

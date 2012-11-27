@@ -4,6 +4,8 @@
 #ifndef __CORE_COLLECTION_H_
 #define __CORE_COLLECTION_H_
 
+#include "../GameCore.h"
+
 namespace GameCore {
 
 	template <class T>

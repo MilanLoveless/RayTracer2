@@ -8,19 +8,17 @@ namespace ThreeD
 	_MAPPEDPHONG::_MAPPEDPHONG()
 		:_MATERIAL(),
 		ambient_brdf(new _LAMBERTIAN()),
-		iridescent_brdf(new _IRIDESCENT()),
+		diffuse_brdf(new _MAPPEDLAMBERT()),
 		specular_brdf(new _GLOSSYSPECULAR()),
 		normal_map(NULL)
 	{
 		ambient_brdf->_SETCD(_COLOR4F(1.0, 0.1, 0.9, 0.9));
 		ambient_brdf->_SetKA(1.0);
-		iridescent_brdf->_SetCD(_COLOR4F(1.0, 0.1, 0.9, 0.9));
-		iridescent_brdf->_SetKD(2.0);
-		iridescent_brdf->_SetPower(0.5);
-		iridescent_brdf->_SetRot(1.0);
+		diffuse_brdf->_SetCD(_COLOR4F(1.0, 0.1, 0.9, 0.9));
+		diffuse_brdf->_SetKD(2.0);
 		specular_brdf->_SetCS(_COLOR4F(1.0, 1.0, 1.0, 1.0));
-		specular_brdf->_SetKS(1.0);
-		specular_brdf->_SetPower(3.0);
+		specular_brdf->_SetKS(0.3);
+		specular_brdf->_SetPower(5.0);
 		specular_brdf->_SetSampler(new _MULTIJITTERED(16), 3.0);
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -31,9 +29,9 @@ namespace ThreeD
 			ambient_brdf = mat.ambient_brdf->_Clone();
 		else ambient_brdf = NULL;
 
-		if(mat.iridescent_brdf)
-			iridescent_brdf = mat.iridescent_brdf->_Clone();
-		else iridescent_brdf = NULL;
+		if(mat.diffuse_brdf)
+			diffuse_brdf = mat.diffuse_brdf->_Clone();
+		else diffuse_brdf = NULL;
 		
 		if(mat.specular_brdf)
 			specular_brdf = mat.specular_brdf->_Clone();
@@ -64,14 +62,14 @@ namespace ThreeD
 		if(mat.ambient_brdf)
 			ambient_brdf = mat.ambient_brdf->_Clone();
 
-		if(iridescent_brdf)
+		if(diffuse_brdf)
 		{
-			delete iridescent_brdf;
-			iridescent_brdf = NULL;
+			delete diffuse_brdf;
+			diffuse_brdf = NULL;
 		}
 
-		if(mat.iridescent_brdf)
-			iridescent_brdf = mat.iridescent_brdf->_Clone();
+		if(mat.diffuse_brdf)
+			diffuse_brdf = mat.diffuse_brdf->_Clone();
 
 		if(specular_brdf)
 		{
@@ -93,10 +91,10 @@ namespace ThreeD
 			ambient_brdf = NULL;
 		}
 
-		if(iridescent_brdf)
+		if(diffuse_brdf)
 		{
-			delete iridescent_brdf;
-			iridescent_brdf = NULL;
+			delete diffuse_brdf;
+			diffuse_brdf = NULL;
 		}
 
 		if(specular_brdf)
@@ -109,18 +107,18 @@ namespace ThreeD
 	_COLOR4F _MAPPEDPHONG::_Shade(_SHADEREC &sr)
 	{
 		_VERTEX4F wo = sr.ray.vector * -1.0;
-		_COLOR4F L = ambient_brdf->_Rho(sr, wo) * sr.world_ptr->ambient_ptr->_L(sr);
+		_COLOR4F L = diffuse_brdf->_Rho(sr, wo) * sr.world_ptr->ambient_ptr->_L(sr);
 		
 		CORE::HARDWARE::_LockTexture(normal_map);
 		if(normal_map->_video != NULL)
 			{
-				int n = GetPixel(normal_map->_video, normal_map->_nActualWidth, normal_map->_nHeight, (int)(fmod(sr.hit_UV.x, 1) * normal_map->_nWidth), (int)(fmod(sr.hit_UV.y, 1) * normal_map->_nHeight));
+				int n = GetPixel(normal_map->_video, normal_map->_nActualWidth, normal_map->_nHeight, (int)((1.0 - fmod(sr.hit_UV.x, 1)) * normal_map->_nWidth), (int)((1.0 -fmod(sr.hit_UV.y, 1)) * normal_map->_nHeight));
 				_VERTEX4F up1(0.01, 0.98, 0.03, 0.0);
 				up1._Normalize();
 				_VERTEX4F tangent = tangent._CrossProduct(sr.normal, up1);
 				_VERTEX4F binormal = binormal._CrossProduct(tangent, sr.normal);
-				tangent = tangent._CrossProduct(sr.normal, binormal);
-				sr.normal = sr.normal * (_COLOR32_ARGB_GET_BLUE(n)/255.0) + binormal * (_COLOR32_ARGB_GET_GREEN(n)/255.0) + tangent * (_COLOR32_ARGB_GET_RED(n)/255.0);
+				tangent = tangent._CrossProduct(binormal, sr.normal);
+				sr.normal = sr.normal * (_COLOR32_ARGB_GET_BLUE(n)/255.0) + binormal * (_COLOR32_ARGB_GET_GREEN(n)/-127.5 + 1.0) + tangent * (_COLOR32_ARGB_GET_RED(n)/-127.5 + 1.0);
 				sr.normal._Normalize();
 			}
 		CORE::HARDWARE::_UnlockTexture(normal_map);
@@ -141,7 +139,7 @@ namespace ThreeD
 					in_shadow = sr.world_ptr->lights[j]->_InShadow(shadow_ray, sr);
 				}
 				if(!in_shadow)
-				L+= (iridescent_brdf->_F(sr, wo, wi)  + specular_brdf->_F(sr, wo, wi)) * sr.world_ptr->lights[j]->_L(sr) * ndotwi;
+				L+= (diffuse_brdf->_F(sr, wo, wi)  + specular_brdf->_F(sr, wo, wi)) * sr.world_ptr->lights[j]->_L(sr) * ndotwi;
 			}
 		}
 		return L;
@@ -155,16 +153,16 @@ namespace ThreeD
 //////////////////////////////////////////////////////////////////////////////////////////////////////	
 	void _MAPPEDPHONG::_SetKD(const _DOUBLE k)
 	{
-		if(iridescent_brdf)
-			iridescent_brdf->kd = k;
+		if(diffuse_brdf)
+			diffuse_brdf->kd = k;
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////	
 	void _MAPPEDPHONG::_SetCD(const _COLOR4F &c)
 	{
 		if(ambient_brdf)
 			ambient_brdf->_SETCD(c);
-		if(iridescent_brdf)
-			iridescent_brdf->_SetCD(c);
+		if(diffuse_brdf)
+			diffuse_brdf->_SetCD(c);
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 	void _MAPPEDPHONG::_SetCS(const _COLOR4F &c)
@@ -183,8 +181,8 @@ namespace ThreeD
 
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-	void _MAPPEDPHONG::_SetDiffuse(CORE::HARDWARE::TEXTUREINFO *nrm)
+	void _MAPPEDPHONG::_SetDiffuse(CORE::HARDWARE::TEXTUREINFO *dif)
 	{
-
+		diffuse_brdf->diffuse_map = dif;
 	}
 }
