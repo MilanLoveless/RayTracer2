@@ -27,6 +27,8 @@ namespace ThreeD
 		_VERTEX4F hit_point;
 		_VERTEX4F local_hit_point;
 		_VERTEX4F normal;
+		_VERTEX4F binormal;
+		_VERTEX4F tangent;
 		_COLOR4F color;
 		_RAY ray;
 		int depth;

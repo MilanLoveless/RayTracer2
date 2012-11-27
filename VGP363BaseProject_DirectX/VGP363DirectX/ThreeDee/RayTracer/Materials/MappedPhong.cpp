@@ -19,7 +19,7 @@ namespace ThreeD
 		specular_brdf->_SetCS(_COLOR4F(1.0, 1.0, 1.0, 1.0));
 		specular_brdf->_SetKS(0.9);
 		specular_brdf->_SetPower(30.0);
-		specular_brdf->_SetSampler(new _MULTIJITTERED(16), 3.0);
+		specular_brdf->_SetSampler(new _MULTIJITTERED(16), 30.0);
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 	_MAPPEDPHONG::_MAPPEDPHONG(const _MAPPEDPHONG &mat)

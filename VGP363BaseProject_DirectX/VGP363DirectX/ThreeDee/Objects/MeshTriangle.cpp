@@ -4,8 +4,8 @@
 #include "MeshTriangle.h"
 #include "Mesh.h"
 
-#define vurt (_VERTEX4F(-1000.0, -2000.0, 11500.0, 0.0))
-#define vart (_VERTEX4F(0.0, 0.0, 3500.0, 0.0))
+#define vart (_VERTEX4F(-1000.0, -2000.0, 11500.0, 0.0))
+#define vurt (_VERTEX4F(0.0, 0.0, 3500.0, 0.0))
 
 
 namespace ThreeD
@@ -197,4 +197,19 @@ namespace ThreeD
 		return true;
 	}
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	void _MESHTRIANGLE::_LightingCalculation(_SHADEREC &sr, const _DOUBLE beta, const _DOUBLE gamma)
+	{
+		sr.hit_UV = ((this->mesh_ptr->uv_buffer[uv0] * (1.0 - beta - gamma))
+			 + (this->mesh_ptr->uv_buffer[uv1] * beta)
+			 + (this->mesh_ptr->uv_buffer[uv2] * gamma));
+		sr.normal = _VERTEX4F((this->mesh_ptr->normal_buffer[n0] * (1.0 - beta - gamma)) + (this->mesh_ptr->normal_buffer[n1] * beta) + (this->mesh_ptr->normal_buffer[n2] * gamma));
+		sr.normal._Normalize();
+		_VERTEX4F d(this->mesh_ptr->vertex_buffer[p1] - this->mesh_ptr->vertex_buffer[p0]);
+		_VERTEX4F e(this->mesh_ptr->vertex_buffer[p2] - this->mesh_ptr->vertex_buffer[p0]);
+		_POINT2D f(this->mesh_ptr->uv_buffer[uv1] + (this->mesh_ptr->uv_buffer[uv0] * 1.0));
+		_POINT2D g(this->mesh_ptr->uv_buffer[uv1] + (this->mesh_ptr->uv_buffer[uv0] * 1.0));
+		_DOUBLE inv_det = 1.0 / (f.x * g.y - f.y * g.x);
+
+
+	}
 }
