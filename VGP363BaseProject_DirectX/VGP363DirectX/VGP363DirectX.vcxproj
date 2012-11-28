@@ -107,6 +107,7 @@
     <ClCompile Include="ThreeDee\RayTracer\BRDF\MappedLambert.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\BRDF\MappedSpecular.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Lights\Ambient.cpp" />
+    <ClCompile Include="ThreeDee\RayTracer\Lights\AmbientOccluder.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Lights\Light.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Lights\PointLight.cpp" />
     <ClCompile Include="ThreeDee\RayTracer\Materials\IridescentPhong.cpp" />
@@ -155,6 +156,7 @@
     <ClInclude Include="ThreeDee\RayTracer\BRDF\MappedLambert.h" />
     <ClInclude Include="ThreeDee\RayTracer\BRDF\MappedSpecular.h" />
     <ClInclude Include="ThreeDee\RayTracer\Lights\Ambient.h" />
+    <ClInclude Include="ThreeDee\RayTracer\Lights\AmbientOccluder.h" />
     <ClInclude Include="ThreeDee\RayTracer\Lights\Light.h" />
     <ClInclude Include="ThreeDee\RayTracer\Lights\PointLight.h" />
     <ClInclude Include="ThreeDee\RayTracer\Materials\IridescentPhong.h" />

@@ -10,7 +10,7 @@
 #include "../Objects/GeometricObject.h"
 #include "../Objects/SphereObject.h"
 #include "../RayTracer/Lights/Light.h"
-#include "../RayTracer/Lights/Ambient.h"
+#include "../RayTracer/Lights/AmbientOccluder.h"
 #include "../Components/Constants.h"
 #include "ViewPlane.h"
 
@@ -26,7 +26,7 @@ namespace ThreeD
 		_COLOR4F backgroundcolor;
 		vector<_GEOMETRICOBJECT*> objects;
 		vector<_LIGHT*> lights;
-		_AMBIENT *ambient_ptr;
+		_AMBIENTOCCLUDER *ambient_ptr;
 		_WORLD();
 		~_WORLD();
 		

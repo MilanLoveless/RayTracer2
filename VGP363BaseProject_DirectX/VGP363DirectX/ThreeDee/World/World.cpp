@@ -8,7 +8,7 @@ namespace ThreeD
 	{
 		backgroundcolor = _COLOR4F(0.5);
 		maxdepth = 3;
-		ambient_ptr = new _AMBIENT();
+		ambient_ptr = new _AMBIENTOCCLUDER();
 	}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 	_WORLD::~_WORLD()

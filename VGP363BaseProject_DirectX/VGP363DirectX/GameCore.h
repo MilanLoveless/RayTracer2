@@ -44,6 +44,7 @@
 #include "ThreeDee\Objects\Mesh.h"
 #include "ThreeDee\RayTracer\Materials\IridescentPhong.h"
 #include "ThreeDee\RayTracer\Materials\MappedPhong.h"
+#include "ThreeDee\RayTracer\Lights\AmbientOccluder.h"
 
 namespace GAMECORE {
 

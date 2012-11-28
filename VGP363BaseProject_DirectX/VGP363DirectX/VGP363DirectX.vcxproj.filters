@@ -153,6 +153,9 @@
     <ClCompile Include="ThreeDee\Components\constants.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ThreeDee\RayTracer\Lights\AmbientOccluder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameCore.h">
@@ -291,6 +294,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ThreeDee\RayTracer\BRDF\MappedSpecular.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreeDee\RayTracer\Lights\AmbientOccluder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
