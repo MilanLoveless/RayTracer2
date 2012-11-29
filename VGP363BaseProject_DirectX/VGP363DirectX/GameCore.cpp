@@ -20,23 +20,23 @@ namespace GAMECORE {
 		// Initialize any other resources for the application here
 		world3D = new ThreeD::_WORLD();
 		camera = new ThreeD::_PINHOLE(world3D);
-		ThreeD::_GEOMETRICOBJECT *meshThing = ThreeD::_OBJIMPORTER::_ImportMesh("./OBJFiles/crate.txt");
+		/*ThreeD::_GEOMETRICOBJECT *meshThing = ThreeD::_OBJIMPORTER::_ImportMesh("./OBJFiles/crate.txt");
 		CORE::HARDWARE::TEXTUREINFO *normalmap = CORE::HARDWARE::_LoadTexture(1, "./ImageFiles/crate_n.tga", 1024, 1024);
-		CORE::HARDWARE::TEXTUREINFO *diffusemap = CORE::HARDWARE::_LoadTexture(2, "./ImageFiles/crate_d.tga", 1024, 1024);
+		CORE::HARDWARE::TEXTUREINFO *diffusemap = CORE::HARDWARE::_LoadTexture(2, "./ImageFiles/crate_n.tga", 1024, 1024);
 		CORE::HARDWARE::TEXTUREINFO *specularmap = CORE::HARDWARE::_LoadTexture(3, "./ImageFiles/crate_s.tga", 1024, 1024);
 		ThreeD::_MAPPEDPHONG *phong = new ThreeD::_MAPPEDPHONG();
 		phong->_SetNormal(normalmap);
 		phong->_SetDiffuse(diffusemap);
 		phong->_SetSpecular(specularmap);
 		meshThing->material_ptr = phong;
-		world3D->_AddObject(meshThing);
+		world3D->_AddObject(meshThing);*/
 		world3D->_AddLight(new ThreeD::_POINTLIGHT(ThreeD::_VERTEX4F(-1000.0, 1000.0, 0.0, 1.0), ThreeD::_COLOR4F(1.0, 1.0, 1.0, 1.0), 1.0));
 		//world3D->_AddLight(new ThreeD::_POINTLIGHT(ThreeD::_VERTEX4F(500.0, -600.0, 0.0, 1.0), ThreeD::_COLOR4F(1.0, 0.1, 0.1, 1.0), 1.0));
 		//world3D->_AddLight(new ThreeD::_POINTLIGHT(ThreeD::_VERTEX4F(0.0, 0.0, 0.0, 1.0), ThreeD::_COLOR4F(1.0, 0.1, 1.0, 0.1), 1.0));
-		/*world3D->_AddObject(new ThreeD::_SPHERE(ThreeD::_VERTEX4F(0.0, 0.0, 3500.0, 1.0), 500.0));
+		world3D->_AddObject(new ThreeD::_SPHERE(ThreeD::_VERTEX4F(0.0, 0.0, 3500.0, 1.0), 500.0));
 		world3D->_AddObject(new ThreeD::_SPHERE(ThreeD::_VERTEX4F(-700.0, 500.0, 3500.0, 1.0), 700.0));
 		world3D->_AddObject(new ThreeD::_SPHERE(ThreeD::_VERTEX4F(-300.0, 300.0, 1800.0, 1.0), 100.0));
-		world3D->_AddObject(new ThreeD::_SPHERE(ThreeD::_VERTEX4F(300.0, 300.0, 1800.0, 1.0), 300.0));*/
+		world3D->_AddObject(new ThreeD::_SPHERE(ThreeD::_VERTEX4F(300.0, 300.0, 1800.0, 1.0), 300.0));
 	}
 
 	void MainApp::_OnUninitialize() {

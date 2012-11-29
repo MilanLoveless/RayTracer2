@@ -5,7 +5,7 @@
 #include "Mesh.h"
 
 #define vart (_VERTEX4F(-1000.0, -2000.0, 11500.0, 0.0))
-#define vurt (_VERTEX4F(0.0, 0.0, 3500.0, 0.0))
+#define vurt (_VERTEX4F(0.0, 0.0, 2500.0, 0.0))
 
 
 namespace ThreeD
@@ -205,9 +205,9 @@ namespace ThreeD
 			 + (this->mesh_ptr->uv_buffer[uv2] * gamma));
 		sr.normal =  _VERTEX4F((this->mesh_ptr->normal_buffer[n0] * (1.0 - beta - gamma)) + (this->mesh_ptr->normal_buffer[n1] * beta) + (this->mesh_ptr->normal_buffer[n2] * gamma));
 		sr.normal._Normalize();
-		sr.binormal = sr.binormal._CrossProduct(tangent, sr.normal);
+		sr.binormal = sr.binormal._CrossProduct(sr.normal, tangent);
 		sr.binormal._Normalize();
-		sr.tangent = sr.tangent._CrossProduct(sr.binormal, sr.normal);
+		sr.tangent = sr.tangent._CrossProduct(sr.normal, sr.binormal);
 		sr.tangent._Normalize();
 		sr.normal = mesh_ptr->matriix._Multiply(sr.normal);
 		sr.binormal = mesh_ptr->matriix._Multiply(sr.binormal);
