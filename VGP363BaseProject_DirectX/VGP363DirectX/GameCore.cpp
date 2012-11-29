@@ -33,10 +33,10 @@ namespace GAMECORE {
 		world3D->_AddLight(new ThreeD::_POINTLIGHT(ThreeD::_VERTEX4F(-1000.0, 1000.0, 0.0, 1.0), ThreeD::_COLOR4F(1.0, 1.0, 1.0, 1.0), 1.0));
 		//world3D->_AddLight(new ThreeD::_POINTLIGHT(ThreeD::_VERTEX4F(500.0, -600.0, 0.0, 1.0), ThreeD::_COLOR4F(1.0, 0.1, 0.1, 1.0), 1.0));
 		//world3D->_AddLight(new ThreeD::_POINTLIGHT(ThreeD::_VERTEX4F(0.0, 0.0, 0.0, 1.0), ThreeD::_COLOR4F(1.0, 0.1, 1.0, 0.1), 1.0));
-		world3D->_AddObject(new ThreeD::_SPHERE(ThreeD::_VERTEX4F(0.0, 0.0, 3500.0, 1.0), 500.0));
+		/*world3D->_AddObject(new ThreeD::_SPHERE(ThreeD::_VERTEX4F(0.0, 0.0, 3500.0, 1.0), 500.0));
 		world3D->_AddObject(new ThreeD::_SPHERE(ThreeD::_VERTEX4F(-700.0, 500.0, 3500.0, 1.0), 700.0));
 		world3D->_AddObject(new ThreeD::_SPHERE(ThreeD::_VERTEX4F(-300.0, 300.0, 1800.0, 1.0), 100.0));
-		world3D->_AddObject(new ThreeD::_SPHERE(ThreeD::_VERTEX4F(300.0, 300.0, 1800.0, 1.0), 300.0));
+		world3D->_AddObject(new ThreeD::_SPHERE(ThreeD::_VERTEX4F(300.0, 300.0, 1800.0, 1.0), 300.0));*/
 	}
 
 	void MainApp::_OnUninitialize() {

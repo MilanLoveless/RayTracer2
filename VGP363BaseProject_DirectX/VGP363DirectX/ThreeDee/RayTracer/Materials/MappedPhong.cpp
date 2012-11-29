@@ -14,11 +14,11 @@ namespace ThreeD
 	{
 		ambient_brdf->_SETCD(_COLOR4F(1.0, 0.1, 0.1, 0.2));
 		ambient_brdf->_SetKA(1.0);
-		diffuse_brdf->_SetCD(_COLOR4F(1.0, 0.1, 0.1, 0.2));
-		diffuse_brdf->_SetKD(2.0);
+		diffuse_brdf->_SetCD(_COLOR4F(1.0, 0.9, 0.3, 0.5));
+		diffuse_brdf->_SetKD(1.0);
 		specular_brdf->_SetCS(_COLOR4F(1.0, 1.0, 1.0, 1.0));
-		specular_brdf->_SetKS(0.9);
-		specular_brdf->_SetPower(30.0);
+		specular_brdf->_SetKS(0.3);
+		specular_brdf->_SetPower(5.0);
 		specular_brdf->_SetSampler(new _MULTIJITTERED(16), 30.0);
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -107,22 +107,18 @@ namespace ThreeD
 	_COLOR4F _MAPPEDPHONG::_Shade(_SHADEREC &sr)
 	{
 		_VERTEX4F wo = sr.ray.vector * -1.0;
-		_COLOR4F L = diffuse_brdf->_Rho(sr, wo) * sr.world_ptr->ambient_ptr->_L(sr);
-		
+				
 		CORE::HARDWARE::_LockTexture(normal_map);
 		if(normal_map->_video != NULL)
 			{
 				int n = GetPixel(normal_map->_video, normal_map->_nWidth, normal_map->_nHeight, (int)((fmod(sr.hit_UV.x, 1)) * normal_map->_nWidth), (int)((1.0 -fmod(sr.hit_UV.y, 1)) * normal_map->_nHeight));
-				//_VERTEX4F up1(0.0, 1.0, 0.0, 0.0);
-				//up1._Normalize();
-				//_VERTEX4F tangent = tangent._CrossProduct(sr.normal, up1);
-				_VERTEX4F tangent(sr.normal.y * -1.0, sr.normal.x, sr.normal.z, 0.0);
-				_VERTEX4F binormal = binormal._CrossProduct(tangent, sr.normal);
-				tangent = tangent._CrossProduct(binormal, sr.normal);
-				sr.normal = sr.normal * (_COLOR32_ARGB_GET_BLUE(n)/255.0) + binormal * (_COLOR32_ARGB_GET_GREEN(n)/-127.5 + 1.0) + tangent * (_COLOR32_ARGB_GET_RED(n)/-127.5 + 1.0);
+				sr.normal = (sr.normal * (_COLOR32_ARGB_GET_BLUE(n)/255.0) + sr.binormal * (_COLOR32_ARGB_GET_GREEN(n)/127.5 - 1.0) + sr.tangent * (_COLOR32_ARGB_GET_RED(n)/127.5 - 1.0));
 				sr.normal._Normalize();
 			}
 		CORE::HARDWARE::_UnlockTexture(normal_map);
+
+		_COLOR4F L = diffuse_brdf->_Rho(sr, wo) * sr.world_ptr->ambient_ptr->_L(sr);
+		//_COLOR4F ao = L;
 
 		int num_lights = sr.world_ptr->lights.size();
 

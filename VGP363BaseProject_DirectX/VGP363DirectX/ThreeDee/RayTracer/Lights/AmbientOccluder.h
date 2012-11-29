@@ -19,10 +19,10 @@ namespace ThreeD
 		virtual _VERTEX4F _GetDirection(_SHADEREC &sr);
 		virtual bool _InShadow(const _RAY &ray, const _SHADEREC &sr);
 		virtual _COLOR4F _L(_SHADEREC &sr);
-		
+		void _SetDistance(_DOUBLE d);
 		_VERTEX4F u, v, w;
 		_SAMPLER *sampler_ptr;
-		_DOUBLE min_amount;
+		_DOUBLE min_amount, max_distance;
 		_DOUBLE ls;
 		_COLOR4F color;
 	};

@@ -141,9 +141,10 @@ namespace ThreeD
 		if(t < kEpsilon) return false;
 		if(t >= tmin) return false;
 		tmin = t;
-		sr.normal = mesh_ptr->matriix._Multiply(_InterpolateNormal(beta, gamma));
+		//sr.normal = mesh_ptr->matriix._Multiply(_InterpolateNormal(beta, gamma));
+		_LightingCalculation(sr, beta, gamma);
 		sr.local_hit_point = _VERTEX4F(ray.origin) + (_VERTEX4F(ray.vector) * t);
-		sr.hit_UV = _InterpolateUV(beta, gamma);
+		//sr.hit_UV = _InterpolateUV(beta, gamma);
 		return true;
 	}
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -202,14 +203,31 @@ namespace ThreeD
 		sr.hit_UV = ((this->mesh_ptr->uv_buffer[uv0] * (1.0 - beta - gamma))
 			 + (this->mesh_ptr->uv_buffer[uv1] * beta)
 			 + (this->mesh_ptr->uv_buffer[uv2] * gamma));
-		sr.normal = _VERTEX4F((this->mesh_ptr->normal_buffer[n0] * (1.0 - beta - gamma)) + (this->mesh_ptr->normal_buffer[n1] * beta) + (this->mesh_ptr->normal_buffer[n2] * gamma));
+		sr.normal =  _VERTEX4F((this->mesh_ptr->normal_buffer[n0] * (1.0 - beta - gamma)) + (this->mesh_ptr->normal_buffer[n1] * beta) + (this->mesh_ptr->normal_buffer[n2] * gamma));
 		sr.normal._Normalize();
-		_VERTEX4F d(this->mesh_ptr->vertex_buffer[p1] - this->mesh_ptr->vertex_buffer[p0]);
-		_VERTEX4F e(this->mesh_ptr->vertex_buffer[p2] - this->mesh_ptr->vertex_buffer[p0]);
-		_POINT2D f(this->mesh_ptr->uv_buffer[uv1] + (this->mesh_ptr->uv_buffer[uv0] * 1.0));
-		_POINT2D g(this->mesh_ptr->uv_buffer[uv1] + (this->mesh_ptr->uv_buffer[uv0] * 1.0));
-		_DOUBLE inv_det = 1.0 / (f.x * g.y - f.y * g.x);
+		sr.binormal = sr.binormal._CrossProduct(tangent, sr.normal);
+		sr.binormal._Normalize();
+		sr.tangent = sr.tangent._CrossProduct(sr.binormal, sr.normal);
+		sr.tangent._Normalize();
+		sr.normal = mesh_ptr->matriix._Multiply(sr.normal);
+		sr.binormal = mesh_ptr->matriix._Multiply(sr.binormal);
+		sr.tangent = mesh_ptr->matriix._Multiply(sr.tangent);
+	}
 
+	void _MESHTRIANGLE::_CalculateTS()
+	{
+		_VERTEX4F D = (mesh_ptr->vertex_buffer[p1] - mesh_ptr->vertex_buffer[p0]);
+		_VERTEX4F E = (mesh_ptr->vertex_buffer[p2] - mesh_ptr->vertex_buffer[p0]);
+		_POINT2D F = (mesh_ptr->uv_buffer[uv1] + (mesh_ptr->uv_buffer[uv0] * -1.0));
+		_POINT2D G = (mesh_ptr->uv_buffer[uv2] + (mesh_ptr->uv_buffer[uv0] * -1.0));
 
+		_DOUBLE inv_det = 1.0 / (F.x * G.y - F.y * G.x);
+
+		tangent = _VERTEX4F(D.x * G.y - E.x * F.y, D.y * G.y - E.y * F.y, D.z * G.y - E.z * F.y, 0.0) * inv_det;
+		tangent = tangent - normal * normal._DotProduct(normal, tangent);
+		binormal = _VERTEX4F(E.x * F.x - D.x * G.x, E.y * F.x - D.y * G.x, E.z * F.x - D.z * G.x, 0.0) * inv_det;
+		binormal = binormal - normal * normal._DotProduct(normal, binormal) - tangent * tangent._DotProduct(tangent, binormal) / tangent._DotProduct(tangent, tangent);
+		tangent._Normalize();
+		binormal._Normalize();
 	}
 }

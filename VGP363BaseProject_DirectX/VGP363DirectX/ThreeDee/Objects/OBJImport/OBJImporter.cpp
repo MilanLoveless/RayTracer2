@@ -12,6 +12,8 @@ namespace ThreeD
 		char *scan_in = new char[50];
 		bool end_file = false;
 		obj_file = fopen(filename, "r");
+		int countbi = 0;
+		int counttan = 0;
 		int foo;
 		if(obj_file != NULL)
 		{
@@ -87,9 +89,12 @@ namespace ThreeD
 				triangle->uv0 = t0 - 1;
 				triangle->uv1 = t1 - 1;
 				triangle->uv2 = t2 - 1;
+				// Calculate Binormal and Tangent
+				
 				// Push Back Triangle
 				triangle->mesh_ptr = mesh;
 				triangle->_CalculateNormal(false);
+				triangle->_CalculateTS();
 				triangle->_CalculateArea();
 				mesh->triangle_buffer.push_back(*triangle);
 				foo = fscanf(obj_file, "%s", scan_in);

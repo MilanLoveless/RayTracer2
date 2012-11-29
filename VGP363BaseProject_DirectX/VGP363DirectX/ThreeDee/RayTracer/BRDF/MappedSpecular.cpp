@@ -106,7 +106,7 @@ namespace ThreeD
 		CORE::HARDWARE::_LockTexture(specular_map);
 		if(specular_map->_video != NULL)
 			{
-				int n = GetPixel(specular_map->_video, specular_map->_nWidth, specular_map->_nHeight, (int)((1.0 - fmod(uv.x, 1)) * specular_map->_nWidth), (int)((1.0 - fmod(uv.y, 1)) * specular_map->_nHeight));
+				int n = GetPixel(specular_map->_video, specular_map->_nWidth, specular_map->_nHeight, (int)((fmod(uv.x, 1)) * specular_map->_nWidth), (int)((1.0 - fmod(uv.y, 1)) * specular_map->_nHeight));
 				cs = _COLOR4F(1.0, (_COLOR32_ARGB_GET_RED(n))/255.0, (_COLOR32_ARGB_GET_GREEN(n))/255.0, (_COLOR32_ARGB_GET_BLUE(n))/255.0);
 			}
 		CORE::HARDWARE::_UnlockTexture(specular_map);

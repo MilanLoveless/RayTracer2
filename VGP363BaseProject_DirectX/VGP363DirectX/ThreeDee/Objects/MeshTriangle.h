@@ -20,6 +20,8 @@ namespace ThreeD
 		int uv0, uv1, uv2;
 		int n0, n1, n2;
 		_VERTEX4F normal;
+		_VERTEX4F binormal;
+		_VERTEX4F tangent;
 		_DOUBLE area;
 		_MESH *mesh_ptr;
 
@@ -37,5 +39,6 @@ namespace ThreeD
 		virtual _VERTEX4F _InterpolateNormal(const _DOUBLE beta, const _DOUBLE gamma);
 		void _LightingCalculation(_SHADEREC &sr, const _DOUBLE beta, const _DOUBLE gamma);
 		_POINT2D _InterpolateUV(const _DOUBLE beta, const _DOUBLE gamma);
+		void _CalculateTS();
 	};
 }

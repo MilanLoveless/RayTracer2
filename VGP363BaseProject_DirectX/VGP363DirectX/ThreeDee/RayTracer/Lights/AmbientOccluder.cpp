@@ -9,8 +9,9 @@ namespace ThreeD
 	_AMBIENTOCCLUDER::_AMBIENTOCCLUDER()
 		: _LIGHT(),
 		color(1.0),
-		ls(0.1),
-		min_amount(0.1),
+		ls(1.0),
+		max_distance(kHugeValue),
+		min_amount(0.0),
 		u(0.0, 0.0, 0.0, 0.0),
 		v(0.0, 0.0, 0.0, 0.0),
 		w(0.0, 0.0, 0.0, 0.0),
@@ -54,5 +55,10 @@ namespace ThreeD
 			return (color * min_amount * ls);
 		else
 			return (color * ls);
+	}
+
+	void _AMBIENTOCCLUDER::_SetDistance(_DOUBLE d)
+	{
+		max_distance = d;
 	}
 }
