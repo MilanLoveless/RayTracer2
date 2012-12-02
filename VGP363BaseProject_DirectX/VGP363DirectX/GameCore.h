@@ -57,6 +57,8 @@ namespace GAMECORE {
 		static void _OnDisplayFrame();
 	};
 
+	extern int _W, _H;
+	extern int *g_pRenderBuffer;
 	extern ThreeD::_CAMERA *camera;
 	extern ThreeD::_WORLD *world3D;
 } // end namespace

@@ -13,6 +13,16 @@ LRESULT CALLBACK _WndProc(HWND hWnd, UINT uMessage, WPARAM wParam, LPARAM lParam
 int _OnInitInstance(HINSTANCE hInstance);
 
 DWORD WINAPI _RenderThread(LPVOID lpThreadParameter) {
+	if(GAMECORE::g_pRenderBuffer == NULL) {
+		GAMECORE::_W = 800;
+		GAMECORE::_H = 600;
+		GAMECORE::g_pRenderBuffer = new int[GAMECORE::_W*GAMECORE::_H];
+		for(int y = 0; y < GAMECORE::_H; y++) {
+			for(int x = 0; x < GAMECORE::_W; x++) {
+				GAMECORE::g_pRenderBuffer[y*GAMECORE::_W+x] = 0xFF000000;
+			}
+		}
+	}
 
 	while(true) {
 		GAMECORE::MainApp::_OnRenderFrame();

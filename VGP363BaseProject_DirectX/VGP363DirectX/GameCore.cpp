@@ -20,23 +20,23 @@ namespace GAMECORE {
 		// Initialize any other resources for the application here
 		world3D = new ThreeD::_WORLD();
 		camera = new ThreeD::_PINHOLE(world3D);
-		/*ThreeD::_GEOMETRICOBJECT *meshThing = ThreeD::_OBJIMPORTER::_ImportMesh("./OBJFiles/crate.txt");
+		ThreeD::_GEOMETRICOBJECT *meshThing = ThreeD::_OBJIMPORTER::_ImportMesh("./OBJFiles/crate.txt");
 		CORE::HARDWARE::TEXTUREINFO *normalmap = CORE::HARDWARE::_LoadTexture(1, "./ImageFiles/crate_n.tga", 1024, 1024);
-		CORE::HARDWARE::TEXTUREINFO *diffusemap = CORE::HARDWARE::_LoadTexture(2, "./ImageFiles/crate_n.tga", 1024, 1024);
+		CORE::HARDWARE::TEXTUREINFO *diffusemap = CORE::HARDWARE::_LoadTexture(2, "./ImageFiles/crate_d.tga", 1024, 1024);
 		CORE::HARDWARE::TEXTUREINFO *specularmap = CORE::HARDWARE::_LoadTexture(3, "./ImageFiles/crate_s.tga", 1024, 1024);
 		ThreeD::_MAPPEDPHONG *phong = new ThreeD::_MAPPEDPHONG();
 		phong->_SetNormal(normalmap);
 		phong->_SetDiffuse(diffusemap);
 		phong->_SetSpecular(specularmap);
 		meshThing->material_ptr = phong;
-		world3D->_AddObject(meshThing);*/
-		world3D->_AddLight(new ThreeD::_POINTLIGHT(ThreeD::_VERTEX4F(-1000.0, 1000.0, 0.0, 1.0), ThreeD::_COLOR4F(1.0, 1.0, 1.0, 1.0), 1.0));
+		world3D->_AddObject(meshThing);
+		world3D->_AddLight(new ThreeD::_POINTLIGHT(ThreeD::_VERTEX4F(-5000.0, 5000.0, 0.0, 1.0), ThreeD::_COLOR4F(1.0, 1.0, 1.0, 1.0), 1.0));
 		//world3D->_AddLight(new ThreeD::_POINTLIGHT(ThreeD::_VERTEX4F(500.0, -600.0, 0.0, 1.0), ThreeD::_COLOR4F(1.0, 0.1, 0.1, 1.0), 1.0));
 		//world3D->_AddLight(new ThreeD::_POINTLIGHT(ThreeD::_VERTEX4F(0.0, 0.0, 0.0, 1.0), ThreeD::_COLOR4F(1.0, 0.1, 1.0, 0.1), 1.0));
-		world3D->_AddObject(new ThreeD::_SPHERE(ThreeD::_VERTEX4F(0.0, 0.0, 3500.0, 1.0), 500.0));
+		/*world3D->_AddObject(new ThreeD::_SPHERE(ThreeD::_VERTEX4F(0.0, 0.0, 3500.0, 1.0), 500.0));
 		world3D->_AddObject(new ThreeD::_SPHERE(ThreeD::_VERTEX4F(-700.0, 500.0, 3500.0, 1.0), 700.0));
 		world3D->_AddObject(new ThreeD::_SPHERE(ThreeD::_VERTEX4F(-300.0, 300.0, 1800.0, 1.0), 100.0));
-		world3D->_AddObject(new ThreeD::_SPHERE(ThreeD::_VERTEX4F(300.0, 300.0, 1800.0, 1.0), 300.0));
+		world3D->_AddObject(new ThreeD::_SPHERE(ThreeD::_VERTEX4F(300.0, 300.0, 1800.0, 1.0), 300.0));*/
 	}
 
 	void MainApp::_OnUninitialize() {
@@ -67,20 +67,17 @@ namespace GAMECORE {
 
 		CORE::HARDWARE::_LockTexture(g_pBackBuffer);
 
-		if(g_pRenderBuffer == NULL) {
-			_W = g_pBackBuffer->_nActualWidth;
-			_H = g_pBackBuffer->_nHeight;
-			g_pRenderBuffer = new int[_W*_H];
+		int w = g_pBackBuffer->_nActualWidth;
+		int h = g_pBackBuffer->_nHeight;
 
-			for(int y = 0; y < _H; y++) {
-				for(int x = 0; x < _W; x++) {
-					g_pRenderBuffer[y*_W+x] = 0xFF000000;
+		if(g_pRenderBuffer != NULL) {
+			for(int y = 0; y < h; y++) {
+				for(int x = 0; x < w; x++) {
+					if(x < _W && y < _H) {
+						g_pBackBuffer->_video[y*w+x] = g_pRenderBuffer[y*_W+x];
+					}
 				}
 			}
-		}
-
-		for(int n = 0; n < _W*_H; n++) {
-			g_pBackBuffer->_video[n] = g_pRenderBuffer[n];
 		}
 
 		CORE::HARDWARE::_UnlockTexture(g_pBackBuffer);

@@ -13,13 +13,12 @@ namespace ThreeD
 		normal_map(NULL)
 	{
 		ambient_brdf->_SETCD(_COLOR4F(1.0, 0.1, 0.1, 0.2));
-		ambient_brdf->_SetKA(1.0);
+		ambient_brdf->_SetKA(0.5);
 		diffuse_brdf->_SetCD(_COLOR4F(1.0, 0.9, 0.3, 0.5));
-		diffuse_brdf->_SetKD(2.0);
+		diffuse_brdf->_SetKD(1.0);
 		specular_brdf->_SetCS(_COLOR4F(1.0, 1.0, 1.0, 1.0));
-		specular_brdf->_SetKS(0.3);
-		specular_brdf->_SetPower(1.0);
-		specular_brdf->_SetSampler(new _MULTIJITTERED(16), 30.0);
+		specular_brdf->_SetKS(0.7);
+		specular_brdf->_SetSampler(new _MULTIJITTERED(16), 3.0);
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 	_MAPPEDPHONG::_MAPPEDPHONG(const _MAPPEDPHONG &mat)
@@ -117,7 +116,7 @@ namespace ThreeD
 			}
 		CORE::HARDWARE::_UnlockTexture(normal_map);
 
-		_COLOR4F L = diffuse_brdf->_Rho(sr, wo) * 0.1; //sr.world_ptr->ambient_ptr->_L(sr);
+		_COLOR4F L = diffuse_brdf->_Rho(sr, wo) * 0.5;  //sr.world_ptr->ambient_ptr->_L(sr);
 		//_COLOR4F ao = L;
 
 		int num_lights = sr.world_ptr->lights.size();

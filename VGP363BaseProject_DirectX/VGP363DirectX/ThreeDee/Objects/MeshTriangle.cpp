@@ -5,7 +5,7 @@
 #include "Mesh.h"
 
 #define vart (_VERTEX4F(-1000.0, -2000.0, 11500.0, 0.0))
-#define vurt (_VERTEX4F(0.0, 0.0, 2500.0, 0.0))
+#define vurt (_VERTEX4F(0.0, 0.0, 3500.0, 0.0))
 
 
 namespace ThreeD
@@ -27,6 +27,7 @@ namespace ThreeD
 		uv0(tri.uv0), uv1(tri.uv1), uv2(tri.uv2)
 	{
 		_CalculateNormal(false);
+		_CalculateTS();
 		_CalculateArea();
 	}
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////

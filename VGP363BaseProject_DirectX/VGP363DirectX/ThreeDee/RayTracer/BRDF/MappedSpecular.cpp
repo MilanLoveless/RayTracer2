@@ -8,7 +8,7 @@ namespace ThreeD
 	_MAPPEDSPECULAR::_MAPPEDSPECULAR()
 		: ks(0.0),
 		cs(1.0),
-		power(5.0),
+		power(0.0),
 		sampler_ptr(NULL),
 		specular_map(NULL)
 	{}
