@@ -111,7 +111,9 @@ namespace ThreeD
 		if(normal_map->_video != NULL)
 			{
 				int n = GetPixel(normal_map->_video, normal_map->_nWidth, normal_map->_nHeight, (int)((fmod(sr.hit_UV.x, 1)) * normal_map->_nWidth), (int)((1.0 -fmod(sr.hit_UV.y, 1)) * normal_map->_nHeight));
-				sr.normal = (sr.normal * (_COLOR32_ARGB_GET_BLUE(n)/255.0) + sr.binormal * (_COLOR32_ARGB_GET_GREEN(n)/127.5 - 1.0) + sr.tangent * (_COLOR32_ARGB_GET_RED(n)/127.5 - 1.0));
+				_MATRIX16F orthoTS( sr.tangent, sr.normal, sr.binormal, _VERTEX4F(0.0, 0.0, 0.0, 1.0));
+				_VERTEX4F nrmap(-1.0 * (_COLOR32_ARGB_GET_RED(n)/127.5 - 1.0), (_COLOR32_ARGB_GET_BLUE(n)/255.0), (_COLOR32_ARGB_GET_GREEN(n)/127.5 - 1.0), 0.0);
+				sr.normal = orthoTS._Multiply(nrmap);
 				sr.normal._Normalize();
 			}
 		CORE::HARDWARE::_UnlockTexture(normal_map);

@@ -8,6 +8,7 @@
 #include "../BRDF/MappedSpecular.h"
 #include "../../World/World.h"
 #include "../../../CORE/CORE.Hardware.3D.Texture.h"
+#include "../../Components/Matrix.h"
 
 namespace ThreeD
 {
